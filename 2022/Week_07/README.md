@@ -1,0 +1,1 @@
+![](2022_07_duboischallenge_plate12.png)
