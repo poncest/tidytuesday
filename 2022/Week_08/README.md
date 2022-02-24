@@ -1,0 +1,1 @@
+![](2022_08_world_freedom_index.png)
