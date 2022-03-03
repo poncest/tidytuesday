@@ -1,0 +1,1 @@
+![](2022_09_alternative_fuel_stations.png)
