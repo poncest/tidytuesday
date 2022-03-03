@@ -6,7 +6,7 @@
 
 ## 1. Load packages and data ----
 library(pacman)
-p_load(tidyverse, tidytuesdayR, skimr, here, showtext, ggtext, janitor, ggrepel)
+p_load(tidyverse, tidytuesdayR, skimr, showtext, ggtext, janitor, ggrepel)
 
 tt <- tidytuesdayR::tt_load('2022-03-01')
 stations <- tt$stations %>% 
@@ -30,7 +30,7 @@ unique(stations_df$fuel_type_code)
 unique(stations_df$access_days_time)
 
 
-## 3. tidydata ----
+## 3. Tidydata ----
 
 # States in the NE region - stations dataset
 ne_region_abb <- c('ME', 'NH', 'VT', 'MA', 'RI', 'CT', 'NJ', 'NY', 'PA', 'MD', 'DE') 
@@ -78,7 +78,6 @@ station_count_top_10_tbl <- stations_df %>%
     ungroup()
 
 # top 10 cities 
-
 city_names <- c("Boston", "New York", "Baltimore", "Cambridge", "Pittsburgh", 
                 "Albany", 'Buffalo', 'Rochester', 'Worcester', 'Brooklyn')
 
@@ -98,16 +97,6 @@ labels_tbl <- cities_tbl %>%
     select(city, lat, long) %>% 
     distinct(city, lat, long)
 
-# States in the NE region
-ne_region <- c('maine', 'new hampshire', 'vermont', 'massachusetts', 'rhode island', 'connecticut', 'new jersey', 'new york', 'pennsylvania', 'maryland', 'delaware') 
-
-# Load state information
-states <- map_data("state")
-
-# NE region
-ne_states <- states %>% 
-    filter(region %in% ne_region)
-
 
 ## 4. US Northeast map ----
 
@@ -115,7 +104,6 @@ ne_states <- states %>%
 font_add_google(family='PT Serif', 'PT Serif')
 font_add_google(family='Lato', 'Lato')
 showtext_auto(enable = TRUE) 
-
 
 ggplot(ne_states) +
     geom_polygon(aes(x = long, y = lat, group = group), 
