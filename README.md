@@ -1,5 +1,8 @@
 # #TidyTuesday Challenge
 
+📸 2022 Week 10: Study Abroad
+![](2022/Week_10/2022_10_erasmus.png)
+
 📸 2022 Week 09: Alternative Fuel Stations
 ![](2022/Week_09/2022_09_alternative_fuel_stations.png)
 
