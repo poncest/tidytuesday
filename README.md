@@ -1,5 +1,8 @@
 # #TidyTuesday Challenge
 
+📸 2022 Week 11: Study Abroad
+![](2022/Week_11/2022_11_cran_bioc_vignattes.png)
+
 📸 2022 Week 10: Study Abroad
 ![](2022/Week_10/2022_10_erasmus.png)
 
