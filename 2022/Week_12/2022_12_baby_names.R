@@ -67,6 +67,7 @@ title_col  <- '#48494A'
 # fonts
 font_add_google(family='Barrio', 'Barrio')                             # title
 font_add_google(family='Slackey', 'Slackey')                           # text
+font_add_google(family='Lilita One', 'Lilita One')               # text
 font_add_google(family='Saira Semi Condensed', 'Saira Semi Condensed') # caption
 showtext_auto(enable = TRUE) 
 
@@ -85,13 +86,13 @@ g <- df1 %>%
               fill = col_3, size = 1, alpha = .55) +
     
     # annotations
-    annotate("text", x = 1955, y = 24876,
-             hjust    = 0, 
+    annotate("text", x = 1957, y = 24876,
+             hjust    = 0.5, 
              vjust    = 0,
              color    = col_1,
-             family   = 'Slackey',
+             family   = 'Lilita One',
              fontface = "bold",
-             size     = 6,
+             size     = 10,
              label    = str_glue("Brenda\n",
                                  "(1957: 24,376)")) +
     
@@ -99,19 +100,19 @@ g <- df1 %>%
              hjust    = 0.5, 
              vjust    = 0,
              color    = col_2,
-             family   = 'Slackey',
+             family   = 'Lilita One',
              fontface = "bold",
-             size     = 6,
+             size     = 10,
              label    = str_glue("Andrea\n",
                                  "(1981: 11,836)")) +
     
-    annotate("text", x = 2003, y = 4268,
+    annotate("text", x = 2003, y = 5200,
              hjust    = 0.5, 
              vjust    = 0.5,
              color    = col_3,
-             family   = 'Slackey',
+             family   = 'Lilita One',
              fontface = "bold",
-             size     = 6,
+             size     = 10,
              label    = str_glue("Gabriela\n",
                                  "(2003: 3,368)"))
     
@@ -152,14 +153,14 @@ theme(
        family = 'Barrio',
        color  = title_col,
        face   = "bold",
-       size   = 50,  
+       size   = 55,  
        margin = margin(t = 10)),
    
    plot.subtitle = element_text(
        family    = 'Barrio',
        color     = title_col,
-       size      = 32,  
-       margin    = margin(t = 15, b = 10)),
+       size      = 45,  
+       margin    = margin(t = 15, b = 70)),
    
    plot.caption = element_text(
        family   = 'Saira Semi Condensed',
@@ -171,7 +172,7 @@ theme(
  
 # resolution
 showtext_opts(dpi = 300)
-     
+      
 
 ## 6. Save final figure --------------------------------------------
 ggsave("2022/Week_12/2022_12_baby_names.png", plot = last_plot(),
