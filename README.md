@@ -1,5 +1,8 @@
 # #TidyTuesday Challenge
 
+📸 2022 Week 13: US collegiate sports budgets
+![](2022/Week_13/2022_13_collegiate_sports_budgets.png)
+
 📸 2022 Week 12: US baby names
 ![](2022/Week_12/2022_12_baby_names.png)
 
