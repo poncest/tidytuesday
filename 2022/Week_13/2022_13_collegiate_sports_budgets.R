@@ -16,7 +16,6 @@ tt <- tidytuesdayR::tt_load(2022, week = 13)
 data <- tt$sports
 # rm(tt)
 
-
 # OFFLINE - In case of VPN issues
 # data <- write_csv(data, '2022/Week_13/sports.csv')
 # data <- read.csv('2022/Week_13/sports.csv')
@@ -109,7 +108,8 @@ g +
                 use_direct_label = FALSE,
                 unhighlighted_params = list(color = "grey80", size = .6)
                 ) +
-
+    
+    # colors
     scale_color_viridis_d(option = "C", end = 0.8, begin = 0.1, guide = "none") +
     
     # labs
@@ -123,8 +123,12 @@ g +
     # theme
     theme_minimal(base_family = 'Roboto') +
     
-    theme(
+    theme( 
         
+        panel.grid = element_blank(),
+        panel.background = element_rect(fill = "#f7f1f0", color = "#f7f1f0"),
+        plot.background = element_rect(fill = "#f7f1f0", color = "#f7f1f0"),
+
         panel.grid.minor = element_blank(),
         axis.line.x      = element_line(color = "black"),
         axis.ticks.x     = element_line(color = "black"),
@@ -162,17 +166,13 @@ g +
 )
     
 
-    
-
-
 # resolution
-showtext_opts(dpi = 300)
+showtext_opts(dpi = 300) 
      
 
-## 6. Save final figure --------------------------------------------
+## 6. Save final figure ----
 ggsave("2022/Week_13/2022_13_collegiate_sports_budgets.png", plot = last_plot(),
        width = 20, height = 11, units = 'in',  dpi = 300)
-
 
 showtext_auto(FALSE)
 
