@@ -1,5 +1,8 @@
 # #TidyTuesday Challenge
 
+📸 2022 Week 14: news organization
+![](2022/Week_14/2022_14_news_orgs.png)
+
 📸 2022 Week 13: US collegiate sports budgets
 ![](2022/Week_13/2022_13_collegiate_sports_budgets.png)
 
