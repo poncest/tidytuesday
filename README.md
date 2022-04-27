@@ -1,5 +1,8 @@
 # #TidyTuesday Challenge
 
+📸 2022 Week 16: crossword puzzles
+![](2022/Week_16/2022_16_big_dave.png)
+
 📸 2022 Week 15: indoor air pollution
 ![](2022/Week_15/2022_15_indoor_pollution.png)
 
