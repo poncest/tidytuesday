@@ -1,5 +1,8 @@
 # #TidyTuesday Challenge
 
+📸 2022 Week 18: US Salar/Wind
+![](2022/Week_18/2022_18_capacity.png)
+
 📸 2022 Week 17: kaggle's hidden gems
 ![](2022/Week_17/2022_17_hidden_gems.png)
 
