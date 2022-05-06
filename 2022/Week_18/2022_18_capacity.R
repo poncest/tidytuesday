@@ -17,7 +17,6 @@ solar <- tt$solar %>% clean_names()
 
 
 ## 3. Examine the data ----
-
 glimpse(solar)
 range(solar$date)
 
@@ -26,7 +25,6 @@ range(wind$date)
 
 
 ## 4. Tidydata ----
-
 # combining the data together (full joint)
 combined_data <-  wind %>% 
     full_join(y = solar)  %>% 
@@ -44,7 +42,6 @@ combined_data <-  wind %>%
 
 
 ## 5. Visualization ----
-
 # base plot 
 g <- combined_data %>% 
     ggplot(aes(x = date,
@@ -57,7 +54,6 @@ g <- combined_data %>%
 g
 
 # customization
-
 # colors
 col_1      <- '#ad7e17'  #yellow 
 col_2      <- '#4b2680'  #purple
@@ -65,7 +61,6 @@ bkg_col    <- '#a5d7f2'
 title_col  <- '#091724' 
 
 # google fonts
-
 font_add_google(family="Bangers", "Bangers")                  # title
 font_add_google(family="Farsan", "Farsan")                    # subtitle
 font_add_google(family="Metal", "Metal")                      # text
@@ -142,7 +137,6 @@ g +
     ) 
     
 
-
 # resolution
 showtext_opts(dpi = 300) 
      
@@ -150,7 +144,6 @@ showtext_opts(dpi = 300)
 ## 6. Save final figure ----
 ggsave('2022/Week_18/2022_18_capacity.png',
        width = 20, height = 11, units = 'in',  dpi = 300)
-
 
 showtext_auto(FALSE)
 
