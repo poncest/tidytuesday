@@ -72,8 +72,8 @@ g +
         mapping = aes(x = title,
                       y = debut_rank, 
                       label = debut_rank),
-            color   = title_col,
-            size    = 5,     
+            color   = col_1,
+            size    = 6, 
             hjust   = 0.5,
             nudge_x = 0.3) + 
     
@@ -83,8 +83,8 @@ g +
         mapping = aes(x = title,
                       y = best_rank, 
                       label = best_rank),
-        color   = title_col,
-        size    = 5,     
+        color   = col_2,
+        size    = 6,     
         hjust   = 0.5,
         nudge_x = 0.3) + 
     
@@ -97,7 +97,7 @@ g +
                                        Released Year: {year}
                                        Total Weeks: {total_weeks}")),
         color   = title_col,
-        size    = 5,
+        size    = 6,
         hjust   = 1.1,
         nudge_x = 0) + 
     
@@ -109,7 +109,7 @@ g +
                                        Released Year: {year}
                                        Total Weeks: {total_weeks}")),
         color   = title_col,
-        size    = 5,
+        size    = 6,
         hjust   = 1.1,
         nudge_x = 0) + 
     
@@ -121,7 +121,7 @@ g +
                                        Released Year: {year}
                                        Total Weeks: {total_weeks}")),
         color   = title_col,
-        size    = 5,
+        size    = 6,
         hjust   = 1.1,
         nudge_x = 0) + 
     
@@ -133,7 +133,7 @@ g +
                                        Released Year: {year}
                                        Total Weeks: {total_weeks}")),
         color   = title_col,
-        size    = 5,
+        size    = 6,
         hjust   = 1.1,
         nudge_x = 0) + 
     
@@ -145,11 +145,13 @@ g +
                                        Released Year: {year}
                                        Total Weeks: {total_weeks}")),
         color   = title_col,
-        size    = 5,
+        size    = 6,
         hjust   = 1.1,
         nudge_x = 0) + 
     
     # scales 
+    scale_x_discrete() + 
+    
     scale_y_continuous(breaks = seq(0, 15, by = 5),
                        limits = c(-2, 15),
                        expand = c(0.0, 0.0)) +
@@ -161,7 +163,7 @@ g +
 # labs
      labs(
         title = "The New York Times Best Sellers <br> Author: Gabriel Garcia Marquez",
-        subtitle = "<span style='font-size:35pt; color:#fca901'>**Debut Rank**</span> vs. <span style='font-size:35pt; color:#4DEAC3'>**Best Rank** </span>",
+        subtitle = "<span style='font-size:55pt; color:#fca901'>**Debut Rank**</span> vs. <span style='font-size:55pt; color:#4DEAC3'>**Best Rank** </span>",
         caption =paste0("#TidyTuesday: 2022 Week 19 • Source: Post45 Data • Visualization: Steven Ponce (@sponce1)") ,
         x = '', 
         y = '') +
@@ -181,37 +183,37 @@ g +
         plot.background       = element_rect(fill = bkg_col, color = bkg_col),
         panel.background      = element_rect(fill = bkg_col, color = bkg_col),
      
-        plot.margin           = margin(t = 30, r = 20, b = 30, l = 20),
+        plot.margin           = margin(t = 20, r = 20, b = 20, l = 20),
         
         plot.title    = element_markdown(
             family    = 'Luxurious Roman',
             color     = title_col,
             face      = "bold",
-            size      = 60,  
+            size      = 75,  
             margin    = margin(t = 10)),
         
         plot.subtitle = element_markdown(
             family    = 'Farsan',
             color     = title_col,
-            size      = 40,
-            margin    = margin(t = 25, b = 40)),
+            size      = 50,
+            margin    = margin(t = 20, b = 20)),
             
         plot.caption  = element_text(
             family    = 'Roboto Condensed',
             color     = '#c4c4c4', 
-            size      = 14,
+            size      = 16,
             hjust     = 0.5,
             margin    = margin(t = 20, b = 10)), 
     ) 
      
 
 # resolution
-showtext_opts(dpi = 300) 
+showtext_opts(dpi = 300)
 
 
 ## 6. Save final figure ----
-ggsave('2022/Week_19/2022_19_nyt_titles.png',
+ggsave('2022/Week_19/2022_19_nyt_titles.png',s
         width = 20, height = 11, units = 'in',  dpi = 300)
- 
+
 showtext_auto(FALSE)
 
