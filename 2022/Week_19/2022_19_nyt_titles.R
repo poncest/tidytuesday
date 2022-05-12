@@ -160,7 +160,7 @@ g +
     
 # labs
      labs(
-        title = "The New York Times Best Sellers <br> Author: Gabriel Garcia Marques",
+        title = "The New York Times Best Sellers <br> Author: Gabriel Garcia Marquez",
         subtitle = "<span style='font-size:35pt; color:#fca901'>**Debut Rank**</span> vs. <span style='font-size:35pt; color:#4DEAC3'>**Best Rank** </span>",
         caption =paste0("#TidyTuesday: 2022 Week 19 • Source: Post45 Data • Visualization: Steven Ponce (@sponce1)") ,
         x = '', 
@@ -201,7 +201,7 @@ g +
             color     = '#c4c4c4', 
             size      = 14,
             hjust     = 0.5,
-            margin    = margin(t = 20, b = 10)),
+            margin    = margin(t = 20, b = 10)), 
     ) 
      
 
