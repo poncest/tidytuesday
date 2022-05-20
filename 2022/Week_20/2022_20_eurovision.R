@@ -1,5 +1,5 @@
 
-## Challenge: #TidyTuesday 2022 week 19
+## Challenge: #TidyTuesday 2022 week 20
 ## Author: Steven Ponce
 ## Date: 2022-05-10
  
@@ -13,8 +13,8 @@ tuesdata <- tidytuesdayR::tt_load(2022, week = 20)
 eurovision <- tuesdata$eurovision
 
 # OFFLINE - In case of VPN issues
-eurovision <- write_csv(eurovision, '2022/Week_20/eurovision.csv')
-eurovision <- read.csv('2022/Week_20/eurovision.csv')
+# eurovision <- write_csv(eurovision, '2022/Week_20/eurovision.csv')
+# eurovision <- read.csv('2022/Week_20/eurovision.csv')
  
 
 ## 3. Examine the data ----
@@ -83,7 +83,7 @@ data <- winners_combined_tbl %>%
 
 ## 5. Visualization ----
 # colors
-col_1      <- '#6cb7b0'  #green
+col_1      <- '#6cb7b0'  # green
 bkg_col    <- '#f4f4f4'     
 title_col  <- '#585858' 
 
@@ -102,8 +102,8 @@ data %>%
     
     # geoms
     geom_tile(height = 0.4,
-              width = 0.8,
-              color="black") +
+              width  = 0.8,
+              color  = "black") +
     
     annotate("text", x = 2025, y = 'Ireland',
              hjust    = 1.1,
@@ -222,10 +222,8 @@ data %>%
             margin    = margin(t = 20, b = 10)),
     ) 
         
-
 # resolution
 showtext_opts(dpi = 300)
-
 
 ## 6. Save final figure ----
 ggsave('2022/Week_20/2022_20_eurovision.png',
