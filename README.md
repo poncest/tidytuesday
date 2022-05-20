@@ -1,5 +1,8 @@
 # #TidyTuesday Challenge
 
+📸 2022 Week 20: Eurovision
+![](2022/Week_20/2022_20_eurovision.png)
+
 📸 2022 Week 19: NYT Best Sellers
 ![](2022/Week_19/2022_19_nyt_titles.png)
 
