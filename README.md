@@ -1,5 +1,8 @@
 # #TidyTuesday Challenge
 
+📸 2022 Week 19: NYT Best Sellers
+![](2022/Week_19/2022_19_nyt_titles.png)
+
 📸 2022 Week 18: US Salar/Wind
 ![](2022/Week_18/2022_18_capacity.png)
 
