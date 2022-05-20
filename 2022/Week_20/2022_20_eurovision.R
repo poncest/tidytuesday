@@ -187,7 +187,7 @@ data %>%
         plot.caption.position = "plot",
         legend.position       = 'plot',
         
-        axis.text             = element_text(size = 18),
+        axis.text             = element_text(size = 16),
         axis.title            = element_blank(),
         
         panel.grid            = element_blank(),
@@ -204,14 +204,14 @@ data %>%
             family    = 'Train One',
             color     = title_col,
             face      = "bold",
-            size      = 40,  
+            size      = 35,  
             margin    = margin(t = 5)),
         
         plot.subtitle = element_text(
             family    = 'Nova Mono',
             color     = title_col,
             #face      = "italic",
-            size      = 30,
+            size      = 25,
             margin    = margin(t = 5, b = 10)),
         
         plot.caption  = element_text(
@@ -222,14 +222,14 @@ data %>%
             margin    = margin(t = 20, b = 10)),
     ) 
         
-   
+
 # resolution
 showtext_opts(dpi = 300)
 
 
 ## 6. Save final figure ----
 ggsave('2022/Week_20/2022_20_eurovision.png',
-        width = 10, height = 5, units = 'in',  dpi = 300)
+        width = 14.5, height = 6.5, units = 'in',  dpi = 300)
 
 showtext_auto(FALSE)
 
