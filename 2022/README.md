@@ -1,5 +1,8 @@
 # #TidyTuesday Challenge 
 
+📸 2022 Week 22: Company Reputation
+![](Week_22/2022_22_reputation.png)
+
 📸 2022 Week 21: Rugby
 ![](Week_21/2022_21_rugby.png)
 
