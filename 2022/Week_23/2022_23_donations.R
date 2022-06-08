@@ -47,7 +47,7 @@ gc()
 # text
 title_text <- "Public Perception vs. Quiet Action"
 
-subtitle_text <- "Companies' identified as Pride friendly but have donate towars anti-LBGTQ campaigns"
+subtitle_text <- "Companies identified as Pride friendly but have donated towards anti-LBGTQ campaigns"
 
 footnote_text <- str_glue("#TidyTuesday: 2022 Week 23 • ",
                           "Source: Data For Progress • ",
