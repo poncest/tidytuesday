@@ -96,7 +96,7 @@ tab_1 <- company_sponsor_pledge_contribution_tbl %>%
     tab_footnote(footnote = html(footnote_text), 
                  placement = 'auto') 
 
-# format
+# format 
 tab_1 <- tab_1 %>% 
     tab_options(
         heading.title.font.size      = px(50),
@@ -105,7 +105,7 @@ tab_1 <- tab_1 %>%
         footnotes.font.size          = px(15),
         footnotes.padding.horizontal = px(80),
     )
-
+ 
 tab_1
 
 
