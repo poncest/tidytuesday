@@ -1,6 +1,6 @@
 # Information
 
-Repor for my contributions to the **#TidyTuesday** challenge. The official website for the challenge: https://github.com/rfordatascience/tidytuesday 
+Repo for my contributions to the **#TidyTuesday** challenge. The official website for the challenge: https://github.com/rfordatascience/tidytuesday 
 
 
 
