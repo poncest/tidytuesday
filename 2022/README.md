@@ -1,6 +1,6 @@
 # #TidyTuesday Challenge 
 
-📸 2022 Week 24: U.S. Drought
+📸 2022 Week 24: U.S. Drought  
 ![](Week_24/2022_24_drought.png) 
 ________________________________________________
 📸 2022 Week 23: Pride Donations 
