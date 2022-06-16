@@ -1,8 +1,11 @@
 # #TidyTuesday Challenge 
 
+📸 2022 Week 24: U.S. Drought
+![](Week_24/2022_24_drought.png) 
+________________________________________________
 📸 2022 Week 23: Pride Donations 
 ![](Week_23/2022_23_donations.png) 
-
+________________________________________________
 📸 2022 Week 22: Company Reputation
 ![](Week_22/2022_22_reputation.png)
 ________________________________________________
