@@ -92,7 +92,7 @@ pharma_tbl <- paygap %>%
 # Plot aesthetics 
 col_1          <- '#8700f9' # female    
 col_2          <- '#00c4aa' # male
-bkg_col        <- '#83d0ca'    
+bkg_col        <- 'white'    
 title_col      <- 'black' 
 subtitle_col   <- "black" 
 caption_col    <- "black"
@@ -153,6 +153,8 @@ pharma_tbl %>%
             legend.position       = 'plot',
             
             panel.grid            = element_blank(),
+            plot.background       = element_rect(fill = bkg_col, color = bkg_col),
+            panel.background      = element_rect(fill = bkg_col, color = bkg_col),
             axis.text.y           = element_text(margin = margin(r = -210), hjust = 0),
             plot.margin           = margin(t = 30, r = 80, b = 30, l = 80),
            
@@ -178,7 +180,7 @@ pharma_tbl %>%
                 margin    = margin(t = 10, b = 10)),
             )
       
-
+ 
 # resolution
 showtext_opts(dpi = 300)
 
