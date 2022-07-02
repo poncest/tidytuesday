@@ -172,7 +172,7 @@ theme(
  
 # resolution
 showtext_opts(dpi = 300)
-      
+     
 
 ## 6. Save final figure --------------------------------------------
 ggsave("2022/Week_12/2022_12_baby_names.png", plot = last_plot(),

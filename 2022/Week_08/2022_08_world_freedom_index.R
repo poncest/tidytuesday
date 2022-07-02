@@ -149,3 +149,4 @@ g <- americas %>%
 ## 4. Save final figure ----
 ggsave("2022/Week_08/2022_08_world_freedom_index.png", g, width=1366, height=836,units="px")
 
+ 
