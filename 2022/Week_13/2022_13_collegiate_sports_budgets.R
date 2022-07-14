@@ -163,7 +163,7 @@ g +
             size     = 14,
             hjust    = 0.99,
             margin   = margin(t = 10, b = 10)))
-) 
+
     
 
 # resolution

@@ -212,7 +212,7 @@ showtext_opts(dpi = 300)
 
 
 ## 6. Save final figure ----
-ggsave('2022/Week_19/2022_19_nyt_titles.png',s
+ggsave('2022/Week_19/2022_19_nyt_titles.png',
         width = 20, height = 11, units = 'in',  dpi = 300)
 
 showtext_auto(FALSE)
