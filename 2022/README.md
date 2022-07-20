@@ -13,7 +13,7 @@
 ![](Week_18/2022_18_capacity.png) |![](Week_19/2022_19_nyt_titles.png) |![](Week_20/2022_20_eurovision.png) |![](Week_21/2022_21_rugby.png) |
 [Week 22<br>Company Reputation](https://github.com/poncest/tidytuesday/tree/main/2022/Week_22)| [Week 23<br>Pride Donations ](https://github.com/poncest/tidytuesday/tree/main/2022/Week_23)| [Week 24<br>U.S. Drought ](https://github.com/poncest/tidytuesday/tree/main/2022/Week_24) | [Week 25<br>No Submission ](2022_24/Week_25) |
 ![](Week_22/2022_22_reputation.png) |![](Week_23/2022_23_donations.png) |![](Week_24/2022_24_drought.png) | |
-[Week 26<br>UK Pay Gap](https://github.com/poncest/tidytuesday/tree/main/2022/Week_26)| [Week 27<br>San Francisco Rentals](https://github.com/poncest/tidytuesday/tree/main/2022/Week_27)| [Week 28<br>European Flights](https://github.com/poncest/tidytuesday/tree/main/2022/Week_28)| [Week 29<br>XYZ](2022_21/Week_21) |
-![](Week_26/2022_26_paygap.png) |![](Week_27/2022_27_rent.png) |![](Week_28/2022_28_flights.png)  | | 
+[Week 26<br>UK Pay Gap](https://github.com/poncest/tidytuesday/tree/main/2022/Week_26)| [Week 27<br>San Francisco Rentals](https://github.com/poncest/tidytuesday/tree/main/2022/Week_27)| [Week 28<br>European Flights](https://github.com/poncest/tidytuesday/tree/main/2022/Week_28)| [Week 29<br>Technology Adoption](https://github.com/poncest/tidytuesday/tree/main/2022/Week_29) |
+![](Week_26/2022_26_paygap.png) |![](Week_27/2022_27_rent.png) |![](Week_28/2022_28_flights.png)  |![](Week_28/2022_29_technology.png)  | 
 
-
+ 
