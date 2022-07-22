@@ -1,17 +1,17 @@
 
 ## Challenge: #TidyTuesday 2022 week 29
-## Data:      European Flights
+## Data:      Technology Adoption 
 ## Author:    Steven Ponce
 ## Date:      2022-07-19
 
 
-## 1. Load packages ---- 
+## 1. LOAD PACKAGES ---- 
 library(pacman) 
 p_load(tidyverse, tidytuesdayR, ggtext, showtext, MetBrewer)
 p_load(janitor, here, skimr, patchwork)
 
 
-## 2. Read in the data ----
+## 2. READ IN THE DATA ----
 tt <- tidytuesdayR::tt_load(2022, week = 29) 
 technology <- tt$technology %>% clean_names()
 rm(tt)
@@ -22,7 +22,7 @@ rm(tt)
 # technology <- read_csv(file = '2022/Week_29/technology.csv')
 
 
-## 3. Examine the data ----
+## 3. EXAMINING THE DATA ----
 dim(technology) 
 glimpse(technology)
 colnames(technology)
@@ -30,7 +30,7 @@ unique(technology$group) %>% sort()
 unique(technology$category) %>% sort()
 
 
-## 4. Tidydata ----
+## 4. TIDYDATA ----
 energy_tbl <-  technology %>% 
     
     # Filter for USA country, Energy sector, and energy types 
@@ -61,8 +61,8 @@ energy_tbl <-  technology %>%
         )
 
 
-## 5. Visualization ---- 
-# |- Plot aesthetics ---- 
+## 5. VISUALIZATION ---- 
+# |- plot aesthetics ---- 
 bkg_col        <- '#F4FFF4'   
 title_col      <- 'black'
 subtitle_col   <- "black"
@@ -86,7 +86,6 @@ body_text_1 <- "Traditional energy sources like **coal** and **oil** seem to be 
 body_text_2 <- "Renewable energy sources like **hydro** and **others** seem to normalize or plateau.  However, there has been a rapid growth for **solar** and **wind** in the last couple of years."
 
 
- 
 # |-  fonts ----
 font_add_google("Gugi", family = "title")
 font_add_google("Jura", family = "subtitle") 
@@ -104,12 +103,10 @@ p1 <- energy_tbl %>%
     
     # scales
     scale_x_continuous(expand = c(0, 0)) +
-    
     scale_y_continuous(expand = c(0, 0)) + 
     
     # color
     scale_fill_manual(values = palette_col) +
-    
     coord_cartesian(clip = "off") +
     
     # labs
@@ -125,7 +122,6 @@ p1 <- energy_tbl %>%
     
     # theme
     theme_minimal(base_size = 16)  +                                   
-    
     theme(
 
         plot.title       = element_text(hjust=0.5),
@@ -242,7 +238,7 @@ p2 <- ggplot() +
     
     coord_cartesian(clip = "off") +
     scale_y_continuous(limits = c(0, 0), expand = c(0, 0)) +
-     scale_x_continuous(limits = c(0, 0), expand = c(0, 0)) +
+    scale_x_continuous(limits = c(0, 0), expand = c(0, 0)) +
     
     # theme
     theme(
@@ -267,18 +263,19 @@ p2 + p1 +
     theme(plot.margin = margin(t = 10, r = 10, b = 10, l = 10))
 
  
-# # |-  resolution ----
+# |- resolution ----
 showtext_opts(dpi = 400)
 
 
-## 6. Save final figure ----
+## 6. SAVE FINAL FIGURE ----  
 ggsave('2022/Week_29/2022_29_technology.png',
        width = 20, height = 11, units = 'in', dpi = 400)
 
 showtext_auto(FALSE)
 
 
-# |- sessionInfo()
+## 7. SESSION INFO ----
+# sessionInfo()
 
 # R version 4.2.1 (2022-06-23 ucrt)
 # Platform: x86_64-w64-mingw32/x64 (64-bit)
