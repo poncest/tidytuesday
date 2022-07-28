@@ -12,7 +12,7 @@ p_load(tidyverse, tidytuesdayR, ggtext, showtext, MetBrewer)
 p_load(janitor, here, skimr, camcorder, ggrepel)
 
 gg_record(
-    dir = here("temp_plots"),
+    dir    = here("temp_plots"),
     device = "png", 
     width  = 10, 
     height = 8, 
@@ -83,10 +83,11 @@ caption_text  <- str_glue("**#TidyTuesday:** 2022 Week 30 • **Source:** Our Wo
 # |-  fonts ----
 font_add_google("Roboto Condensed", family = "title")
 font_add_google("Roboto Condensed", family = "subtitle") 
-font_add_google("Roboto Condensed", family = "text")                       #'Yaldevi'
+font_add_google("Roboto Condensed", family = "text")                       
 font_add_google("PT Sans Narrow", family = "caption")
 showtext_auto(enable = TRUE) 
  
+
 # |-  main plot ----
 soybean_use_world %>% 
     ggplot(aes(x = year, y = production_Mt, color = soybean_use)) +
@@ -179,7 +180,7 @@ soybean_use_world %>%
             hjust          = 1.0,
             margin         = margin(t = 10, b = 10)),
     )
-
+ 
 
 ## 6. SESSION INFO ----
 # sessionInfo()
