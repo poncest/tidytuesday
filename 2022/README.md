@@ -15,5 +15,16 @@
 ![](Week_22/2022_22_reputation.png) |![](Week_23/2022_23_donations.png) |![](Week_24/2022_24_drought.png) | |
 [Week 26<br>UK Pay Gap](https://github.com/poncest/tidytuesday/tree/main/2022/Week_26)| [Week 27<br>San Francisco Rentals](https://github.com/poncest/tidytuesday/tree/main/2022/Week_27)| [Week 28<br>European Flights](https://github.com/poncest/tidytuesday/tree/main/2022/Week_28)| [Week 29<br>Technology Adoption](https://github.com/poncest/tidytuesday/tree/main/2022/Week_29) |
 ![](Week_26/2022_26_paygap.png) |![](Week_27/2022_27_rent.png) |![](Week_28/2022_28_flights.png)  |![](Week_29/2022_29_technology.png)  | 
-
+[Week 30<br> Bring your own data](https://github.com/poncest/tidytuesday/tree/main/2022/Week_30)| [Week 31<br>XYZ](https://github.com/poncest/tidytuesday/tree/main/2022/Week_31)| [Week 32<br>XYZ](https://github.com/poncest/tidytuesday/tree/main/2022/Week_32)| [Week 33<br>XYZ](https://github.com/poncest/tidytuesday/tree/main/2022/Week_33) |
+![](Week_30/2022_30_soybean.png) |![](Week_31/2022_31_X.png) |![](Week_32/2022_32_X.png)  |![](Week_33/2022_33_X.png)  | 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
