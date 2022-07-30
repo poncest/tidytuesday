@@ -231,6 +231,27 @@
         "processx"
       ]
     },
+    "camcorder": {
+      "Package": "camcorder",
+      "Version": "0.0.2.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "camcorder",
+      "RemoteUsername": "thebioengineer",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "68867a1b29e65d0bac677402b23a3ac64419d463",
+      "Hash": "a492d6a182acd870b077f42e4793d44a",
+      "Requirements": [
+        "ggplot2",
+        "gifski",
+        "jsonlite",
+        "magick",
+        "pdftools",
+        "rlang",
+        "rsvg"
+      ]
+    },
     "cellranger": {
       "Package": "cellranger",
       "Version": "1.1.0",
@@ -671,6 +692,14 @@
         "jsonlite"
       ]
     },
+    "gifski": {
+      "Package": "gifski",
+      "Version": "1.6.6-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "32cfcc7a7a72484e5857645df33ac077",
+      "Requirements": []
+    },
     "gitcreds": {
       "Package": "gitcreds",
       "Version": "0.1.1",
@@ -1079,6 +1108,18 @@
         "generics"
       ]
     },
+    "magick": {
+      "Package": "magick",
+      "Version": "2.7.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "56fbad418aa50939ed8c3028126af8d7",
+      "Requirements": [
+        "Rcpp",
+        "curl",
+        "magrittr"
+      ]
+    },
     "magrittr": {
       "Package": "magrittr",
       "Version": "2.0.3",
@@ -1206,6 +1247,17 @@
         "gtable"
       ]
     },
+    "pdftools": {
+      "Package": "pdftools",
+      "Version": "3.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "35c3941403f65722a49fbebd38f41ef1",
+      "Requirements": [
+        "Rcpp",
+        "qpdf"
+      ]
+    },
     "pillar": {
       "Package": "pillar",
       "Version": "1.7.0",
@@ -1309,6 +1361,18 @@
       "Requirements": [
         "magrittr",
         "rlang"
+      ]
+    },
+    "qpdf": {
+      "Package": "qpdf",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ce50e88dc60e80fb30d5fee25ab97164",
+      "Requirements": [
+        "Rcpp",
+        "askpass",
+        "curl"
       ]
     },
     "quantmod": {
@@ -1493,6 +1557,14 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "06c85365a03fdaf699966cc1d3cf53ea",
+      "Requirements": []
+    },
+    "rsvg": {
+      "Package": "rsvg",
+      "Version": "2.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "fa06e1c45299cb47f2aafeff3ef0edf6",
       "Requirements": []
     },
     "rvest": {
