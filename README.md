@@ -12,12 +12,10 @@ More information can be be found [HERE!](https://github.com/rfordatascience/tidy
 
 
 ## Where to find my contributions?
-This repo contains all related codes for the **#TidyTuesday** challenge. My contributions are posted in in [twitter](https://twitter.com/sponce1) and [LinkedIn](https://www.linkedin.com/in/stevenponce/). 
+This repo contains all related codes for the __#TidyTuesday__ challenge. My contributions are posted in [Twitter](https://twitter.com/sponce1) and [LinkedIn](https://www.linkedin.com/in/stevenponce/). 
 
 
 ## Feel free to browse the `codes` and `viz`:
 * [2022](/2022/README.md)
-
-
 
 

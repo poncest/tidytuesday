@@ -5,6 +5,10 @@
       {
         "Name": "CRAN",
         "URL": "https://cran.rstudio.com"
+      },
+      {
+        "Name": "CRANextra",
+        "URL": "http://www.stats.ox.ac.uk/pub/RWin"
       }
     ]
   },
@@ -85,6 +89,14 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "e9c08b94391e9f3f97355841229124f2",
+      "Requirements": []
+    },
+    "Rttf2pt1": {
+      "Package": "Rttf2pt1",
+      "Version": "1.3.10",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "8952819f94cd9fce521f9b1cb558f8a4",
       "Requirements": []
     },
     "SnowballC": {
@@ -473,6 +485,25 @@
       "Hash": "699a7a93d08c962d9f8950b2d7a227f1",
       "Requirements": []
     },
+    "extrafont": {
+      "Package": "extrafont",
+      "Version": "0.18",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "07a8a50195fc77e8690fd8bc4e87e6a0",
+      "Requirements": [
+        "Rttf2pt1",
+        "extrafontdb"
+      ]
+    },
+    "extrafontdb": {
+      "Package": "extrafontdb",
+      "Version": "1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a861555ddec7451c653b40e713166c6f",
+      "Requirements": []
+    },
     "fansi": {
       "Package": "fansi",
       "Version": "1.0.3",
@@ -678,6 +709,21 @@
         "scales"
       ]
     },
+    "ggwaffle": {
+      "Package": "ggwaffle",
+      "Version": "0.2.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "ggwaffle",
+      "RemoteUsername": "liamgilbey",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "784632653d98cb03bd49f83955a849fd7c5ecce2",
+      "Hash": "1aaa265c869456f5796546d16b9d3e1a",
+      "Requirements": [
+        "ggplot2"
+      ]
+    },
     "gh": {
       "Package": "gh",
       "Version": "1.3.0",
@@ -760,6 +806,16 @@
         "rlang",
         "tibble",
         "vctrs"
+      ]
+    },
+    "gridExtra": {
+      "Package": "gridExtra",
+      "Version": "2.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "7d7f283939f563670a697165b2cf5560",
+      "Requirements": [
+        "gtable"
       ]
     },
     "gridtext": {
@@ -1260,14 +1316,12 @@
     },
     "pillar": {
       "Package": "pillar",
-      "Version": "1.7.0",
+      "Version": "1.8.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "51dfc97e1b7069e9f7e6f83f3589c22e",
+      "Hash": "f95cf85794546c4ac2b9a6ca42e671ff",
       "Requirements": [
         "cli",
-        "crayon",
-        "ellipsis",
         "fansi",
         "glue",
         "lifecycle",
@@ -1505,10 +1559,10 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.0.3",
+      "Version": "1.0.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "9103a8f74b2114a5ed1136b471d8feca",
+      "Hash": "6539dd8c651e67e3b55b5ffea106362b",
       "Requirements": []
     },
     "rlist": {
@@ -1962,6 +2016,20 @@
         "tzdb",
         "vctrs",
         "withr"
+      ]
+    },
+    "waffle": {
+      "Package": "waffle",
+      "Version": "0.7.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a4660b9502f987f6613bbb3ede52b0f6",
+      "Requirements": [
+        "RColorBrewer",
+        "extrafont",
+        "ggplot2",
+        "gridExtra",
+        "gtable"
       ]
     },
     "whisker": {
