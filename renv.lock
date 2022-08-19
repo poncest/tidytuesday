@@ -319,6 +319,19 @@
       "Hash": "2ba81b120c1655ab696c935ef33ea716",
       "Requirements": []
     },
+    "cowplot": {
+      "Package": "cowplot",
+      "Version": "1.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "b418e8423699d11c7f2087c2bfd07da2",
+      "Requirements": [
+        "ggplot2",
+        "gtable",
+        "rlang",
+        "scales"
+      ]
+    },
     "cpp11": {
       "Package": "cpp11",
       "Version": "0.4.2",
@@ -635,6 +648,17 @@
         "withr"
       ]
     },
+    "ggfun": {
+      "Package": "ggfun",
+      "Version": "0.0.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ec2bf075e5bd353fa502992a0f5f5f03",
+      "Requirements": [
+        "ggplot2",
+        "rlang"
+      ]
+    },
     "gghighlight": {
       "Package": "gghighlight",
       "Version": "0.3.3",
@@ -648,6 +672,22 @@
         "lifecycle",
         "purrr",
         "rlang",
+        "tibble"
+      ]
+    },
+    "ggimage": {
+      "Package": "ggimage",
+      "Version": "0.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a7919e11761293f25eeb1562d3e4342a",
+      "Requirements": [
+        "ggfun",
+        "ggplot2",
+        "ggplotify",
+        "jsonlite",
+        "magick",
+        "scales",
         "tibble"
       ]
     },
@@ -668,6 +708,18 @@
         "scales",
         "tibble",
         "withr"
+      ]
+    },
+    "ggplotify": {
+      "Package": "ggplotify",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "acbcedf783cdb8710168aa0edba42ac0",
+      "Requirements": [
+        "ggplot2",
+        "gridGraphics",
+        "yulab.utils"
       ]
     },
     "ggrepel": {
@@ -817,6 +869,14 @@
       "Requirements": [
         "gtable"
       ]
+    },
+    "gridGraphics": {
+      "Package": "gridGraphics",
+      "Version": "0.5-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5b79228594f02385d4df4979284879ae",
+      "Requirements": []
     },
     "gridtext": {
       "Package": "gridtext",
@@ -2080,6 +2140,14 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "458bb38374d73bf83b1bb85e353da200",
+      "Requirements": []
+    },
+    "yulab.utils": {
+      "Package": "yulab.utils",
+      "Version": "0.0.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5727ef3682ea54af05114ef993b99812",
       "Requirements": []
     },
     "zip": {
