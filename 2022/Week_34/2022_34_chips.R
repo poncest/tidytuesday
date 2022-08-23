@@ -179,7 +179,7 @@ ggplot(df) +
             size           = 20,
             margin         = margin(t = 10, b = 30)),
         
-        plot.caption       = element_markdown(
+        plot.caption       = element_markdown( 
             family         = 'caption',
             color          = caption_col, 
             lineheight     = 0.6, 
