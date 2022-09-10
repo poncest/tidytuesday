@@ -1,7 +1,7 @@
 
 ## Challenge: #TidyTuesday 2022 week 36
-## Data:      Pell Grants
-## Author:    LEGO database
+## Data:      LEGO database
+## Author:    Steven Ponce
 ## Date:      2022-09-06   
  
 
@@ -25,13 +25,12 @@ showtext_opts(dpi = 600)
 ## 2. READ IN THE DATA ----
 tt <- tidytuesdayR::tt_load(2022, week = 36) 
 
-# Focus on Ted Lasso tv series
 sets <- tt$sets %>% clean_names()
 rm(tt) 
 
 
 #|- offline ----   
-#sets <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-09-06/sets.csv.gz')
+# sets <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-09-06/sets.csv.gz')
 # write_csv(sets, '2022/Week_36/sets.csv')
 sets <- read_csv(file = "2022/Week_36/data/sets.csv") %>% clean_names()
 
@@ -57,6 +56,7 @@ set_df <- sets %>%
     
     # add decade column
     mutate(decade = paste0((year - 1) %/% 10 * 10, " 's"))
+
 
 # |- Lego part per year ----
 num_parts_year_tbl <- set_df %>% 
@@ -98,7 +98,7 @@ over_1000_pieces <- set_df %>%
 # 5. VISUALIZATION ---- 
 # |- plot aesthetics ---- 
 col_1        <- "black"
-bkg_col      <- "#AA82D0"   #"#93F1F7"
+bkg_col      <- "#AA82D0"   
 title_col    <- 'black'
 subtitle_col <- "black"
 caption_col  <- "black"
@@ -108,8 +108,7 @@ title_text    <- "Harry Potter LEGO Sets"
 
 subtitle_text <- str_wrap("Top-10 sets with over 1,000 pieces.", width = 80)
 
-caption_text   <- str_glue("
-                         #TidyTuesday: 2022 Week 36 &bull; Source: frebrickable<br>",
+caption_text   <- str_glue("#TidyTuesday: 2022 Week 36 &bull; Source: frebrickable<br>",
                            "Visualization: <span style='font-family:fa-brands'>&#xf099;</span> @sponce1 &bull; ",
                            " <span style='font-family:fa-brands'>&#xf09b;</span> poncest &bull; ",
                            "Tools: <span style='font-family:fa-brands'>&#x23;</span> rstats",
@@ -167,11 +166,6 @@ over_1000_pieces %>%
         base_size   = 16,
         base_family = 'text') +
 
-    # theme
-    theme_minimal(
-        base_size   = 16,
-        base_family = 'text') +
-     
     theme(
         plot.title.position   = "plot",
         plot.caption.position = "plot",
@@ -211,10 +205,6 @@ over_1000_pieces %>%
             hjust          = 1.0,
             margin         = margin(t = 10, b = 10)),
     )
-
-
-
-
 
 
 
