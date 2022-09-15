@@ -24,8 +24,6 @@ showtext_opts(dpi = 600)
 
 ## 2. READ IN THE DATA ----
 tt <- tidytuesdayR::tt_load(2022, week = 37) 
-
-# Focus on Ted Lasso tv series
 bigfoot <- tt$bigfoot %>% clean_names()
 rm(tt) 
 
@@ -60,7 +58,6 @@ label_df <- state_season_tbl %>%
     slice(1:3) %>% 
     mutate(label_text = str_glue("{state}\n{count}"))
 
-
     
 # 5. VISUALIZATION ---- 
 # |- plot aesthetics ---- 
@@ -70,7 +67,6 @@ title_col    <- "white"
 subtitle_col <- "white"
 caption_col  <- "white"
 col_palette  <- c("no" = "gray50", "yes" = "#F4CDA5")
-
 
 # |-  titles and caption ----
 title_text    <- "Bigfoot Reported Sightings in the United States"
@@ -90,7 +86,6 @@ font_add_google("Roboto", family = "subtitle")
 font_add_google("Roboto Condensed", family = "text")                       
 font_add_google("PT Sans Narrow", family = "caption")
 showtext_auto(enable = TRUE)  
-
 
 # |-  main plot ----
 state_season_tbl %>% 
@@ -175,7 +170,7 @@ state_season_tbl %>%
 ## 6. SESSION INFO ---- 
 
 # version.string R version 4.2.1 (2022-06-23 ucrt)
-# nickname       Funny-Looking Kid 
+# nickname: Funny-Looking Kid 
 # Platform: x86_64-w64-mingw32/x64 (64-bit)
 # Running under: Windows 10 x64 (build 19042)
 

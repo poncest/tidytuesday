@@ -1,2 +1,2 @@
 
-![](2022_37_bigfoot.png)  
+![](2022_37_bigfoot.png)   
