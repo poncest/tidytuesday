@@ -107,7 +107,7 @@ yarn_df %>%
     # labs
     labs(x = "Average Rating",
          y = "log2 Yardage",
-        title    = title_text,
+         title    = title_text,
          subtitle = subtitle_text,
          caption  = caption_text) +
     
@@ -131,6 +131,7 @@ yarn_df %>%
                                           face = 'bold',
                                           hjust = 0.5,
                                           margin = margin(t = 10)), 
+        
         axis.title.y       = element_text(size = 20, 
                                           face = 'bold',
                                           vjust = 0.5,
