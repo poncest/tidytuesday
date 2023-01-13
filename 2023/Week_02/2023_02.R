@@ -6,7 +6,7 @@
  
 
 ## 1. LOAD PACKAGES & SETUP ----  
-library(pacman) 
+library(pacman)   
 p_load(tidyverse, tidytuesdayR, ggtext, showtext, janitor, here, skimr, glue, camcorder, scales)
 
 
