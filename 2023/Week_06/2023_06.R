@@ -1,6 +1,6 @@
  
 ## Challenge: #TidyTuesday 2023 week 06
-## Data:      Pet Cats UK
+## Data:      Big Tech Stock Prices
 ## Author:    Steven Ponce
 ## Date:      2023-02-06
  
