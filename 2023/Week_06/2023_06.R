@@ -226,35 +226,33 @@ data_plot <- umap_kmeans_results_tbl %>%
 ### |- plot aesthetics ---- 
 
 bkg_col      <- "#F9F9F9"
-title_col    <-  "gray10"              
-subtitle_col <-  "gray10" 
-caption_col  <-  "gray10" 
+title_col    <- "gray10"              
+subtitle_col <- "gray10" 
+caption_col  <- "gray10" 
 palette_col  <- met.brewer("Lakota", n = 5, type = "discrete")[c(1,3,4,5,6)]
 
 
-### |-  titles and caption ----
-tt <- str_glue("#TidyTuesday: 2023 Week 06 &bull; Source: Big Tech Stock Prices on Kaggle<br>")
-tw <- str_glue("<span style='font-family:fa-brands'>&#xf099;</span>")
-gh <- str_glue("<span style='font-family:fa-brands'>&#xf09b;</span>")
-#mn <- str_glue("<span style='font-family:fa-brands'>&#xf4f6;</span>")
-
-title_text <- str_glue("Big Tech Stocks, 2018-2023")     
-
-subtitle_text <- str_glue("UMAP 2D Projection with K-Means Cluster Assignment") 
-
-# caption_text  <- str_glue("{tt} Visualization: {tw} @sponce1 | {mn} @sponce1@graphic.social | {gh} poncest | Tools: #rstats #ggplot")
-
-caption_text  <- str_glue("{tt} Visualization: {tw} @sponce1 | {gh} poncest | Tools: #rstats #ggplot")
-
- 
 ### |-  fonts ----
-font_add('fa-brands', 'fonts/fa-brands-400.ttf')
+font_add('fa6-brands', 'fonts/fa6-brands-regular-400.otf')
 font_add_google("Days One", family = "title") 
 font_add_google("Rajdhani", family = "subtitle") 
 font_add_google("Roboto Condensed", family = "text")                       
 font_add_google("PT Sans Narrow", family = "caption")
 showtext_auto(enable = TRUE)      
-                
+
+
+### |-  titles and caption ----
+tt <- str_glue("#TidyTuesday: 2023 Week 06 &bull; Source: Big Tech Stock Prices on Kaggle<br>")
+tw <- str_glue("<span style='font-family:fa6-brands'>&#xf099;</span>")
+gh <- str_glue("<span style='font-family:fa6-brands'>&#xf09b;</span>")
+mn <- str_glue("<span style='font-family:fa6-brands'>&#xf4f6;</span>")
+
+title_text <- str_glue("Big Tech Stocks, 2018-2023")     
+
+subtitle_text <- str_glue("UMAP 2D Projection with K-Means Cluster Assignment") 
+
+caption_text  <- str_glue("{tt} Visualization: {tw} @sponce1 &bull; {mn} @sponce1(graphic.social) &bull; Code: {gh} poncest &bull; Tools: #rstats #ggplot")
+
 
 ### |-  main plot ----
 
