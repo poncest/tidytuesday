@@ -71,7 +71,7 @@ data_plot <- jb_movies_tbl %>%
     left_join(y = jb_movies_mean_age_diff_tbl, by = "decade") %>% 
     select(movie_name:age_difference, mean_age_diff, decade, everything()) %>% 
     # highlight color
-    mutate(highlight = ifelse(age_difference > mean_age_diff, "Above Average", "Below Avarage"))
+    mutate(highlight = ifelse(age_difference > mean_age_diff, "Above Average", "Below Average"))
 
 
 # JB movies count  
@@ -88,7 +88,7 @@ bkg_col      <- "#FFF4ED"
 title_col    <- "gray10"              
 subtitle_col <- "gray10" 
 caption_col  <- "gray10" 
-palette_col  <- c("Below Avarage" = "#A89580", "Above Average" = "#534A3F" )    
+palette_col  <- c("Below Average" = "#A89580", "Above Average" = "#534A3F" )    
 
 
 ### |-  titles and caption ----
