@@ -72,7 +72,7 @@ tw <- str_glue("<span style='font-family:fa6-brands'>&#xf099;</span>")
 gh <- str_glue("<span style='font-family:fa6-brands'>&#xf09b;</span>")
 mn <- str_glue("<span style='font-family:fa6-brands'>&#xf4f6;</span>")
 
-title_text <- str_glue("Distribution of Selected Programming Languages Type, 1974 - 2018") 
+title_text <- str_glue("Distribution of Selected Programming Languages Type, 1948 - 2023") 
 
 caption_text  <- str_glue("{tt} Visualization: {tw} @sponce1 &bull; {mn} @sponce1(graphic.social) Code: {gh} poncest &bull; Tools: #rstats #ggplot")
 
