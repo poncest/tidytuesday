@@ -11,7 +11,7 @@ p_load(tidyverse, tidytuesdayR, ggtext, showtext, janitor, here, glue, camcorder
 p_load(ggdist, gghalves)
 
 
-# figure size
+# |- figure size ---- 
 gg_record(
     dir    = here::here("temp_plots"), 
     device = "png",
@@ -40,7 +40,6 @@ colnames(languages)
 languages$type %>% unique()
 
 
-
 ## 4. TIDYDATA ----  
 
 selected_languages <- c("pl", "queryLanguage")
@@ -53,8 +52,6 @@ languages_tbl <- languages %>%
     ))
 
 
-
-
 # 5. VISUALIZATION ---- 
 
 ### |- plot aesthetics ---- 
@@ -64,7 +61,6 @@ subtitle_col <- "gray10"
 caption_col  <- "gray10" 
 
 col_palette <- c("Programming\nLanguage" = "#8F2D56", "Query\nLanguage" = "#218380")
-
 
 ### |-  titles and caption ----
 tt <- str_glue("#TidyTuesday: 2023 Week 12 &bull; Source: Programming Language DataBase<br>")  
@@ -120,15 +116,14 @@ languages_tbl %>%
     
     scale_x_discrete(expand = c(0.07, 0.07)) +
     
-    coord_flip(clip = 'off')+
+    coord_flip(clip = 'off') +
     
     # labs
     labs(
-        x        = "", 
-        y        = "",
-        title    = title_text,
-        caption  = caption_text) +
-    
+        x       = "", 
+        y       = "",
+        title   = title_text,
+        caption = caption_text) +
     
     # theme 
     theme_minimal() +
@@ -165,7 +160,6 @@ languages_tbl %>%
             halign         = 0.5,
             margin         = margin(t = 10, b = 10)),
     )
-
 
 
  
