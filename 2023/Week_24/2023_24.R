@@ -93,7 +93,7 @@ text_col     <- "#FDF4DB"
 
 
 ### |-  titles and caption ----
-tt <- str_glue("#TidyTuesday: 2023 Week 24 &bull; Source: SAFI Teaching Dataset for Data Carpentry Social Sciencesr<br>")  
+tt <- str_glue("#TidyTuesday: 2023 Week 24 &bull; Source: SAFI Teaching Dataset for Data Carpentry Social Sciences<br>")  
 tw <- str_glue("<span style='font-family:fa6-brands'>&#xf099;</span>")
 gh <- str_glue("<span style='font-family:fa6-brands'>&#xf09b;</span>")
 mn <- str_glue("<span style='font-family:fa6-brands'>&#xf4f6;</span>")
@@ -134,7 +134,7 @@ items_tbl %>%
     
     # labs
     labs(
-        y        = "Word Count", 
+        y        = "Items Owned Count", 
         x        = "",
         title    = title_text,
         subtitle = subtitle_text,
