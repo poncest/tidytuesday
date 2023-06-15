@@ -1,6 +1,6 @@
  
 ## Challenge: #TidyTuesday 2023 week 24
-## Data:      Energy
+## Data:      SAFI (Studying African Farmer-Led Irrigation) survey
 ## Author:    Steven Ponce
 ## Date:      2023-06-12
 
@@ -59,14 +59,13 @@ safi_data %>%
 
 
 
-# |- plot data
+## 4. TIDYDATA ---- 
 
-# Tokenization
+# |- Tokenization
 items_word <- safi_data %>% 
     unnest_tokens(input = items_owned, output = word, token = "words") 
 
-
-#  data 
+# |- plot data
 items_tbl <- items_word %>% 
     count(village, respondent_wall_type, word, sort = TRUE) %>% 
     mutate(
