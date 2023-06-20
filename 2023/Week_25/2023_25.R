@@ -9,8 +9,6 @@
 pacman::p_load(tidyverse, tidytuesdayR, ggtext, showtext, janitor, camcorder, scales, lubridate)
 pacman::p_load(ggmap, usdata, ggthemes)
 
-
-
 # |- figure size ---- 
 gg_record(
     dir    = here::here("temp_plots"), 
@@ -34,11 +32,9 @@ readme(tt)
 rm(tt)   
 
 
-
 ## 3. EXAMINING THE DATA ----
 glimpse(ufo_sightings)  
 glimpse(places)  
-
 
 places$country %>% unique() %>% sort()  
 ufo_sightings$country_code %>% unique() %>% sort()  
@@ -67,7 +63,6 @@ ufo_sightings %>%
 ufo_sightings$summary %>% unique()
 
 
-
 ## 4. TIDYDATA ---- 
 
 # |- plot data
@@ -85,7 +80,6 @@ states <- map_data("state")
 # NE region 
 ne_states <- states %>% 
     filter(region %in% ne_region)
-
 
 ne_states_abr <- c('ME', 'NH', 'VT', 'MA', 
                    'RI', 'CT', 'NJ', 'NY', 
@@ -128,7 +122,6 @@ caption_col  <- "#865159"
 text_col     <- "#865159" 
 
 
-
 ### |-  titles and caption ----
 tt <- str_glue("#TidyTuesday: 2023 Week 25 &bull; Source: National UFO Reporting Center, sunrise-sunset.org<br>")  
 tw <- str_glue("<span style='font-family:fa6-brands'>&#xf099;</span>")
@@ -152,7 +145,6 @@ showtext_auto(enable = TRUE)
 
 
 ### |-   map ----
-
 ggplot() +
     
     # geoms
@@ -162,8 +154,7 @@ ggplot() +
     
     geom_point(data = data_plot, 
                mapping = aes(x = lon, y = lat), 
-               shape = 20, color = '#B57A4E', size = .3, alpha = .25
-    ) +
+               shape = 20, color = '#B57A4E', size = .3, alpha = .25) +
     
     # scales
     coord_map() +
@@ -214,7 +205,7 @@ ggplot() +
     )
 
 
-sessioninfo::session_info(include_base = TRUE)
+sessioninfo::session_info(include_base = TRUE) 
 ## 6. SESSION INFO ---- 
 # ─ Session info ─────────────────────────────────────────
 # setting  value
