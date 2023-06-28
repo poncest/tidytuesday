@@ -57,9 +57,10 @@ historical_markers %>%
 
 ## 4. TIDYDATA ---- 
 
-#' Reference:
+#' Reference: https://r-graph-gallery.com/hexbin-map.html
 #' Download the Hexagones boundaries at geojson format here
 #' https://team.carto.com/u/andrew/tables/andrew.us_states_hexgrid/public/map.
+#' https://r-graph-gallery.com/hexbin-map.html
 
 
 # |-  US hexabin map ----
