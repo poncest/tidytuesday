@@ -1,4 +1,4 @@
- 
+
 ## Challenge: #TidyTuesday 2023 week 27
 ## Data:      Historical Markers
 ## Author:    Steven Ponce
@@ -8,7 +8,7 @@
 ## 1. LOAD PACKAGES & SETUP ----  
 pacman::p_load(tidyverse, tidytuesdayR, ggtext, showtext, janitor, camcorder, scales, lubridate)
 pacman::p_load(geojsonio, sf, rgdal, rgeos, broom, MetBrewer)              
- 
+
 
 # |- figure size ---- 
 gg_record(
