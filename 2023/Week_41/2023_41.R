@@ -9,7 +9,6 @@
 ## 1. LOAD PACKAGES & SETUP ----  
 pacman::p_load(tidyverse, ggtext, showtext, janitor, skimr, scales, lubridate)
 pacman::p_load(tidytext, textdata, ggwordcloud, png)
-# pacman::p_load(ggmap, usdata, ggthemes)
 theme_set(theme_light(base_size = 16))
 
 
@@ -48,7 +47,7 @@ head(haunted_places$description)
 
 
 
-## Lets do sentiment analysis (wordcloud) and map with California data only
+## Lets do sentiment analysis (wordcloud) on `description`
 
 ## 4. TIDYDATA ----
 
@@ -112,8 +111,6 @@ wordcloud_tbl <- description_tidy %>%
 
 
 
-    
-
 
 # 5. VISUALIZATION ---- 
 
@@ -121,7 +118,6 @@ wordcloud_tbl <- description_tidy %>%
 bkg_col      <-  "#1a1a13"
 title_col    <-  "#6e1722"              
 caption_col  <-  "#6e1722"       
-
 
 
 ### |-  titles and caption ----
@@ -135,14 +131,12 @@ title_text    <- str_glue("Sentiment of Haunted Places\nacross the Unites States
 caption_text  <- str_glue("{tt} Visualization: {X} @sponce1 &bull; {mn} @sponce1(graphic.social) Code: {gh} poncest &bull; Tools: #rstats #ggplot")
 
 
-
 ### |-  fonts ----
 font_add('fa6-brands', 'fonts/6.4.2/Font Awesome 6 Brands-Regular-400.otf') 
 font_add_google("Creepster", family = "title")                            
 font_add_google("Sarabun", family = "text")                  
 font_add_google("PT Sans Narrow", family = "caption")
 showtext_auto(enable = TRUE)     
-
 
 
 ### |-  final plot ----  
