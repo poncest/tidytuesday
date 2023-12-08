@@ -15,10 +15,13 @@ More information can be found [HERE!](https://github.com/rfordatascience/tidytue
 This repo contains all related codes for the __#TidyTuesday__ challenge. My contributions are posted on [Twitter](https://twitter.com/sponce1) and [LinkedIn](https://www.linkedin.com/in/stevenponce/). 
 
 
+## Montage
+![](summary/image_plot.png)
+
+
 ## Feel free to browse the `codes` and `viz`:
 * [2022](/2022/README.md)
 
 * [2023](/2023/README.md)
 
-## Montage
-![](summary/image_plot.png)
+
