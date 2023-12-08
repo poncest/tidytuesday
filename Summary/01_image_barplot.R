@@ -158,14 +158,18 @@ create_image_plot <- function(data) {
 image_plot <- create_image_plot(data = images_df)
 
 
+### |-  final plot ----   
+image_plot <- create_image_plot(data = images_df)
+
+
 ### |-  Save plot to file
-ggsave("image_plot.png", image_plot)    
+ggsave(path = here::here("summary/"),
+       filename = "image_plot.png", device = "png", plot = image_plot,   
+       width = 10, height = 6, units = 'in', dpi = 320)
 
 
 
-# Section 4: Session Info ----
-
-sessioninfo::session_info(include_base = TRUE)
+# Section 4: Session Info ---- 
 
 # Save session info to file
 session_info <- sessioninfo::session_info(include_base = TRUE) 

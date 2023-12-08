@@ -1,3 +1,3 @@
 
-![](image_plot.png) 
+![](image_plot.png)
  
