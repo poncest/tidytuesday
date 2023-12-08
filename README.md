@@ -16,6 +16,7 @@ This repo contains all related codes for the __#TidyTuesday__ challenge. My cont
 
 
 ## Montage
+![Montage](https://github.com/poncest/tidytuesday/blob/main/Summary/image_plot.png "Mantage")
 ![](summary/image_plot.png)
 
 
