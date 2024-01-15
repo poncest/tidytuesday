@@ -8,7 +8,7 @@
 ## 1. LOAD PACKAGES & SETUP ----  
 pacman::p_load(tidyverse, ggtext, showtext, janitor, skimr, scales, lubridate)
 pacman::p_load()
-theme_set(theme_minimal(base_size = 12, base_family = "text"))  
+
 
 ### |- figure size ---- 
 camcorder::gg_record( 
@@ -75,10 +75,10 @@ caption_text  <- str_glue("{tt} Visualization: {X} @sponce1 &bull; {mn} @sponce1
 ### |-  fonts ----
 font_add('fa6-brands', 'fonts/6.4.2/Font Awesome 6 Brands-Regular-400.otf') 
 font_add_google("Crimson Pro", family = "title")                            
-font_add_google("Nunito Sans", family = "subtitle")   
-font_add_google("Nunito Sans", family = "text")  
-font_add_google("PT Sans Narrow", family = "caption")
-showtext_auto(enable = TRUE)       
+font_add_google("Crimson Pro", family = "subtitle")   
+font_add_google("Crimson Pro", family = "text")  
+font_add_google("Roboto Condensed", family = "caption")
+showtext_auto(enable = TRUE)  
 
 ### |-  plot theme ----
 theme_set(theme_minimal(base_size = 12, base_family = "text"))                
