@@ -27,7 +27,7 @@ showtext_opts(dpi = 320, regular.wt = 300, bold.wt = 800)
 tt <- tidytuesdayR::tt_load(x = base::as.double(yr_chr), 
                             week = base::as.double(week_chr)) 
 
-var <- tt$var %>% clean_names() %>% glimpse()
+var <- tt$var |> clean_names() |> glimpse()
 
 tidytuesdayR::readme(tt) 
 rm(tt)  
@@ -36,7 +36,7 @@ rm(tt)
 ## 3. EXAMINING THE DATA ----
 skim(var)
 glimpse(var)
-colnames(var) %>% sort()
+colnames(var) |> sort()
 
 
 ## 4. TIDYDATA ----
