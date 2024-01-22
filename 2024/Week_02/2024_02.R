@@ -11,12 +11,12 @@ theme_set(theme_minimal(base_size = 16, base_family = "text"))
 
 ### |- figure size ---- 
 camcorder::gg_record( 
-  dir    = here::here("temp_plots"), 
-  device = "png",
-  width  = 6,
-  height = 4,
-  units  = "in",
-  dpi    = 320) 
+    dir    = here::here("temp_plots"), 
+    device = "png",
+    width  = 6,
+    height = 4,
+    units  = "in",
+    dpi    = 320) 
 
 ### |- resolution ---- 
 showtext_opts(dpi = 320, regular.wt = 300, bold.wt = 800)
@@ -115,7 +115,7 @@ nhl_players_1991_2005 <- nhl_player_birth |>
     # rename
     rename(year = birth_year)|> 
     distinct()
-    
+
 
 # Combine both datasets together
 data_plot <- bind_rows(canada_births_1991_2005, nhl_players_1991_2005) |> 
@@ -148,7 +148,7 @@ nhl    <- str_glue("<span style='color:{ col_palette['nhl'] }'>**NHL Players**</
 
 subtitle_text <- str_glue("Comparison of Quarterly Birth of Canadian {nhl} to {canada}<br>
                           in general, 1991 to 2005.<br>")
-                          
+
 caption_text  <- str_glue("{tt} Visualization: {X} @sponce1 &bull; {mn} @sponce1(graphic.social) Code: {gh} poncest &bull; Tools: #rstats #ggplot2")
 
 
@@ -164,19 +164,19 @@ showtext_auto(enable = TRUE)
 theme_set(theme_minimal(base_size = 16, base_family = "text"))                
 
 theme_update(
-  plot.title.position   = "plot",
-  plot.caption.position = "plot",
-  legend.position       = 'plot',
-  
-  axis.title.x          = element_text(margin = margin(10, 0, 0, 0), size = rel(.9), color = text_col, family   = 'text', face = 'bold'),
-  axis.title.y          = element_text(margin = margin(0, 10, 0, 0), size = rel(.9), color = text_col, family   = 'text', face = 'bold'),
-  axis.text             = element_text(size = rel(.8), color = text_col, family   = 'text'),
-
-  plot.margin           = margin(t = 10, r = 10, b = 10, l = 10),
-
-  plot.background       = element_rect(fill = bkg_col, color = bkg_col),
-  panel.background      = element_rect(fill = bkg_col, color = bkg_col),
-  
+    plot.title.position   = "plot",
+    plot.caption.position = "plot",
+    legend.position       = 'plot',
+    
+    axis.title.x          = element_text(margin = margin(10, 0, 0, 0), size = rel(.9), color = text_col, family   = 'text', face = 'bold'),
+    axis.title.y          = element_text(margin = margin(0, 10, 0, 0), size = rel(.9), color = text_col, family   = 'text', face = 'bold'),
+    axis.text             = element_text(size = rel(.8), color = text_col, family   = 'text'),
+    
+    plot.margin           = margin(t = 10, r = 10, b = 10, l = 10),
+    
+    plot.background       = element_rect(fill = bkg_col, color = bkg_col),
+    panel.background      = element_rect(fill = bkg_col, color = bkg_col),
+    
 )
 
 ### |-  final plot ----  
@@ -192,7 +192,7 @@ data_plot |>
     stat_summary(fun.y = "median", geom = "point", 
                  size = 3, shape = 21, col = 'black',
                  position = position_dodge(width = .7)) +
-   
+    
     # Scales
     scale_x_discrete() +
     scale_y_continuous(breaks = seq(0, .6, by = .2),
@@ -207,36 +207,36 @@ data_plot |>
          title    = title_text,
          subtitle = subtitle_text,
          caption  = caption_text) +
-  
-  # Theme
-  theme( 
-    panel.grid.minor     = element_blank(),
-    panel.grid.major     = element_blank(),
     
-    plot.title           = element_text(
-      size               = rel(1.2), 
-      family             = 'title',
-      color              = title_col,
-      face               = 'bold',
-      lineheight         = 0.85,
-      margin             = margin(t = 5, b = 5)),
-    
-    plot.subtitle        = element_markdown(
-      size               = rel(.85), 
-      family             = 'subtitle',
-      color              = title_col,
-      lineheight         = 0.85, 
-      margin             = margin(t = 5, b = 10)),
-    
-    plot.caption         = element_markdown(
-      size               = rel(.5), 
-      family             = 'caption',
-      color              = caption_col,
-      lineheight         = 0.6,
-      hjust              = 0.5,
-      halign             = 0.5,
-      margin             = margin(t = 10, b = 5)),
-  )
+    # Theme
+    theme( 
+        panel.grid.minor     = element_blank(),
+        panel.grid.major     = element_blank(),
+        
+        plot.title           = element_text(
+            size               = rel(1.2), 
+            family             = 'title',
+            color              = title_col,
+            face               = 'bold',
+            lineheight         = 0.85,
+            margin             = margin(t = 5, b = 5)),
+        
+        plot.subtitle        = element_markdown(
+            size               = rel(.85), 
+            family             = 'subtitle',
+            color              = title_col,
+            lineheight         = 0.85, 
+            margin             = margin(t = 5, b = 10)),
+        
+        plot.caption         = element_markdown(
+            size               = rel(.5), 
+            family             = 'caption',
+            color              = caption_col,
+            lineheight         = 0.6,
+            hjust              = 0.5,
+            halign             = 0.5,
+            margin             = margin(t = 10, b = 5)),
+    )
 
 # 6. SESSION INFO ----  
 sessioninfo::session_info(include_base = TRUE) 
