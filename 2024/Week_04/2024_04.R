@@ -28,8 +28,6 @@ tt <- tidytuesdayR::tt_load(x = base::as.double("2024"),
 
 english_education <- tt$english_education |> clean_names() |> glimpse()
 
-# english_education <- read_csv(here::here(file = "2024/Week_04/english_education.csv"))
-
 tidytuesdayR::readme(tt) 
 rm(tt)  
 
