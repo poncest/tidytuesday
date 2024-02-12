@@ -2003,6 +2003,23 @@
       ],
       "Hash": "10e6aaf51110e8645a6c4d3f8ce7c158"
     },
+    "ggstream": {
+      "Package": "ggstream",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "dplyr",
+        "forcats",
+        "ggplot2",
+        "magrittr",
+        "purrr",
+        "stats",
+        "tidyr"
+      ],
+      "Hash": "4512013654d28dbf39dc4a8f5b9bdde2"
+    },
     "ggtext": {
       "Package": "ggtext",
       "Version": "0.1.2",
