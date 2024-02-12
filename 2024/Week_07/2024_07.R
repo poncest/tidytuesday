@@ -112,7 +112,7 @@ X  <- str_glue("<span style='font-family:fa6-brands'>&#xe61b;</span>")
 gh <- str_glue("<span style='font-family:fa6-brands'>&#xf09b;</span>")
 mn <- str_glue("<span style='font-family:fa6-brands'>&#xf4f6;</span>")
 
-title_text    <- str_glue("San Valentine Spending") 
+title_text    <- str_glue("Valentine's Day Spending in the U.S.") 
 
 subtitle_text <- str_glue("Ajusted Amount Spent, 2010-2022")
 
@@ -201,7 +201,7 @@ data_plot |>
     theme(
     
         plot.title         = element_text(
-            size           = rel(3), 
+            size           = rel(2.5), 
             family         = 'title',
             face           = 'bold',
             color          = title_col,
