@@ -4523,6 +4523,17 @@
       ],
       "Hash": "0fc97a52b4b32a0b4a3de4c5241348e2"
     },
+    "tidylo": {
+      "Package": "tidylo",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "dplyr",
+        "rlang"
+      ],
+      "Hash": "0f3dbe4eff9c0d18085be70d638dfaef"
+    },
     "tidyquant": {
       "Package": "tidyquant",
       "Version": "1.0.7",
