@@ -96,16 +96,6 @@ afin_bigrams_separated <- bigrams_filtered |>
     arrange(desc(abs(contribution))) 
 
 
-# afin_bigrams_separated <- bigrams_filtered |> 
-#     inner_join(afinn, by = c(word2 = "word")) |> 
-#     count(cycle, word1, word2, value, sort = TRUE) |> 
-#     # count(word1, word2, value, sort = TRUE) |> 
-#     # mutate(contribution = n * value) |> 
-#     arrange(desc(abs(contribution))) |> 
-#     group_by(word1) |> 
-#     arrange(word1, desc(contribution)) |>
-#     ungroup()
-
 
 # 5. VISUALIZATION ---- 
 
