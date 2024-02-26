@@ -85,7 +85,7 @@ word_pairs <- events_words |>
 word_cors <- events_words |>
     group_by(word) |> 
     filter(n() > 1) |>
-    pairwise_cor(word, decade, sort = TRUE) 
+    widyr::pairwise_cor(word, decade, sort = TRUE) 
 
 word_cors|> count(item1, sort = TRUE) 
     
