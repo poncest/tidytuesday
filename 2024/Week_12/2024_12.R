@@ -152,7 +152,7 @@ first  <- str_glue("<span style='color:{ col_palette[2] }'>**1990's**</span>")
 
 subtitle_text <- str_glue("{ first } versus { last }")
 
-caption_text    <- str_glue("{tt} Visualization: {X} @sponce1 &bull; {mn} @sponce1(graphic.social) Code: {gh} poncest &bull; Tools: #rstats #ggplot2")
+caption_text  <- str_glue("{tt} Visualization: {X} @sponce1 &bull; {mn} @sponce1(graphic.social) Code: {gh} poncest &bull; Tools: #rstats #ggplot2")
 
 ### |-  fonts ----
 font_add('fa6-brands', 'fonts/6.4.2/Font Awesome 6 Brands-Regular-400.otf') 
@@ -241,12 +241,12 @@ ggplot() +
             color       = title_col,
             margin      = margin(t = 5, b = 5)), 
         
-        plot.subtitle        = element_markdown(
-            size               = rel(1.8), 
-            family             = 'subtitle',
-            color              = title_col,
-            lineheight         = 0.85, 
-            margin             = margin(t = 5, b = 10)),
+        plot.subtitle   = element_markdown(
+            size        = rel(1.8), 
+            family      = 'subtitle',
+            color       = title_col,
+            lineheight  = 0.85, 
+            margin      = margin(t = 5, b = 10)),
         
         plot.caption    = element_markdown(
             size        = rel(.65), 
