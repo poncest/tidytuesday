@@ -25,8 +25,8 @@ pacman::p_load(
 camcorder::gg_record( 
     dir    = here::here("temp_plots"), 
     device = "png",
-    width  = 6,         # 5.5
-    height = 8,           # 
+    width  = 6,         
+    height = 8,            
     units  = "in",
     dpi    = 320) 
 
@@ -68,7 +68,7 @@ plot_data <- alluvial_data |>
         favorite = gsub("Milk, dairy alternative, or coffee creamer", "Milk/Creamer", favorite),
         additions = gsub("Sugar or sweetener", "Sugar/Sweet", additions),
         additions = gsub("Milk, dairy alternative, or coffee creamer", "Milk/Creamer", additions),
-        additions = gsub("No - just black", "Black", additions),
+        additions = gsub("No - just black", "None/Black", additions),
         additions = gsub("Flavor syrup", "Flavor", additions)
     )   
     
