@@ -1641,6 +1641,23 @@
       ],
       "Hash": "695abfc5a4bf0049b128e2d9f08ac7ef"
     },
+    "ggchicklet": {
+      "Package": "ggchicklet",
+      "Version": "0.6.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "ggchicklet",
+      "RemoteUsername": "hrbrmstr",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "64c468dd0900153be1690dbfc5cfb35710da8183",
+      "Requirements": [
+        "R",
+        "ggplot2",
+        "grid"
+      ],
+      "Hash": "7b543869fca551228fb5e0fea535faa1"
+    },
     "ggcorrplot": {
       "Package": "ggcorrplot",
       "Version": "0.1.4.1",
@@ -1790,6 +1807,27 @@
         "withr"
       ],
       "Hash": "18c57347f13a654ef8683a6676042624"
+    },
+    "ggiraph": {
+      "Package": "ggiraph",
+      "Version": "0.8.10",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "Rcpp",
+        "cli",
+        "ggplot2",
+        "grid",
+        "htmltools",
+        "htmlwidgets",
+        "purrr",
+        "rlang",
+        "stats",
+        "systemfonts",
+        "uuid",
+        "vctrs"
+      ],
+      "Hash": "15748f4335af873289fbdd31610c3f96"
     },
     "ggmap": {
       "Package": "ggmap",
@@ -3031,6 +3069,26 @@
       ],
       "Hash": "765cf53992401b3b6c297b69e1edb8bd"
     },
+    "marquee": {
+      "Package": "marquee",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "cli",
+        "cpp11",
+        "glue",
+        "grid",
+        "jpeg",
+        "png",
+        "rlang",
+        "systemfonts",
+        "textshaping",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "2e90bf0ec8e627c754f2d48091f20f1a"
+    },
     "memoise": {
       "Package": "memoise",
       "Version": "2.0.1",
@@ -3270,6 +3328,16 @@
         "rstudioapi"
       ],
       "Hash": "ac364dee7ff8277fb4144fcc1e26302f"
+    },
+    "palmerpenguins": {
+      "Package": "palmerpenguins",
+      "Version": "0.1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "6c6861efbc13c1d543749e9c7be4a592"
     },
     "parallelly": {
       "Package": "parallelly",
@@ -4462,14 +4530,15 @@
     },
     "systemfonts": {
       "Package": "systemfonts",
-      "Version": "1.0.6",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
-        "cpp11"
+        "cpp11",
+        "lifecycle"
       ],
-      "Hash": "6d538cff441f0f1f36db2209ac7495ac"
+      "Hash": "213b6b8ed5afbf934843e6c3b090d418"
     },
     "tayloRswift": {
       "Package": "tayloRswift",
@@ -4522,15 +4591,16 @@
     },
     "textshaping": {
       "Package": "textshaping",
-      "Version": "0.3.7",
+      "Version": "0.4.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "cpp11",
+        "lifecycle",
         "systemfonts"
       ],
-      "Hash": "997aac9ad649e0ef3b97f96cddd5622b"
+      "Hash": "5142f8bc78ed3d819d26461b641627ce"
     },
     "tibble": {
       "Package": "tibble",
