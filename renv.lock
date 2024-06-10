@@ -1808,27 +1808,6 @@
       ],
       "Hash": "18c57347f13a654ef8683a6676042624"
     },
-    "ggiraph": {
-      "Package": "ggiraph",
-      "Version": "0.8.10",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "Rcpp",
-        "cli",
-        "ggplot2",
-        "grid",
-        "htmltools",
-        "htmlwidgets",
-        "purrr",
-        "rlang",
-        "stats",
-        "systemfonts",
-        "uuid",
-        "vctrs"
-      ],
-      "Hash": "15748f4335af873289fbdd31610c3f96"
-    },
     "ggmap": {
       "Package": "ggmap",
       "Version": "4.0.0",
@@ -3069,26 +3048,6 @@
       ],
       "Hash": "765cf53992401b3b6c297b69e1edb8bd"
     },
-    "marquee": {
-      "Package": "marquee",
-      "Version": "0.1.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "cli",
-        "cpp11",
-        "glue",
-        "grid",
-        "jpeg",
-        "png",
-        "rlang",
-        "systemfonts",
-        "textshaping",
-        "utils",
-        "vctrs"
-      ],
-      "Hash": "2e90bf0ec8e627c754f2d48091f20f1a"
-    },
     "memoise": {
       "Package": "memoise",
       "Version": "2.0.1",
@@ -3328,16 +3287,6 @@
         "rstudioapi"
       ],
       "Hash": "ac364dee7ff8277fb4144fcc1e26302f"
-    },
-    "palmerpenguins": {
-      "Package": "palmerpenguins",
-      "Version": "0.1.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R"
-      ],
-      "Hash": "6c6861efbc13c1d543749e9c7be4a592"
     },
     "parallelly": {
       "Package": "parallelly",
