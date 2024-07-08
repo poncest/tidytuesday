@@ -1755,6 +1755,24 @@
       ],
       "Hash": "91780e07f1d631a1152835b4e25c66b9"
     },
+    "ggh4x": {
+      "Package": "ggh4x",
+      "Version": "0.2.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "cli",
+        "ggplot2",
+        "grid",
+        "gtable",
+        "lifecycle",
+        "rlang",
+        "scales",
+        "stats",
+        "vctrs"
+      ],
+      "Hash": "012d7705b4cdc7b5ee89895aeefc1d45"
+    },
     "gghalves": {
       "Package": "gghalves",
       "Version": "0.1.4",
@@ -3047,6 +3065,26 @@
         "xfun"
       ],
       "Hash": "765cf53992401b3b6c297b69e1edb8bd"
+    },
+    "marquee": {
+      "Package": "marquee",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "cli",
+        "cpp11",
+        "glue",
+        "grid",
+        "jpeg",
+        "png",
+        "rlang",
+        "systemfonts",
+        "textshaping",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "2e90bf0ec8e627c754f2d48091f20f1a"
     },
     "memoise": {
       "Package": "memoise",
