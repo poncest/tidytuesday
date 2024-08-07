@@ -241,7 +241,7 @@ p <- filtered_judo_medals |>
           halign      = 0,
           margin      = margin(t = 10, b = 5)
       ),
-  ) 
+  )  
     
 ### |-  annotated plot ----  
 
@@ -250,7 +250,7 @@ men_text <- str_glue("Judo made its first Olympic appearance in 1964,\nbut was n
 women_text <- str_glue("Women's judo made its first appearance at the\n1988 Olympic Games, as a demonstration sport.\nWomen's Judo became an official part of the\nOlympic games from the 1992 Barcelona games")
 
 ### |-  final plot ----  
-p +
+p + 
     
     # Men's Judo History Note
     geom_text(data = filtered_judo_medals |> filter(gender == "Men"),
