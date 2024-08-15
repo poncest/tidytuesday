@@ -47,6 +47,9 @@ rm(tt)
 glimpse(worlds_fairs)
 skim(worlds_fairs)
 
+library(GGally)
+ggpairs(worlds_fairs[, sapply(worlds_fairs, is.numeric)])
+
 
 
 ## 4. TIDYDATA ----
@@ -57,7 +60,7 @@ worlds_fairs <- worlds_fairs |>
 # Create a data frame with all months
 all_months <- data.frame(start_month = factor(month.abb, levels = month.abb))
 
-# Left join with your data
+# Left join with plot_data
 data_plot <- all_months |> 
     left_join(worlds_fairs, by = "start_month")
 
