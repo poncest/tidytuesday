@@ -47,9 +47,10 @@ rm(tt)
 glimpse(worlds_fairs)
 skim(worlds_fairs)
 
-library(GGally)
-ggpairs(worlds_fairs[, sapply(worlds_fairs, is.numeric)])
 
+worlds_fairs |> 
+    select(where(is.numeric)) |> 
+    GGally::ggpairs() 
 
 
 ## 4. TIDYDATA ----
