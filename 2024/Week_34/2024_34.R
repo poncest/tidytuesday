@@ -65,8 +65,8 @@ cleaned_monarchs_marriages <- monarchs_marriages |>
     )
 
 # Filter out rows with NA values in king_age or consort_age, and calculate the age gap
-filtered_monarchs_marriages <- cleaned_monarchs_marriages %>%
-    filter(!is.na(king_age) & !is.na(consort_age)) %>%
+filtered_monarchs_marriages <- cleaned_monarchs_marriages |>
+    filter(!is.na(king_age) & !is.na(consort_age)) |>
     mutate(
         age_gap = abs(king_age - consort_age),
         pair_name = paste(king_name, "-", consort_name),
@@ -74,8 +74,8 @@ filtered_monarchs_marriages <- cleaned_monarchs_marriages %>%
     ) 
 
 # Subset for kings labels
-kings_data <- filtered_monarchs_marriages %>%
-    select(pair_name, king_name,king_age, consort_age) %>%
+kings_data <- filtered_monarchs_marriages |>
+    select(pair_name, king_name,king_age, consort_age) |>
     mutate(hjust = case_when(
         king_age < consort_age ~ 1,  
         king_age > consort_age ~ -0.5,  
@@ -83,8 +83,8 @@ kings_data <- filtered_monarchs_marriages %>%
     ))
 
 # Subset for consorts labels
-consorts_data <- filtered_monarchs_marriages%>%
-    select(pair_name, consort_name, consort_age, king_age) %>%
+consorts_data <- filtered_monarchs_marriages|>
+    select(pair_name, consort_name, consort_age, king_age) |>
     mutate(hjust = case_when(
         consort_age < king_age ~ 1,
         consort_age > king_age ~ -0.4,
@@ -138,8 +138,8 @@ theme_update(
     plot.margin           = margin(t = 20, r = 25, b = 20, l = 25),
     axis.title.x          = element_text(margin = margin(10, 0, 0, 0), size = rel(1.2), color = text_col,
                                          family = "text", face = "bold", hjust = 0.5),
-    axis.title.y          = element_blank(),                                    # Hide y-axis title
-    axis.text.y           = element_blank(),                                    # Hide y-axis labels
+    axis.title.y          = element_blank(),                                                                # Hide y-axis title
+    axis.text.y           = element_blank(),                                                                # Hide y-axis labels
     axis.text.x           = element_text(size = rel(0.95), color = text_col, family = "text"),
     axis.line.x           = element_line(color = "gray40", linewidth = 0.12),
     panel.grid.minor.x    = element_blank(),
