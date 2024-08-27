@@ -532,6 +532,13 @@
       ],
       "Hash": "74a64813f17b492da9c6afda6b128e3d"
     },
+    "ash": {
+      "Package": "ash",
+      "Version": "1.0-15",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e16751c399be6260ddf41f8148a3f8ef"
+    },
     "askpass": {
       "Package": "askpass",
       "Version": "1.2.0",
@@ -1612,6 +1619,33 @@
         "tidyselect"
       ],
       "Hash": "29bb601821609476215720798eecf979"
+    },
+    "ggalt": {
+      "Package": "ggalt",
+      "Version": "0.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "KernSmooth",
+        "MASS",
+        "R",
+        "RColorBrewer",
+        "ash",
+        "dplyr",
+        "extrafont",
+        "ggplot2",
+        "grDevices",
+        "graphics",
+        "grid",
+        "gtable",
+        "maps",
+        "plotly",
+        "proj4",
+        "scales",
+        "tibble",
+        "utils"
+      ],
+      "Hash": "bae53c310be0adce98458355c38ef1bf"
     },
     "ggbeeswarm": {
       "Package": "ggbeeswarm",
@@ -3052,6 +3086,18 @@
         "R"
       ],
       "Hash": "7ce2733a9826b3aeb1775d56fd305472"
+    },
+    "maps": {
+      "Package": "maps",
+      "Version": "3.4.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "graphics",
+        "utils"
+      ],
+      "Hash": "5f7886e53a3b39d4a110c7bd7fce9164"
     },
     "markdown": {
       "Package": "markdown",
