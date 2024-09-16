@@ -23,7 +23,7 @@ pacman::p_load(
   NatParksPalettes   # Color Palettes Inspired by National Parks
  )  
 
-### |- figure size ----
+### |- figure size ---- 
 camcorder::gg_record(
   dir    = here::here("temp_plots"),
   device = "png",
