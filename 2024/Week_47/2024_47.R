@@ -132,17 +132,16 @@ theme_update(
 )  
 
 ### |-  plot ----
-
 plot_data |>
   ggplot(aes(x = episode, y = value * 100, color = ratio_type)) +
 
   # Geoms
   geom_line(aes(alpha = ratio_type), linewidth = 1) +
-  geom_point(aes(alpha = ratio_type), size = 1) +
+  geom_point(aes(alpha = ratio_type), size = 1.3) +
   geom_point(
     data = highlight_data,
     aes(y = Exclamations * 100),
-    color = "red", size = 4, shape = 1
+    color = "red", size = 4, shape = 1, stroke = 0.8
   ) +
 
   # Scales
@@ -171,14 +170,14 @@ plot_data |>
   # Theme
   theme(
     plot.title = element_text(
-      size        = rel(2.2),
+      size        = rel(2.3),
       family      = "title",
       face        = "bold",
       color       = title_col,
       margin      = margin(t = 5, b = 5)
     ),
     plot.subtitle = element_marquee(
-      size        = rel(1.1),
+      size        = rel(1.05),
       family      = "subtitle",
       color       = title_col,
       lineheight  = 1.1,
