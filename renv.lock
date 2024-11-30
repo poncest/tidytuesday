@@ -5284,6 +5284,30 @@
       ],
       "Hash": "d524fd42c517035027f866064417d7e6"
     },
+    "usmap": {
+      "Package": "usmap",
+      "Version": "0.7.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "rlang",
+        "usmapdata"
+      ],
+      "Hash": "ffe4a903de2bf9d6ebcfea4e4c06babf"
+    },
+    "usmapdata": {
+      "Package": "usmapdata",
+      "Version": "0.3.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "rlang",
+        "sf"
+      ],
+      "Hash": "c7048cc76fe39d3e68c9b70efd287294"
+    },
     "utf8": {
       "Package": "utf8",
       "Version": "1.2.4",
