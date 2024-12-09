@@ -164,13 +164,13 @@ main <- function() {
         create_image_plot() |>
         ggsave(
             path = here::here("summary/"),
-            filename = "image_plot_TEST.png",
+            filename = "image_plot.png",
             width = 10,
             height = 6,
             units = 'in',
             dpi = 320
         )
-}
+} 
 
 # Run ----
 main()
