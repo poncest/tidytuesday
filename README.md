@@ -1,29 +1,38 @@
+# TidyTuesday Contributions
 
-## <mark> What is TidyTuesday? </mark>
+## What is TidyTuesday?
 
-> Join the `R4DS Online Learning Community` in the weekly `#TidyTuesday` event! We post a raw dataset, a chart, or an article related to that dataset every week and ask you to explore the data. While the dataset will be “tamed,” it will not always be tidy! As such, you might need to apply various `R for Data Science` techniques to wrangle the data into a true tidy format. ' TidyTuesday' aims to apply your R skills, get feedback, explore others’ work, and connect with the greater `#RStats` community! As such, we encourage everyone of all skills to participate!
->
-> Tidy Tuesday intends to provide a safe and supportive forum for individuals to practice their wrangling and data visualization skills independent of drawing conclusions. While we understand that the two are related, this practice focuses purely on building skills with real-world data.
->
-> All data will be posted on the data sets page on Monday. It will include the link to the original article (for context) and the data set.
->
+A weekly data visualization challenge from the `R4DS Online Learning Community`. Each week features:
+- A new dataset for exploration
+- Opportunity to practice data wrangling and visualization
+- Engagement with the `#RStats` community
+- Supportive environment for learning
 
-More information can be found [HERE!](https://github.com/rfordatascience/tidytuesday)
+> TidyTuesday provides a safe and supportive forum for individuals to practice their data wrangling and visualization skills. While the dataset will be "tamed," it might need various `R for Data Science` techniques to achieve a truly tidy format.
 
+Key aspects:
+- Focus on skill-building with real-world data
+- Weekly datasets posted every Monday
+- Original article context provided
+- Inclusive community welcoming all skill levels
 
-## Where to find my contributions?
-This repo contains all related codes for the __#TidyTuesday__ challenge. My contributions are posted on [Twitter](https://twitter.com/sponce1) and [LinkedIn](https://www.linkedin.com/in/stevenponce/). 
+More information available at the [TidyTuesday GitHub repository](https://github.com/rfordatascience/tidytuesday).
 
+## My Contributions
 
-## Feel free to browse the `codes` and `viz`:
-* [2022](/2022/README.md)
+You can find my visualizations on:
+- [X](https://x.com/sponce1)
+- [LinkedIn](https://www.linkedin.com/in/stevenponce/)
+- [Bluesky](https://bsky.app/profile/sponce1.bsky.social)
 
-* [2023](/2023/README.md)
+## Repository Structure
 
-* [2024](/2024/README.md)
+Browse my code and visualizations by year:
+- [2022](/2022/README.md)
+- [2023](/2023/README.md)
+- [2024](/2024/README.md)
+- [2025](/2024/README.md)
 
+## Visualization Gallery
 
-## Montage    
-![Montage](https://github.com/poncest/tidytuesday/blob/main/Summary/image_plot.png "Montage")
-
-
+![TidyTuesday Contribution Summary](https://github.com/poncest/tidytuesday/blob/main/Summary/image_plot.png "Visualization of my TidyTuesday contributions over time")
