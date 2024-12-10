@@ -23,7 +23,7 @@ pacman::p_load(
 )
 
 ### |- figure size ----
-camcorder::gg_record(
+gg_record(
     dir    = here::here("temp_plots"),
     device = "png",
     width  =  12,
@@ -32,9 +32,10 @@ camcorder::gg_record(
     dpi    = 320
 )
 
-### |- resolution ----
-showtext_opts(dpi = 320, regular.wt = 300, bold.wt = 800)
-
+# Source utility functions
+source(here::here("R/utils/fonts.R"))
+source(here::here("R/utils/social_icons.R"))
+source(here::here("R/themes/base_theme.R"))
 
 
 ## 2. READ IN THE DATA ----
@@ -54,7 +55,6 @@ spells_raw <- spells_raw |> clean_names()
 ## 3. EXAMINING THE DATA ----
 glimpse(spells_raw)
 skim(spells_raw)
-
 
 
 ## 4. TIDYDATA ----
@@ -120,82 +120,70 @@ progression_df <- spells_raw |>
 # 5. VISUALIZATION ----
 
 ### |-  plot aesthetics ----
-bkg_col      <- "#f5f5f2"
-title_col    <- "gray20"
-subtitle_col <- "gray30"
-text_col     <- "gray30"
-caption_col  <- "gray40"
-col_palette  <- "#AB4459"        
+# Get base colors with custom palette
+colors <- get_theme_colors(palette = "#AB4459")
+
 
 ### |-  titles and caption ----
-# icons
-tt <- str_glue("#TidyTuesday: { 2024 } Week { 51 } &bull; Source: D&D Free Rules (2024), Spell Descriptions<br>")
-li <- str_glue("<span style='font-family:fa6-brands'>&#xf08c;</span>")
-gh <- str_glue("<span style='font-family:fa6-brands'>&#xf09b;</span>")
-bs <- str_glue("<span style='font-family:fa6-brands'>&#xe671; </span>")
 
-# text
 title_text    <- str_glue("The Arcane Hierarchy: D&D Spellcasting Classes Compared")
 subtitle_text <- "While **_Wizards_** master the most spells overall, **_Clerics_** maintain the largest collection of unique divine magic, highlighting distinct magical specializations across classes."
-caption_text  <- str_glue("{tt} {li} stevenponce &bull; {bs} sponce1 &bull; {gh} poncest &bull; #rstats #ggplot2")
+
+# Create caption
+caption_text <- create_social_caption(
+    tt_year = 2024,
+    tt_week = 51,
+    source_text = "D&D Free Rules (2024), Spell Descriptions"
+)
 
 ### |-  fonts ----
-font_add("fa6-brands", here::here("fonts/6.6.0/Font Awesome 6 Brands-Regular-400.otf"))
-font_add_google("Oswald", regular.wt = 400, family = "title")
-font_add_google("Merriweather Sans", regular.wt = 400, family = "subtitle")
-font_add_google("Merriweather Sans", regular.wt = 400, family = "text")
-font_add_google("Noto Sans", regular.wt = 400, family = "caption")
-showtext_auto(enable = TRUE)
+setup_fonts()
+fonts <- get_font_families()
 
 ### |-  plot theme ----
-theme_set(theme_minimal(base_size = 14, base_family = "text"))
 
-theme_update(
-    plot.title.position   = "plot",
-    plot.caption.position = "plot",
-    legend.position       = "plot",
-    plot.background       = element_rect(fill = bkg_col, color = bkg_col),
-    panel.background      = element_rect(fill = bkg_col, color = bkg_col),
-    plot.margin           = margin(t = 10, r = 20, b = 10, l = 20),
-    axis.title.x          = element_text(margin = margin(10, 0, 0, 0), size = rel(1.05),
-                                         color = text_col, family = "text", face = "bold", hjust = 0.5),
-    axis.title.y          = element_text(margin = margin(0, 10, 0, 0), size = rel(1.05),
-                                         color = text_col, family = "text", face = "bold", hjust = 0.5),
-    axis.line.x           = element_line(color = "#252525", linewidth = .2),
-    axis.title            = element_text(size = rel(0.93), face = "bold", color = text_col),
-    axis.text             = element_text(size = rel(0.79), color = text_col),
-    legend.title          = element_blank(),
-    legend.text           = element_text(size = rel(0.71), color = text_col),
-    panel.grid.major.x    = element_blank(),
-    panel.grid.major.y    = element_line(color = "gray90", linewidth = 0.2),
-    panel.grid.minor      = element_blank(),
-    strip.text            = element_textbox(size     = rel(0.9),
-                                            face     = 'bold',
-                                            color    = text_col,
-                                            hjust    = 0.5,
-                                            halign   = 0.5,
-                                            r        = unit(3, "pt"),
-                                            width    = unit(6, "npc"),
-                                            padding  = margin(2, 0, 2, 0),
-                                            margin   = margin(3, 3, 3, 3),
-                                            fill     = "transparent"),
-    panel.spacing         = unit(1.5, 'lines')
+# Start with base theme
+base_theme <- create_base_theme(colors)
+
+# Add weekly-specific theme elements
+weekly_theme <- extend_weekly_theme(
+    base_theme,
+    theme(
+        # Weekly-specific modifications
+        panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line(color = "gray90", linewidth = 0.2),
+        panel.grid.minor   = element_blank(),
+        strip.text         = element_textbox(size = rel(0.9),
+                                             face = 'bold',
+                                             color = colors$text,
+                                             hjust = 0.5,
+                                             halign = 0.5,
+                                             r = unit(3, "pt"),
+                                             width = unit(6, "npc"),
+                                             padding = margin(2, 0, 2, 0),
+                                             margin = margin(3, 3, 3, 3),
+                                             fill = "transparent"
+        ),
+        panel.spacing = unit(1.5, 'lines')
+    )
 )
+
+# Set theme
+theme_set(weekly_theme)
 
 ### |-  Plot 1 ----
 exclusive_plot <- ggplot(exclusive_df,
                          aes(y = fct_reorder(class, exclusive_spells), x = exclusive_spells)) +
     # Geoms
     geom_bar(stat = "identity", 
-             fill = col_palette[1],
+             fill = colors$palette,
              alpha = 0.8,
              width = 0.75
     ) +
     geom_text(
         aes(label = sprintf("%d spells", exclusive_spells),),
-        # hjust = -0.2,
         size = 3.5,
-        color = if_else(exclusive_df$exclusive_spells < 15, text_col, "#fafafa"),
+        color = if_else(exclusive_df$exclusive_spells < 15, colors$text, "#fafafa"),
         hjust = if_else(exclusive_df$exclusive_spells < 15, -0.2, 1.2),
     ) +
     
@@ -218,22 +206,22 @@ exclusive_plot <- ggplot(exclusive_df,
     # Theme
     theme(
         plot.title = element_text(
-            family = "title", 
+            family = fonts$title, 
             size   = rel(1.4), 
             face   = "bold",
-            color  = title_col,
+            color  = colors$title,
             margin = margin(b = 10)
         ),
         plot.subtitle = element_text(
-            family = "text",
+            family = fonts$text,
             size   = rel(0.9),
-            color  = subtitle_col,
+            color  = colors$subtitle,
             margin = margin(b = 5)
         ),
         panel.grid.minor = element_blank(),
         panel.grid.major.y = element_blank(),
     ) 
-  
+
 ### |-  Plot 2 ----
 progression_plot <- ggplot(progression_df,
                            aes(x = level, y = count, group = class)) +
@@ -248,8 +236,8 @@ progression_plot <- ggplot(progression_df,
             color = 'gray20'
         )
     ) +
-    geom_line(color = col_palette[1], size = 1.2) +
-    geom_point(color = col_palette[1], size = 2.5) +
+    geom_line(color = colors$palette, linewidth = 1.2) +
+    geom_point(color = colors$palette, size = 2.5) +
     
     # Scales
     scale_x_continuous(breaks = seq(0, 9, by = 3)) +
@@ -270,16 +258,16 @@ progression_plot <- ggplot(progression_df,
     # Theme
     theme(
         plot.title = element_text(
-            family = "title", 
+            family = fonts$title, 
             size   = rel(1.4), 
             face   = "bold",
-            color  = title_col,
+            color  = colors$title,
             margin = margin(b = 10)
         ),
         plot.subtitle = element_text(
-            family = "text",
+            family = fonts$text,
             size   = rel(0.9),
-            color  = subtitle_col,
+            color  = colors$subtitle,
             margin = margin(b = 15)
         )
     ) 
@@ -297,30 +285,30 @@ combined_plot <- combined_plot +
         caption  = caption_text,
         theme = theme(
             plot.title = element_text(
-                family = "title", 
+                family = fonts$title, 
                 size   = rel(2.3), 
                 face   = "bold",
-                color  = title_col,
+                color  = colors$title,
                 margin = margin(b = 10)
             ),
             plot.subtitle = element_marquee(
-                family = "text",
+                family = fonts$text,
                 lineheight = 1.1,
                 width  = 1,
                 size   = rel(1.1),
-                color  = subtitle_col,
+                color  = colors$subtitle,
                 margin = margin(b = 5)
             ),
             plot.caption = element_markdown(
-                family = "caption",
+                family = fonts$caption,
                 size   = rel(0.65),
-                color  = caption_col,
+                color  = colors$caption,
                 hjust  = 0.5,
                 margin = margin(t = 5)
             ),
             plot.margin = margin(10, 10, 10, 10),
-            plot.background = element_rect(fill = bkg_col, color = bkg_col),
-            panel.background = element_rect(fill = bkg_col, color = bkg_col)
+            plot.background = element_rect(fill = colors$background, color = colors$background),
+            panel.background = element_rect(fill = colors$background, color = colors$background)
         )
     ) 
 
