@@ -3322,6 +3322,19 @@
       ],
       "Hash": "17e96668f44a28aef0981d9e17c49b59"
     },
+    "networkD3": {
+      "Package": "networkD3",
+      "Version": "0.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "htmlwidgets",
+        "igraph",
+        "magrittr"
+      ],
+      "Hash": "38310ec4ddb1398359abdd603c151067"
+    },
     "nlme": {
       "Package": "nlme",
       "Version": "3.1-164",
@@ -4923,25 +4936,27 @@
     },
     "tidytuesdayR": {
       "Package": "tidytuesdayR",
-      "Version": "1.0.3",
+      "Version": "1.1.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
-        "httr",
+        "cli",
+        "gh",
+        "glue",
         "jsonlite",
         "lubridate",
         "magrittr",
         "purrr",
         "readr",
-        "readxl",
-        "rstudioapi",
+        "rlang",
         "rvest",
+        "tidyr",
         "tools",
         "usethis",
         "xml2"
       ],
-      "Hash": "927fabc1e4f863f9c18098e119f6db82"
+      "Hash": "e618ddcdd43a6e0b27fe982bf6686e6a"
     },
     "tidyverse": {
       "Package": "tidyverse",
@@ -5501,6 +5516,18 @@
         "R"
       ],
       "Hash": "5d4545e140e36476f35f20d0ca87963e"
+    },
+    "wordcloud": {
+      "Package": "wordcloud",
+      "Version": "2.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "RColorBrewer",
+        "Rcpp",
+        "methods"
+      ],
+      "Hash": "dddb6538141ed1e2435cb63c6c748d16"
     },
     "xfun": {
       "Package": "xfun",
