@@ -4,6 +4,23 @@
 ## Author:    Steven Ponce
 ## Date:      2025-01-19
 
+## UPDATED:
+#' P4. Accidents vs. Expedition Size was not normalized per person. 
+#' The rate shows probability of any accident per expedition, which naturally increases with size.
+#' 
+#' BEFORE:
+#' 
+#' Calculated accident rate per expedition: `accidents / total_expeditions`
+#' This showed higher rates for larger teams, but was potentially misleading because larger teams naturally 
+#' have more chances for an accident to occur
+
+#' AFTER:
+    
+#'     Calculated accident rate per person: `total_deaths / (n() * totmembers)`
+#' This revealed that individual climbers actually face higher risks in smaller teams
+#' The visualization now shows risk from an individual climber's perspective rather than an expedition-level view
+
+
 
 ## 1. LOAD PACKAGES & SETUP ----
 if (!require("pacman")) install.packages("pacman")
@@ -127,20 +144,17 @@ climbing_status_data <- peaks_tidy |>
 
 # 4. Accidents vs. Expedition Size 
 accident_data <- exped_tidy |>
-  filter(
-    totmembers > 0,
-    totmembers <= 30
-  ) |>
-  group_by(totmembers) |>
-  summarise(
-    total_expeditions = n(),
-    accidents = sum(mdeaths + hdeaths > 0, na.rm = TRUE),
-    accident_rate = accidents / total_expeditions,
-    .groups = "drop"
-  ) |>
-  # Filter for more reliable statistics
-  filter(total_expeditions >= 5)
-
+    filter(totmembers > 0, totmembers <= 30) |>
+    group_by(totmembers) |>
+    summarise(
+        total_expeditions = n(), 
+        total_people = n() * totmembers,                     # updated
+        total_deaths = sum(mdeaths + hdeaths, na.rm = TRUE),
+        accidents_per_person = total_deaths / total_people,
+        .groups = "drop"
+    ) |>
+    # Filter for more reliable statistics
+    filter(total_expeditions >= 5)
 
 
 # 5. VISUALIZATION ----
@@ -158,10 +172,10 @@ colors <- get_theme_colors(palette = c(
 
 
 ### |-  titles and caption ----
-title_text <- str_glue("The Paradox of Himalayan Climbing Expeditions")
+title_text <- "The Paradox of Himalayan Climbing Expeditions"
 
-subtitle_text <- str_glue("While __larger teams__ achieve __higher success rates__, they also face __increased risks__.<br><br>
-                          Analysis of climbing patterns, team dynamics, and safety implications from 1925 to 2024")
+subtitle_text <- str_glue("While __larger teams__ achieve __higher success rates__, individual climbers face __greater risks__ in smaller teams.<br><br>
+                         Analysis of climbing patterns, team dynamics, and safety implications from 1925 to 2024")
 
 # Create caption
 caption_text <- create_social_caption(
@@ -375,7 +389,7 @@ p3 <- ggplot(climbing_status_data,
     ) +
     # Scales
     scale_x_continuous(
-        expand = expansion(mult = c(0.3, 0.05)),  # Increased left expansion
+        expand = expansion(mult = c(0.3, 0.05)),  
         breaks = seq(0, 80, 20)
     ) +
     scale_fill_manual(
@@ -386,7 +400,7 @@ p3 <- ggplot(climbing_status_data,
             c("Unclimbed", "Climbed")
         )
     ) +
-    # Labs
+    # Labs                                                   
     labs(
         title = "Mountain Ranges: Conquests and Challenges",
         subtitle = "Number of climbed and unclimbed peaks in each mountain range",
@@ -401,42 +415,44 @@ p3 <- ggplot(climbing_status_data,
     )
 
 # 4. Accidents vs. Expedition Size 
+# Update p4 plot to use accidents_per_person
 p4 <- ggplot(accident_data) +
     # Geoms
     geom_hline(
-        yintercept = seq(0, 0.3, 0.05),
+        yintercept = seq(0, 0.01, 0.002),  
         color = "gray95",
         linewidth = 0.3
     ) +
     geom_line(
-        aes(x = totmembers, y = accident_rate),
+        aes(x = totmembers, y = accidents_per_person),  # Changed to per-person metric
         color = colors$palette["risk"],
         linewidth = 0.5,
         alpha = 0.6
     ) +
     geom_point(
-        aes(x = totmembers, y = accident_rate,
+        aes(x = totmembers, y = accidents_per_person,  # Changed to per-person metric
             size = total_expeditions),
         color = colors$palette["risk"],
         alpha = 0.7,
         stroke = 0
     ) +
+    # Update label text to reflect per-person normalization
     geom_label(
-        aes(x = 18, y = 0.25,
-            label = "Larger teams tend to have higher\naccident rates, possibly due to\nmore complex logistics and\nincreased exposure time"),
+        aes(x = 05, y = 0.035,                                                  # updated
+            label = "After normalizing per person,\nsmaller teams show higher\nindividual risk rates than\nlarger teams"),
         size = 3,
         color = colors$text,
         fill = alpha(colors$palette["primary"], 0.01),
-        label.size = 0.25,  
-        label.padding = unit(0.5, "lines"),  
+        label.size = 0.25,
+        label.padding = unit(0.5, "lines"),
         hjust = 0
     ) +
     # Scales
     scale_y_continuous(
         labels = percent_format(),
-        limits = c(-0.02, 0.3),
-        breaks = seq(0, 0.3, 0.05),
-        expand = expansion(mult = c(0, 0.02))
+        limits = c(-0.001, 0.04),  
+        breaks = seq(0, 0.04, 0.005),  
+        expand = expansion(mult = c(0, 0.04))
     ) +
     scale_x_continuous(
         breaks = seq(0, 30, 5),
@@ -452,11 +468,11 @@ p4 <- ggplot(accident_data) +
         )
     ) +
     # Labs
-    labs(
-        title = "Larger Teams Face Higher Risks",
-        subtitle = "Accident rates increase with team size, based on Himalayan expeditions data",
+    labs(                                                                       # updated
+        title = "Team Size and Individual Risk Patterns",
+        subtitle = "Per-person accident rates show varying risks across different team sizes",
         x = "Team Size (Number of Members)",
-        y = "Accident Rate",
+        y = "Accidents per Person",
         size = "Number of Expeditions"
     ) +
     # Theme 
