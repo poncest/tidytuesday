@@ -286,7 +286,7 @@ p2 <- ggplot(episodes_filtered, aes(x = factor(season), y = us_viewers_in_millio
     scale_y_continuous(
         breaks = seq(0, 15, 3),
         limits = c(0, 15),
-        labels = scales::label_number(scale = 1, suffix = " K"),
+        labels = scales::label_number(scale = 1, suffix = " M"),
     ) +
     
     # Labs
