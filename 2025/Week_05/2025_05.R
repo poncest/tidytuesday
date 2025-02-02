@@ -404,7 +404,7 @@ combined_plot <- combined_plot +
             )
         )
 
-combined_plot    
+combined_plot  
 
 
 # 6. SESSION INFO ----
