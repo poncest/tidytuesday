@@ -3322,19 +3322,6 @@
       ],
       "Hash": "17e96668f44a28aef0981d9e17c49b59"
     },
-    "networkD3": {
-      "Package": "networkD3",
-      "Version": "0.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "htmlwidgets",
-        "igraph",
-        "magrittr"
-      ],
-      "Hash": "38310ec4ddb1398359abdd603c151067"
-    },
     "nlme": {
       "Package": "nlme",
       "Version": "3.1-164",
@@ -5497,7 +5484,7 @@
     },
     "withr": {
       "Package": "withr",
-      "Version": "3.0.1",
+      "Version": "3.0.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -5505,7 +5492,7 @@
         "grDevices",
         "graphics"
       ],
-      "Hash": "07909200e8bbe90426fbfeb73e1e27aa"
+      "Hash": "cc2d62c76458d425210d1eb1478b30b4"
     },
     "wk": {
       "Package": "wk",
@@ -5516,18 +5503,6 @@
         "R"
       ],
       "Hash": "5d4545e140e36476f35f20d0ca87963e"
-    },
-    "wordcloud": {
-      "Package": "wordcloud",
-      "Version": "2.6",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "RColorBrewer",
-        "Rcpp",
-        "methods"
-      ],
-      "Hash": "dddb6538141ed1e2435cb63c6c748d16"
     },
     "xfun": {
       "Package": "xfun",
