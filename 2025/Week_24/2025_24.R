@@ -35,7 +35,6 @@ source(here::here("R/themes/base_theme.R"))
 ## 2. READ IN THE DATA ----
 tt <- tidytuesdayR::tt_load(2025, week = 24)
 
-# categories_raw <- tt$api_categories |> clean_names()
 info_raw <- tt$api_info |> clean_names()
 apis_raw <- tt$apisguru_apis |> clean_names()
 
