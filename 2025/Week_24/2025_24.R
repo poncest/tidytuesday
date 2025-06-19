@@ -49,29 +49,29 @@ glimpse(apis_raw)
 
 ## 4. TIDYDATA ----
 apis_minimal <- apis_raw |>
-    left_join(info_raw, by = "name") |>
-    select(name, added, updated, provider_name) |>
-    mutate(
-        added_date = as_date(added),
-        updated_date = as_date(updated)
-    ) |>
-    filter(!is.na(added_date), !is.na(updated_date))
+  left_join(info_raw, by = "name") |>
+  select(name, added, updated, provider_name) |>
+  mutate(
+    added_date = as_date(added),
+    updated_date = as_date(updated)
+  ) |>
+  filter(!is.na(added_date), !is.na(updated_date))
 
 catalog_analysis <- apis_minimal |>
-    mutate(
-        days_between_add_update = as.numeric(updated_date - added_date),
-        catalog_update_type = case_when(
-            days_between_add_update == 0 ~ "Same-day catalog processing",
-            days_between_add_update <= 7 ~ "Updated within week",
-            days_between_add_update <= 30 ~ "Updated within month", 
-            days_between_add_update <= 365 ~ "Updated within year",
-            days_between_add_update > 365 ~ "Long gap before catalog update",
-            TRUE ~ "Other"
-        ),
-        same_day_processing = days_between_add_update == 0,
-        days_for_viz = ifelse(days_between_add_update == 0, 0.5, days_between_add_update)
-    ) |>
-    filter(days_between_add_update >= 0)
+  mutate(
+    days_between_add_update = as.numeric(updated_date - added_date),
+    catalog_update_type = case_when(
+      days_between_add_update == 0 ~ "Same-day catalog processing",
+      days_between_add_update <= 7 ~ "Updated within week",
+      days_between_add_update <= 30 ~ "Updated within month",
+      days_between_add_update <= 365 ~ "Updated within year",
+      days_between_add_update > 365 ~ "Long gap before catalog update",
+      TRUE ~ "Other"
+    ),
+    same_day_processing = days_between_add_update == 0,
+    days_for_viz = ifelse(days_between_add_update == 0, 0.5, days_between_add_update)
+  ) |>
+  filter(days_between_add_update >= 0)
 
 # Calculate key statistics
 total_apis <- nrow(catalog_analysis)
@@ -82,27 +82,27 @@ later_updated_pct <- round(later_updated_count / total_apis * 100, 1)
 
 # P2. Provider Analysis ----
 provider_catalog_analysis <- apis_minimal |>
-    mutate(
-        days_between_add_update = as.numeric(updated_date - added_date),
-        same_day_processing = days_between_add_update == 0
-    ) |>
-    filter(days_between_add_update >= 0) |>
-    group_by(provider_name) |>
-    filter(n() >= 3) |>
-    summarise(
-        total_apis = n(),
-        same_day_apis = sum(same_day_processing),
-        same_day_rate = round((same_day_apis / total_apis) * 100, 1),
-        avg_days_to_update = round(mean(days_between_add_update), 1),
-        .groups = "drop"
-    ) |>
-    filter(same_day_rate > 0) |>
-    arrange(desc(same_day_rate)) |>
-    head(15) |> # Top 15 by same-day processing rate
-    mutate(
-        provider_clean = str_trunc(str_to_title(provider_name), 35),
-        provider_clean = fct_reorder(provider_clean, same_day_rate)
-    )
+  mutate(
+    days_between_add_update = as.numeric(updated_date - added_date),
+    same_day_processing = days_between_add_update == 0
+  ) |>
+  filter(days_between_add_update >= 0) |>
+  group_by(provider_name) |>
+  filter(n() >= 3) |>
+  summarise(
+    total_apis = n(),
+    same_day_apis = sum(same_day_processing),
+    same_day_rate = round((same_day_apis / total_apis) * 100, 1),
+    avg_days_to_update = round(mean(days_between_add_update), 1),
+    .groups = "drop"
+  ) |>
+  filter(same_day_rate > 0) |>
+  arrange(desc(same_day_rate)) |>
+  head(15) |> # Top 15 by same-day processing rate
+  mutate(
+    provider_clean = str_trunc(str_to_title(provider_name), 35),
+    provider_clean = fct_reorder(provider_clean, same_day_rate)
+  )
 
 
 ## 5. VISUALIZATION ----
