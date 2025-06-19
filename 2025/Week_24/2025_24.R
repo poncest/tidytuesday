@@ -49,52 +49,60 @@ glimpse(apis_raw)
 
 ## 4. TIDYDATA ----
 apis_minimal <- apis_raw |>
-  left_join(info_raw, by = "name") |>
-  select(name, added, updated, provider_name) |>
-  mutate(
-    added_date = as_date(added),
-    updated_date = as_date(updated)
-  ) |>
-  filter(!is.na(added_date), !is.na(updated_date))
+    left_join(info_raw, by = "name") |>
+    select(name, added, updated, provider_name) |>
+    mutate(
+        added_date = as_date(added),
+        updated_date = as_date(updated)
+    ) |>
+    filter(!is.na(added_date), !is.na(updated_date))
 
-# P1. The API Graveyard Data ----
-maintenance_analysis <- apis_minimal |>
-  mutate(
-    days_between_add_update = as.numeric(updated_date - added_date),
-    same_day_update = days_between_add_update == 0,
-    days_for_viz = ifelse(days_between_add_update == 0, 0.5, days_between_add_update)
-  ) |>
-  filter(days_between_add_update >= 0)
+catalog_analysis <- apis_minimal |>
+    mutate(
+        days_between_add_update = as.numeric(updated_date - added_date),
+        catalog_update_type = case_when(
+            days_between_add_update == 0 ~ "Same-day catalog processing",
+            days_between_add_update <= 7 ~ "Updated within week",
+            days_between_add_update <= 30 ~ "Updated within month", 
+            days_between_add_update <= 365 ~ "Updated within year",
+            days_between_add_update > 365 ~ "Long gap before catalog update",
+            TRUE ~ "Other"
+        ),
+        same_day_processing = days_between_add_update == 0,
+        days_for_viz = ifelse(days_between_add_update == 0, 0.5, days_between_add_update)
+    ) |>
+    filter(days_between_add_update >= 0)
 
 # Calculate key statistics
-total_apis <- nrow(maintenance_analysis)
-never_updated_count <- sum(maintenance_analysis$same_day_update)
-never_updated_pct <- round(never_updated_count / total_apis * 100, 1)
-updated_count <- total_apis - never_updated_count
-updated_pct <- round(updated_count / total_apis * 100, 1)
+total_apis <- nrow(catalog_analysis)
+same_day_count <- sum(catalog_analysis$same_day_processing)
+same_day_pct <- round(same_day_count / total_apis * 100, 1)
+later_updated_count <- total_apis - same_day_count
+later_updated_pct <- round(later_updated_count / total_apis * 100, 1)
 
 # P2. Provider Analysis ----
-provider_analysis <- apis_minimal |>
-  mutate(
-    days_between_add_update = as.numeric(updated_date - added_date),
-    same_day_update = days_between_add_update == 0
-  ) |>
-  filter(days_between_add_update >= 0) |>
-  group_by(provider_name) |>
-  filter(n() >= 3) |>
-  summarise(
-    total_apis = n(),
-    never_updated_apis = sum(same_day_update),
-    abandonment_rate = round((never_updated_apis / total_apis) * 100, 1),
-    .groups = "drop"
-  ) |>
-  filter(abandonment_rate > 0) |>
-  arrange(desc(abandonment_rate)) |>
-  head(15) |> # Top 15 by abandonment rate
-  mutate(
-    provider_clean = str_trunc(str_to_title(provider_name), 35),
-    provider_clean = fct_reorder(provider_clean, abandonment_rate)
-  )
+provider_catalog_analysis <- apis_minimal |>
+    mutate(
+        days_between_add_update = as.numeric(updated_date - added_date),
+        same_day_processing = days_between_add_update == 0
+    ) |>
+    filter(days_between_add_update >= 0) |>
+    group_by(provider_name) |>
+    filter(n() >= 3) |>
+    summarise(
+        total_apis = n(),
+        same_day_apis = sum(same_day_processing),
+        same_day_rate = round((same_day_apis / total_apis) * 100, 1),
+        avg_days_to_update = round(mean(days_between_add_update), 1),
+        .groups = "drop"
+    ) |>
+    filter(same_day_rate > 0) |>
+    arrange(desc(same_day_rate)) |>
+    head(15) |> # Top 15 by same-day processing rate
+    mutate(
+        provider_clean = str_trunc(str_to_title(provider_name), 35),
+        provider_clean = fct_reorder(provider_clean, same_day_rate)
+    )
 
 
 ## 5. VISUALIZATION ----
@@ -148,15 +156,15 @@ weekly_theme <- extend_weekly_theme(
 theme_set(weekly_theme)
 
 # P1. The API Graveyard Plot ----
-p1 <- maintenance_analysis |>
+p1 <- catalog_analysis |>
   ggplot(aes(x = added_date, y = days_for_viz)) +
   # Geoms
   geom_point(
-    data = maintenance_analysis |> filter(!same_day_update),
+    data = catalog_analysis |> filter(!same_day_processing),
     color = colors$palette[1], size = 1.5, alpha = 0.6
   ) +
   geom_point(
-    data = maintenance_analysis |> filter(same_day_update),
+    data = catalog_analysis |> filter(same_day_processing),
     color = colors$palette[2], size = 2.5, alpha = 0.9
   ) +
   # Scales
@@ -168,28 +176,30 @@ p1 <- maintenance_analysis |>
   # Annotations
   annotate("text",
     x = as.Date("2016-06-01"), y = 12,
-    label = paste0("Gray dots: Updated after addition\n(", updated_count, " APIs • ", updated_pct, "%)"),
+    label = paste0("Gray dots: Updated later in catalog\n(", later_updated_count, " APIs • ", later_updated_pct, "%)"),
     color = colors$palette[1], size = 3.5, fontface = "bold",
     hjust = 0, vjust = 0
   ) +
   annotate("text",
     x = as.Date("2016-06-01"), y = 0.9,
-    label = paste0("Red dots: Never updated\n(", never_updated_count, " APIs • ", never_updated_pct, "%)"),
+    label = paste0("Red dots: Same-day catalog processing\n(", same_day_count, " APIs • ", same_day_pct, "%)"),
     color = colors$palette[2], size = 3.5, fontface = "bold",
     hjust = 0, vjust = 0
   ) +
   # Labs
   labs(
-    title = "<span style='color:#E74C3C'>**The API Graveyard**</span>: A Tale of Digital Neglect",
-    subtitle = paste0("**", never_updated_pct, "%** of APIs are <span style='color:#E74C3C'>**never updated**</span> after being added to the catalog<br><br>",
-                      "<span style='color:#1a1a1a; font-size:14px'>**Days Since Last Update (log scale)**</span>"),
+    title = "**API Catalog Maintenance Patterns**",
+    subtitle = paste0(
+      "**", same_day_pct, "%** of APIs have <span style='color:#E74C3C'>**same-day catalog processing**</span> when added to APIs.guru<br><br>",
+      "<span style='color:#555555; font-size:10px'>**Days Between Addition and Catalog Update (log scale)**</span>"
+    ),
     x = "Date Added to APIs.guru",
     y = NULL,
   ) +
   # Theme
   theme(
     plot.title = element_markdown(
-      size = rel(1.4),
+      size = rel(1.6),
       family = fonts$title,
       face = "bold",
       color = colors$title,
@@ -208,11 +218,11 @@ p1 <- maintenance_analysis |>
   )
 
 # P2. Provider Responsibility Breakdown Plot ----
-p2 <- provider_analysis |>
-  ggplot(aes(x = provider_clean, y = abandonment_rate)) +
+p2 <- provider_catalog_analysis |>
+  ggplot(aes(x = provider_clean, y = same_day_rate)) +
   # Geoms
   geom_col(fill = colors$palette[2], alpha = 0.7, width = 0.7) +
-  geom_text(aes(label = paste0(abandonment_rate, "% •  (", never_updated_apis, "/", total_apis, ")")),
+  geom_text(aes(label = paste0(same_day_rate, "% • (", same_day_apis, "/", total_apis, ")")),
     hjust = -0.1, size = 3, color = "gray50", fontface = "bold"
   ) +
   # Scales
@@ -223,15 +233,15 @@ p2 <- provider_analysis |>
   coord_flip() +
   # Labs
   labs(
-    title = "**API Maintenance Patterns by Provider**",
-    subtitle = "Providers with the highest rates of APIs that were never updated after initial publication",
+    title = "**Catalog Processing Patterns by Provider**",
+    subtitle = "Providers with highest rates of same-day catalog processing on APIs.guru",
     x = NULL,
-    y = "% of APIs Never Updated After Addition",
+    y = "% of APIs with Same-Day Catalog Processing",
   ) +
   # Theme
   theme(
     plot.title = element_markdown(
-      size = rel(1.4),
+      size = rel(1.6),
       family = fonts$title,
       face = "bold",
       color = colors$title,
@@ -250,7 +260,6 @@ p2 <- provider_analysis |>
     axis.text.y = element_text(size = 9),
     plot.caption = element_text(size = 8, color = colors$palette[3])
   )
-
 
 # Final plot -----
 combined_plot <- p1 / p2 +
