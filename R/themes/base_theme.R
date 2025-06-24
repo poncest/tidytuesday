@@ -5,7 +5,7 @@
 #' @return List of theme colors
 get_theme_colors <- function(palette = NULL) {
     list(
-        background = "#f5f5f2",
+        background = "#FDFDFD",      #"#f5f5f2"
         title      = "gray20",
         subtitle   = "gray30",
         text       = "gray30",
