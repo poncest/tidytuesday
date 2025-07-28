@@ -213,7 +213,7 @@ colors <- get_theme_colors(
 )
 
 ### |- titles and caption ----
-title_text <- str_glue("Netflix Content Viewing Velocity Analysis (Jul to Dec 2023)")
+title_text <- str_glue("Netflix Content Viewing Velocity Analysis (Jan to Jun 2025)")
 subtitle_text <- str_glue("Strategic insights into audience capture patterns and performance metrics")
 
 caption_text <- create_social_caption(
