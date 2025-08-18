@@ -15,9 +15,13 @@ setup_fonts <- function() {
     font_add_google("Oswald", regular.wt = 400, family = "title")
     # font_add_google("Merriweather Sans", regular.wt = 400, family = "subtitle")
     # font_add_google("Merriweather Sans", regular.wt = 400, family = "text")
-    font_add_google("Inter", regular.wt = 400, family = "subtitle") 
-    font_add_google("Inter", regular.wt = 400, family = "body") 
-    font_add_google("Inter", regular.wt = 400, family = "text")
+    # font_add_google("Inter", regular.wt = 400, family = "subtitle") 
+    # font_add_google("Inter", regular.wt = 400, family = "body") 
+    # font_add_google("Inter", regular.wt = 400, family = "text")
+    
+    font_add_google("Roboto", regular.wt = 400, family = "subtitle") 
+    font_add_google("Roboto", regular.wt = 400, family = "body") 
+    font_add_google("Roboto", regular.wt = 400, family = "text")
     font_add_google("Noto Sans", regular.wt = 400, family = "caption")
     
     # Enable showtext
