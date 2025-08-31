@@ -193,8 +193,7 @@ species_seasonal |>
     shape = 21, size = 4, fill = "white", color = "black", stroke = 1.2
   ) +
   # Scales
-  # scale_color_viridis_d(name = "Frog Subfamily", option = "plasma") +
-    colorspace::scale_colour_discrete_qualitative(palette = ) +
+  scale_color_viridis_d(name = "Frog Subfamily", option = "plasma") +
   scale_x_log10(labels = comma_format()) +
   scale_y_discrete(labels = season_stats$season_label) +
   # Labs
