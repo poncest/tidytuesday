@@ -155,79 +155,85 @@ theme_set(weekly_theme)
 
 ### |-  P1: season plot ----
 p1 <-
-    ggplot(season_df, aes(day_of_year, observations, color = season)) +
-    # Geoms
-    geom_point(alpha = 0.18, size = 1) +
-    geom_smooth(
-        method = "gam",
-        formula = y ~ s(x, bs = "cs", k = 20),
-        se = TRUE, alpha = 0.12, linewidth = 1.6
-    ) +
-    geom_label_repel(
-        data = labs_df,
-        aes(day_of_year, obs, label = paste0(season, " migration")),
-        nudge_y = 2000,     
-        direction = "y",
-        seed = 42,
-        size = 3.8,
-        fill = "white",
-        label.size = 0,
-        segment.color = "grey60"
-    ) +
-    # Scales
-    scale_color_manual(values = colors$palette) +
-    scale_y_continuous(labels = label_number(big.mark = ",")) +
-    scale_x_continuous(
-        breaks = c(60, 91, 121, 244, 274, 305),
-        labels = c("Mar","Apr","May","Sep","Oct","Nov"),
-        limits = c(55, 310)   # trims dead space
-    ) +
-    # Labs
-    labs(
-        title = "Spring migration attracts the largest flocks",
-        subtitle = "Daily counts (1994–2024) show spring peaks are earlier and consistently higher than fall",
-        x = NULL, y = "Number of cranes observed",
-    ) +
-    # Theme
-    theme(
-        panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_blank(),
-    )
+  ggplot(season_df, aes(day_of_year, observations, color = season)) +
+  # Geoms
+  geom_point(alpha = 0.18, size = 1) +
+  geom_smooth(
+    method = "gam",
+    formula = y ~ s(x, bs = "cs", k = 20),
+    se = TRUE, alpha = 0.12, linewidth = 1.6
+  ) +
+  geom_label_repel(
+    data = labs_df,
+    aes(day_of_year, obs, label = paste0(season, " migration")),
+    nudge_y = 2000,
+    direction = "y",
+    seed = 42,
+    size = 3.8,
+    fill = "white",
+    label.size = 0,
+    segment.color = "grey60"
+  ) +
+  # Scales
+  scale_color_manual(values = colors$palette) +
+  scale_y_continuous(labels = label_number(big.mark = ",")) +
+  scale_x_continuous(
+    breaks = c(60, 91, 121, 244, 274, 305),
+    labels = c("Mar", "Apr", "May", "Sep", "Oct", "Nov"),
+    limits = c(55, 310) # trims dead space
+  ) +
+  # Labs
+  labs(
+    title = "Spring migration attracts the largest flocks",
+    subtitle = "Daily counts (1994–2024) show spring peaks are earlier and consistently higher than fall",
+    x = NULL, y = "Number of cranes observed",
+  ) +
+  # Theme
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+  )
 
 
 ### |-  P2: Cumulative line chart ----
 p2 <-
-    ggplot(cum_df, aes(day_of_year, cumulative, group = year)) +
-    # Geoms
-    geom_line(data = ~filter(.x, !is_hi),
-              color = "grey85", linewidth = 0.7, alpha = 0.9) +
-    geom_line(data = ~filter(.x, is_hi),
-              aes(color = factor(year)), linewidth = 1.4) +
-    geom_text(
-        data = cum_df |>
-            filter(is_hi) |>
-            group_by(year) |>
-            slice_max(day_of_year, n = 1, with_ties = FALSE),
-        aes(label = paste0(year, ": ", scales::label_number(big.mark = ",")(cumulative))),
-        hjust = -0.05, vjust = 0.5, size = 3.4
-    ) +
-    # Scales
-    scale_color_manual(values = colors$palette) +
-    scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) +
-    scale_x_continuous(breaks = c(60,121,182,244,305,365),
-                       labels = c("Mar","May","Jul","Sep","Nov","Dec"), limits = c(55, 365)) +
-    coord_cartesian(clip = "off") +
-    # Labs
-    labs(
-        title = "Annual crane observations have more than tripled since the 1990s",
-        subtitle = "Recent years now exceed 400K cranes compared with ~75K in the mid-1990s",
-        x = NULL, y = "Cumulative number of cranes",
-    ) +
-    # Theme
-    theme(
-        panel.grid.minor = element_blank(),
-        plot.margin = margin(10, 40, 10, 10),
-    )
+  ggplot(cum_df, aes(day_of_year, cumulative, group = year)) +
+  # Geoms
+  geom_line(
+    data = ~ filter(.x, !is_hi),
+    color = "grey85", linewidth = 0.7, alpha = 0.9
+  ) +
+  geom_line(
+    data = ~ filter(.x, is_hi),
+    aes(color = factor(year)), linewidth = 1.4
+  ) +
+  geom_text(
+    data = cum_df |>
+      filter(is_hi) |>
+      group_by(year) |>
+      slice_max(day_of_year, n = 1, with_ties = FALSE),
+    aes(label = paste0(year, ": ", scales::label_number(big.mark = ",")(cumulative))),
+    hjust = -0.05, vjust = 0.5, size = 3.4
+  ) +
+  # Scales
+  scale_color_manual(values = colors$palette) +
+  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) +
+  scale_x_continuous(
+    breaks = c(60, 121, 182, 244, 305, 365),
+    labels = c("Mar", "May", "Jul", "Sep", "Nov", "Dec"), limits = c(55, 365)
+  ) +
+  coord_cartesian(clip = "off") +
+  # Labs
+  labs(
+    title = "Annual crane observations have more than tripled since the 1990s",
+    subtitle = "Recent years now exceed 400K cranes compared with ~75K in the mid-1990s",
+    x = NULL, y = "Cumulative number of cranes",
+  ) +
+  # Theme
+  theme(
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 40, 10, 10),
+  )
 
 ### |-  Combined plots ----
 combined_plots <- (p1 / p2) +
