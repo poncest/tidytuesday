@@ -291,7 +291,7 @@ ggplot(participation, aes(year, n_countries, group = item_short)) +
 # VIEW SOURCE CODE:
 # -----------------------------------------------------------------------------
 # All helper functions are open source on GitHub:
-# 🔗 https://github.com/poncest/personal-website/tree/master/R
+# 🔗 https://github.com/poncest/tidytuesday/tree/main/R
 #
 # Main files:
 #   • R/utils/fonts.R         - Font setup and management
@@ -304,7 +304,7 @@ ggplot(participation, aes(year, n_countries, group = item_short)) +
 # To run this script:
 #
 # Option 1 - Use the helper functions (recommended):
-#   1. Clone the repo: https://github.com/poncest/personal-website
+#   1. Clone the repo: https://github.com/poncest/tidytuesday/
 #   2. Make sure the R/ directory structure is maintained
 #   3. Run the script as-is
 #
