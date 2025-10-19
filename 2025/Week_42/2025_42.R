@@ -17,7 +17,7 @@ pacman::p_load(
   janitor,       # Simple Tools for Examining and Cleaning Dirty Data
   scales,        # Scale Functions for Visualization
   glue,          # Interpreted String Literals
-  patchwork      # The Composer of Plots # The Composer of Plots
+  patchwork      # The Composer of Plots
 )
 
 ### |- figure size ----
