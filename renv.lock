@@ -628,6 +628,13 @@
       ],
       "Hash": "93637e906f3fe962413912c956eb44db"
     },
+    "binom": {
+      "Package": "binom",
+      "Version": "1.1-1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "c2f4ef4ce8029c1131de4400bcabcbf7"
+    },
     "bit": {
       "Package": "bit",
       "Version": "4.0.5",
@@ -2984,6 +2991,31 @@
         "stats"
       ],
       "Hash": "b0e8307b2e335a19b5b493326939b301"
+    },
+    "kableExtra": {
+      "Package": "kableExtra",
+      "Version": "1.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "digest",
+        "grDevices",
+        "graphics",
+        "htmltools",
+        "knitr",
+        "magrittr",
+        "rmarkdown",
+        "rstudioapi",
+        "scales",
+        "stats",
+        "stringr",
+        "svglite",
+        "tools",
+        "viridisLite",
+        "xml2"
+      ],
+      "Hash": "532d16304274c23c8563f94b79351c86"
     },
     "knitr": {
       "Package": "knitr",
