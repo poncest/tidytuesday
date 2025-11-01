@@ -162,7 +162,7 @@ pct_leq_30 <- combined_data |>
   pull(p) |>
   round(0)
 
-caption_text <- create_social_caption(
+caption_text <- create_social_caption_02(
     tt_year = 2025,
     tt_week = 44,
     note_text = glue::glue(
