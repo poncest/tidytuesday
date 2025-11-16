@@ -1049,20 +1049,6 @@
       ],
       "Hash": "e8a1e41acf02548751f45c718d55aa6a"
     },
-    "credentials": {
-      "Package": "credentials",
-      "Version": "2.0.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "askpass",
-        "curl",
-        "jsonlite",
-        "openssl",
-        "sys"
-      ],
-      "Hash": "c7844b32098dcbd1c59cbd8dddb4ecc6"
-    },
     "crosstalk": {
       "Package": "crosstalk",
       "Version": "1.2.1",
@@ -1651,21 +1637,6 @@
         "textshaping"
       ],
       "Hash": "81892bf514a45a5d905188d391d13e70"
-    },
-    "gert": {
-      "Package": "gert",
-      "Version": "2.0.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "askpass",
-        "credentials",
-        "openssl",
-        "rstudioapi",
-        "sys",
-        "zip"
-      ],
-      "Hash": "f70d3fe2d9e7654213a946963d1591eb"
     },
     "ggalluvial": {
       "Package": "ggalluvial",
@@ -2991,31 +2962,6 @@
         "stats"
       ],
       "Hash": "b0e8307b2e335a19b5b493326939b301"
-    },
-    "kableExtra": {
-      "Package": "kableExtra",
-      "Version": "1.4.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "digest",
-        "grDevices",
-        "graphics",
-        "htmltools",
-        "knitr",
-        "magrittr",
-        "rmarkdown",
-        "rstudioapi",
-        "scales",
-        "stats",
-        "stringr",
-        "svglite",
-        "tools",
-        "viridisLite",
-        "xml2"
-      ],
-      "Hash": "532d16304274c23c8563f94b79351c86"
     },
     "knitr": {
       "Package": "knitr",
@@ -4993,7 +4939,7 @@
     },
     "tidytuesdayR": {
       "Package": "tidytuesdayR",
-      "Version": "1.1.2",
+      "Version": "1.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -5010,10 +4956,10 @@
         "rvest",
         "tidyr",
         "tools",
-        "usethis",
+        "utils",
         "xml2"
       ],
-      "Hash": "e618ddcdd43a6e0b27fe982bf6686e6a"
+      "Hash": "087d5251ab365d71a0841ff32059576f"
     },
     "tidyverse": {
       "Package": "tidyverse",
@@ -5325,37 +5271,6 @@
       ],
       "Hash": "9cc31e3592089bfd82c69a65260f1e37"
     },
-    "usethis": {
-      "Package": "usethis",
-      "Version": "2.2.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "cli",
-        "clipr",
-        "crayon",
-        "curl",
-        "desc",
-        "fs",
-        "gert",
-        "gh",
-        "glue",
-        "jsonlite",
-        "lifecycle",
-        "purrr",
-        "rappdirs",
-        "rlang",
-        "rprojroot",
-        "rstudioapi",
-        "stats",
-        "utils",
-        "whisker",
-        "withr",
-        "yaml"
-      ],
-      "Hash": "d524fd42c517035027f866064417d7e6"
-    },
     "usmap": {
       "Package": "usmap",
       "Version": "0.7.1",
@@ -5527,13 +5442,6 @@
       ],
       "Hash": "fea474d578b1cbcb696ae6ac8bdcc439"
     },
-    "whisker": {
-      "Package": "whisker",
-      "Version": "0.4.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "c6abfa47a46d281a7d5159d0a8891e88"
-    },
     "widyr": {
       "Package": "widyr",
       "Version": "0.1.5",
@@ -5642,13 +5550,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "ee9b643aa8331c45d8d82eb3a137c9bc"
-    },
-    "zip": {
-      "Package": "zip",
-      "Version": "2.3.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "fcc4bd8e6da2d2011eb64a5e5cc685ab"
     },
     "zoo": {
       "Package": "zoo",
