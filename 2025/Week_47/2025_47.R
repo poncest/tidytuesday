@@ -285,7 +285,7 @@ ggplot() +
     legend.position = "top",
     legend.justification = "left",
     legend.text = element_text(size = 11),
-  )
+  ) 
 
 
 # 6. HELPER FUNCTIONS DOCUMENTATION ----
