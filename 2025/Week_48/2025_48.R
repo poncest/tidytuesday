@@ -115,11 +115,9 @@ colors <- get_theme_colors(
 title_text <- "The Böögg Cannot Predict Record Hot Summers"
 
 subtitle_text <- str_glue(
-    "Zurich's exploding snowman is folklore, not forecasting. Record summers ",
-    "(avg >{record_threshold}°C) occur across **all burn durations** from {min(plot_data$duration)} to {max(plot_data$duration)} minutes.<br>",
-    "Correlation between burn duration and avg summer temp is ",
-    "r = {scales::number(cor_duration_temp, accuracy = 0.01, signed = TRUE)} ",
-    "(folklore predicts negative)."
+    "**The folklore:** A faster Böögg explosion means a hotter summer.<br>",
+    "**The reality:** Record summers (>{record_threshold}°C) occurred whether the Böögg took ", 
+    "{min(plot_data$duration)} minutes or {max(plot_data$duration)}. Correlation: r = +0.19."
 )
 
 caption_text <- create_social_caption(
@@ -248,12 +246,22 @@ plot_data |>
     family = fonts$text
   ) +
   annotate(
+    "segment",
+    x = 8, xend = 50,
+    y = 20.5, yend = 17.5,
+    color = "gray70",
+    linewidth = 0.8,
+    linetype = "dotted",
+    arrow = arrow(length = unit(0.15, "inches"), type = "closed")
+  ) +
+  annotate(
     "text",
-    x = mean(c(min_record_duration, max_record_duration)),
-    y = 14.45,
-    label = "Record summers span all burn durations",
-    size = 2.8,
-    color = colors$palette["annotation"],
+    x = 52, y = 17.3,
+    label = "What folklore\npredicts",
+    size = 2.5,
+    color = "gray50",
+    hjust = 0,
+    lineheight = 0.9,
     fontface = "italic"
   ) +
   # Scales
