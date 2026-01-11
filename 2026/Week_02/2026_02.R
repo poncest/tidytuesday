@@ -1,7 +1,7 @@
-## Challenge: #TidyTuesday 2026 week 01
-## Data:      BYOD - Google "Diet" Trends
+## Challenge: #TidyTuesday 2026 week 02
+## Data:      The Languages of Africa
 ## Author:    Steven Ponce
-## Date:      2026-01-08
+## Date:      2026-01-11
 
 ## NOTE: This script uses custom helper functions for theming and formatting.
 ##       See "HELPER FUNCTIONS DOCUMENTATION" section at the end for details
