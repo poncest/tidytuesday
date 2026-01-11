@@ -224,6 +224,12 @@ ggplot(family_summary, aes(x = hhi_concentration, y = n_countries)) +
     ) + 
     # Theme
     theme(
+        axis.title.y = element_text(
+            angle = 0,           # Makes it horizontal
+            vjust = 1.02,        # Pushes it to the top of the axis
+            hjust = 0.5,
+            margin = margin(r = -50) # Adjusts distance from the axis
+        ),
     plot.title = element_markdown(
         size = rel(1.4),
         family = fonts$title,
