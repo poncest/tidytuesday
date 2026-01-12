@@ -1,3 +1,1 @@
-
-![](image_plot.png)
- 
+![](tidytuesday_heatmap.png)
