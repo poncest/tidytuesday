@@ -44,4 +44,4 @@ Connect with me and see my latest work:
 
 The heatmap below reflects my weekly consistency across the years.
 
-![](summary/tidytuesday_heatmap.png)
+![](https://raw.githubusercontent.com/poncest/tidytuesday/main/Summary/tidytuesday_heatmap.png)
