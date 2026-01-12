@@ -40,7 +40,7 @@ Connect with me and see my latest work:
 
 ------------------------------------------------------------------------
 
-## 📊 Visualization Gallery
+## 🎨 Visualization Gallery
 
 The heatmap below reflects my weekly consistency across the years.
 
