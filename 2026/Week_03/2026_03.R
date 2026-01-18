@@ -1,4 +1,4 @@
-## Challenge: #TidyTuesday 2026 week 04
+## Challenge: #TidyTuesday 2026 week 03
 ## Data:      Astronomy Picture of the Day (APOD) Archive
 ## Author:    Steven Ponce
 ## Date:      2026-01-18
