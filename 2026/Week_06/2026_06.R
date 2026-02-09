@@ -59,7 +59,6 @@ schedule_clean <- schedule |>
   filter(!is.na(period)) |>
   mutate(period = fct_relevel(period, "Opening Days (1-3)", "Finals Week"))
 
-
 ### |-  calculate medal event share ----
 medal_share_comparison <- schedule_clean |>
   count(period, hour_local, is_medal_event) |>
