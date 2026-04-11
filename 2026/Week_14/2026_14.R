@@ -48,93 +48,93 @@ glimpse(repairs_text)
 
 # Binary outcome: repaired = "yes" only; everything else = not repaired
 panel_a_data <- repairs |>
-  filter(!is.na(repairability)) |>
-  mutate(fixed = repaired == "yes") |>
-  group_by(category) |>
-  summarise(
-    n              = n(),
-    median_repair  = median(repairability, na.rm = TRUE),
-    n_fixed        = sum(fixed, na.rm = TRUE),
-    .groups        = "drop"
-  ) |>
-  # Wilson CI on success rate — more reliable than raw proportion at small n
-  mutate(
-    ci             = map2(n_fixed, n, ~ binom.wilson(.x, .y)),
-    pct_fixed      = map_dbl(ci, ~ .x$mean),
-    pct_lower      = map_dbl(ci, ~ .x$lower),
-    pct_upper      = map_dbl(ci, ~ .x$upper)
-  ) |>
-  filter(n >= 200) |>
-  # Quadrant flag: high repairability (≥ 6) but low fix rate (< 50%)
-  mutate(
-    quadrant = case_when(
-      median_repair >= 6 & pct_fixed < 0.50 ~ "system_failure",
-      median_repair >= 6 & pct_fixed >= 0.50 ~ "system_works",
-      median_repair < 6 & pct_fixed < 0.50 ~ "expected",
-      median_repair < 6 & pct_fixed >= 0.50 ~ "skilled_volunteers",
-      TRUE ~ "other"
-    ),
-    category_clean = str_to_title(
-      str_wrap(str_replace_all(category, "_", " "), width = 22)
+    filter(!is.na(repairability)) |>
+    mutate(fixed = repaired == "yes") |>
+    group_by(category) |>
+    summarise(
+        n              = n(),
+        median_repair  = median(repairability, na.rm = TRUE),
+        n_fixed        = sum(fixed, na.rm = TRUE),
+        .groups        = "drop"
+    ) |>
+    # Wilson CI on success rate — more reliable than raw proportion at small n
+    mutate(
+        ci             = map2(n_fixed, n, ~ binom.wilson(.x, .y)),
+        pct_fixed      = map_dbl(ci, ~ .x$mean),
+        pct_lower      = map_dbl(ci, ~ .x$lower),
+        pct_upper      = map_dbl(ci, ~ .x$upper)
+    ) |>
+    filter(n >= 200) |>
+    # Quadrant flag: high repairability (≥ 6) but low fix rate (< 50%)
+    mutate(
+        quadrant = case_when(
+            median_repair >= 6 & pct_fixed < 0.50 ~ "system_failure",
+            median_repair >= 6 & pct_fixed >= 0.50 ~ "system_works",
+            median_repair < 6 & pct_fixed < 0.50 ~ "expected",
+            median_repair < 6 & pct_fixed >= 0.50 ~ "skilled_volunteers",
+            TRUE ~ "other"
+        ),
+        category_clean = str_to_title(
+            str_wrap(str_replace_all(category, "_", " "), width = 22)
+        )
     )
-  )
 
 # Top "system failure" categories to label
 label_cats <- panel_a_data |>
-  filter(quadrant == "system_failure") |>
-  slice_max(n, n = 6)
+    filter(quadrant == "system_failure") |>
+    slice_max(n, n = 6)
 
 # Also label the top "system works" anchor point
 label_works <- panel_a_data |>
-  filter(quadrant == "system_works") |>
-  slice_max(pct_fixed, n = 2)
+    filter(quadrant == "system_works") |>
+    slice_max(pct_fixed, n = 2)
 
 panel_a_labels <- bind_rows(label_cats, label_works)
 
 
 ### |- Panel B: failure reasons ----
 panel_b_data <- repairs_text |>
-  filter(!is.na(failure_reasons), failure_reasons != "") |>
-  # failure_reasons is a comma-delimited list
-  separate_rows(failure_reasons, sep = ",") |>
-  mutate(
-    failure_reasons = str_squish(str_to_lower(failure_reasons))
-  ) |>
-  filter(failure_reasons != "", failure_reasons != "na") |>
-  # Group semantically similar reasons
-  mutate(
-    reason_group = case_when(
-      str_detect(failure_reasons, "spare part|parts not|no parts|onderdeel") ~
-        "Spare parts unavailable",
-      str_detect(failure_reasons, "unidentified|unknown|not found|unclear") ~
-        "Failure unidentified",
-      str_detect(failure_reasons, "cost|expensive|not worth|economisch") ~
-        "Not cost-effective",
-      str_detect(failure_reasons, "time|too long|no time") ~
-        "Insufficient time",
-      str_detect(failure_reasons, "skill|expertise|knowledge|competence") ~
-        "Skill / expertise gap",
-      str_detect(failure_reasons, "owner|customer|taken away|meegenomen") ~
-        "Owner decision",
-      str_detect(failure_reasons, "safety|gevaar|dangerous") ~
-        "Safety concern",
-      str_detect(failure_reasons, "irreparable|beyond repair|too damaged") ~
-        "Irreparable damage",
-      TRUE ~ "Other"
+    filter(!is.na(failure_reasons), failure_reasons != "") |>
+    # failure_reasons is a comma-delimited list
+    separate_rows(failure_reasons, sep = ",") |>
+    mutate(
+        failure_reasons = str_squish(str_to_lower(failure_reasons))
+    ) |>
+    filter(failure_reasons != "", failure_reasons != "na") |>
+    # Group semantically similar reasons
+    mutate(
+        reason_group = case_when(
+            str_detect(failure_reasons, "spare part|parts not|no parts|onderdeel") ~
+                "Spare parts unavailable",
+            str_detect(failure_reasons, "unidentified|unknown|not found|unclear") ~
+                "Failure unidentified",
+            str_detect(failure_reasons, "cost|expensive|not worth|economisch") ~
+                "Not cost-effective",
+            str_detect(failure_reasons, "time|too long|no time") ~
+                "Insufficient time",
+            str_detect(failure_reasons, "skill|expertise|knowledge|competence") ~
+                "Skill / expertise gap",
+            str_detect(failure_reasons, "owner|customer|taken away|meegenomen") ~
+                "Owner decision",
+            str_detect(failure_reasons, "safety|gevaar|dangerous") ~
+                "Safety concern",
+            str_detect(failure_reasons, "irreparable|beyond repair|too damaged") ~
+                "Irreparable damage",
+            TRUE ~ "Other"
+        )
+    ) |>
+    filter(reason_group != "Other") |>
+    count(reason_group, sort = TRUE) |>
+    mutate(
+        pct = n / sum(n),
+        reason_group = fct_reorder(reason_group, pct),
+        bar_fill = if_else(
+            reason_group == fct_reorder(reason_group, pct) |>
+                levels() |>
+                last(),
+            "accent", "neutral"
+        )
     )
-  ) |>
-  filter(reason_group != "Other") |>
-  count(reason_group, sort = TRUE) |>
-  mutate(
-    pct = n / sum(n),
-    reason_group = fct_reorder(reason_group, pct),
-    bar_fill = if_else(
-      reason_group == fct_reorder(reason_group, pct) |>
-        levels() |>
-        last(),
-      "accent", "neutral"
-    )
-  )
 
 
 ## 5. VISUALIZATION ----
@@ -180,251 +180,251 @@ fonts <- get_font_families()
 base_theme   <- create_base_theme(colors)
 
 weekly_theme <- extend_weekly_theme(
-  base_theme,
-  theme(
-    # Panel
-    panel.grid.major.y = element_line(color = "gray92", linewidth = 0.3),
-    panel.grid.major.x = element_line(color = "gray92", linewidth = 0.3),
-    panel.grid.minor = element_blank(),
-    panel.spacing = unit(1.2, "lines"),
-
-    # Axes
-    axis.title = element_text(
-      size = 9, color = "gray30",
-      family = fonts$text
-    ),
-    axis.text = element_text(
-      size = 8, color = "gray40",
-      family = fonts$text
-    ),
-    axis.ticks = element_blank(),
-
-    # Legend
-    legend.position = "none",
-
-    # Strip (if used)
-    strip.text = element_text(
-      size = 9, face = "bold",
-      family = fonts$title
+    base_theme,
+    theme(
+        # Panel
+        panel.grid.major.y = element_line(color = "gray92", linewidth = 0.3),
+        panel.grid.major.x = element_line(color = "gray92", linewidth = 0.3),
+        panel.grid.minor = element_blank(),
+        panel.spacing = unit(1.2, "lines"),
+        
+        # Axes
+        axis.title = element_text(
+            size = 9, color = "gray30",
+            family = fonts$text
+        ),
+        axis.text = element_text(
+            size = 8, color = "gray40",
+            family = fonts$text
+        ),
+        axis.ticks = element_blank(),
+        
+        # Legend
+        legend.position = "none",
+        
+        # Strip (if used)
+        strip.text = element_text(
+            size = 9, face = "bold",
+            family = fonts$title
+        )
     )
-  )
 )
 
 theme_set(weekly_theme)
 
 ### |- Panel A: scatter — repairability vs. fix rate ----
 p_a <- panel_a_data |>
-  ggplot(aes(x = median_repair, y = pct_fixed)) +
-
-  # Geoms
-  annotate(
-    "rect",
-    xmin = 6, xmax = Inf, ymin = -Inf, ymax = 0.50,
-    fill = "#C26A3D", alpha = 0.04
-  ) +
-  geom_vline(
-    xintercept = 6, color = colors$palette["ref_line"],
-    linetype = "dashed", linewidth = 0.4, alpha = 0.6
-  ) +
-  geom_hline(
-    yintercept = 0.50, color = colors$palette["ref_line"],
-    linetype = "dashed", linewidth = 0.4, alpha = 0.6
-  ) +
-  geom_linerange(
-    aes(
-      ymin = pct_lower, ymax = pct_upper,
-      color = quadrant
-    ),
-    linewidth = 0.5, alpha = 0.4
-  ) +
-  geom_point(
-    aes(size = n, color = quadrant, fill = quadrant),
-    shape = 21, stroke = 0.5, alpha = 0.75
-  ) +
-  geom_text_repel(
-    data = panel_a_labels,
-    aes(label = category_clean, color = quadrant),
-    size = 2.2,
-    family = fonts$text,
-    lineheight = 0.9,
-    max.overlaps = 20,
-    box.padding = 0.4,
-    point.padding = 0.3,
-    segment.color = "gray75",
-    segment.size = 0.25,
-    seed = 123
-  ) +
-
-  # Annotate
-  annotate("text",
-    x = 1.1, y = 0.97,
-    label = "Expert-driven\nsuccess",
-    hjust = 0, vjust = 1, size = 2.2, color = "gray65",
-    fontface = "italic", lineheight = 0.9, family = fonts$text
-  ) +
-  annotate("text",
-    x = 6.1, y = 0.97,
-    label = "System works",
-    hjust = 0, vjust = 1, size = 2.2, color = "gray65",
-    fontface = "italic", family = fonts$text
-  ) +
-  annotate("text",
-    x = 1.1, y = 0.03,
-    label = "Expected\ndifficulty",
-    hjust = 0, vjust = 0, size = 2.2, color = "gray65",
-    fontface = "italic", lineheight = 0.9, family = fonts$text
-  ) +
-  annotate("text",
-    x = 7.5, y = 0.30,
-    label = "System\nconstraint",
-    hjust = 0.5, vjust = 0.5, size = 2.3, color = "#C26A3D",
-    fontface = "bold.italic", lineheight = 0.9, family = fonts$text
-  ) +
-  annotate("text",
-    x = 6.08, y = 0.53,
-    label = "≥6 = repairable",
-    hjust = 0, vjust = 0, size = 2.0, color = "gray45",
-    fontface = "italic", family = fonts$text
-  ) +
-  annotate("text",
-    x = 1.1, y = 0.52,
-    label = "50% success threshold",
-    hjust = 0, vjust = 0, size = 2.0, color = "gray45",
-    fontface = "italic", family = fonts$text
-  ) +
-  annotate("text",
-    x = 9.5, y = 0.44,
-    label = "← Amber zone:\nsee breakdown →",
-    hjust = 0.5, vjust = 1, size = 2.1, color = "#C26A3D",
-    fontface = "italic", lineheight = 0.95, family = fonts$text
-  ) +
-
-  # Scales
-  scale_color_manual(values = c(
-    "system_failure"     = unname(colors$palette["system_failure"]),
-    "system_works"       = unname(colors$palette["system_works"]),
-    "expected"           = unname(colors$palette["expected"]),
-    "skilled_volunteers" = unname(colors$palette["skilled_volunteers"])
-  )) +
-  scale_fill_manual(values = c(
-    "system_failure"     = unname(colors$palette["system_failure"]),
-    "system_works"       = unname(colors$palette["system_works"]),
-    "expected"           = unname(colors$palette["expected"]),
-    "skilled_volunteers" = unname(colors$palette["skilled_volunteers"])
-  )) +
-  scale_size_continuous(range = c(2, 9)) +
-  scale_x_continuous(
-    name   = "Median Repairability Score  (≥6 = generally considered repairable)",
-    limits = c(1, 10),
-    breaks = 1:10
-  ) +
-  scale_y_continuous(
-    name   = "% Successfully Repaired",
-    labels = percent_format(accuracy = 1),
-    limits = c(0, 1)
-  ) +
-
-  # Labs
-  labs(
-    title    = panel_a_title,
-    subtitle = panel_a_sub
-  ) +
-
-  # Theme
-  theme(
-    plot.title = element_text(
-      size = 11, face = "bold",
-      family = fonts$title, color = "gray15"
-    ),
-    plot.subtitle = element_text(
-      size = 8, color = "gray40",
-      family = fonts$text, lineheight = 1.3,
-      margin = margin(b = 8)
+    ggplot(aes(x = median_repair, y = pct_fixed)) +
+    
+    # Geoms
+    annotate(
+        "rect",
+        xmin = 6, xmax = Inf, ymin = -Inf, ymax = 0.50,
+        fill = "#C26A3D", alpha = 0.04
+    ) +
+    geom_vline(
+        xintercept = 6, color = colors$palette["ref_line"],
+        linetype = "dashed", linewidth = 0.4, alpha = 0.6
+    ) +
+    geom_hline(
+        yintercept = 0.50, color = colors$palette["ref_line"],
+        linetype = "dashed", linewidth = 0.4, alpha = 0.6
+    ) +
+    geom_linerange(
+        aes(
+            ymin = pct_lower, ymax = pct_upper,
+            color = quadrant
+        ),
+        linewidth = 0.5, alpha = 0.4
+    ) +
+    geom_point(
+        aes(size = n, color = quadrant, fill = quadrant),
+        shape = 21, stroke = 0.5, alpha = 0.75
+    ) +
+    geom_text_repel(
+        data = panel_a_labels,
+        aes(label = category_clean, color = quadrant),
+        size = 2.2,
+        family = fonts$text,
+        lineheight = 0.9,
+        max.overlaps = 20,
+        box.padding = 0.4,
+        point.padding = 0.3,
+        segment.color = "gray75",
+        segment.size = 0.25,
+        seed = 123
+    ) +
+    
+    # Annotate
+    annotate("text",
+             x = 1.1, y = 0.97,
+             label = "Expert-driven\nsuccess",
+             hjust = 0, vjust = 1, size = 2.2, color = "gray65",
+             fontface = "italic", lineheight = 0.9, family = fonts$text
+    ) +
+    annotate("text",
+             x = 6.1, y = 0.97,
+             label = "System works",
+             hjust = 0, vjust = 1, size = 2.2, color = "gray65",
+             fontface = "italic", family = fonts$text
+    ) +
+    annotate("text",
+             x = 1.1, y = 0.03,
+             label = "Expected\ndifficulty",
+             hjust = 0, vjust = 0, size = 2.2, color = "gray65",
+             fontface = "italic", lineheight = 0.9, family = fonts$text
+    ) +
+    annotate("text",
+             x = 7.5, y = 0.30,
+             label = "System\nconstraint",
+             hjust = 0.5, vjust = 0.5, size = 2.3, color = "#C26A3D",
+             fontface = "bold.italic", lineheight = 0.9, family = fonts$text
+    ) +
+    annotate("text",
+             x = 6.08, y = 0.53,
+             label = "≥6 = repairable",
+             hjust = 0, vjust = 0, size = 2.0, color = "gray45",
+             fontface = "italic", family = fonts$text
+    ) +
+    annotate("text",
+             x = 1.1, y = 0.52,
+             label = "50% success threshold",
+             hjust = 0, vjust = 0, size = 2.0, color = "gray45",
+             fontface = "italic", family = fonts$text
+    ) +
+    annotate("text",
+             x = 9.5, y = 0.44,
+             label = "← Amber zone:\nsee breakdown →",
+             hjust = 0.5, vjust = 1, size = 2.1, color = "#C26A3D",
+             fontface = "italic", lineheight = 0.95, family = fonts$text
+    ) +
+    
+    # Scales
+    scale_color_manual(values = c(
+        "system_failure"     = unname(colors$palette["system_failure"]),
+        "system_works"       = unname(colors$palette["system_works"]),
+        "expected"           = unname(colors$palette["expected"]),
+        "skilled_volunteers" = unname(colors$palette["skilled_volunteers"])
+    )) +
+    scale_fill_manual(values = c(
+        "system_failure"     = unname(colors$palette["system_failure"]),
+        "system_works"       = unname(colors$palette["system_works"]),
+        "expected"           = unname(colors$palette["expected"]),
+        "skilled_volunteers" = unname(colors$palette["skilled_volunteers"])
+    )) +
+    scale_size_continuous(range = c(2, 9)) +
+    scale_x_continuous(
+        name   = "Median Repairability Score  (≥6 = generally considered repairable)",
+        limits = c(1, 10),
+        breaks = 1:10
+    ) +
+    scale_y_continuous(
+        name   = "% Successfully Repaired",
+        labels = percent_format(accuracy = 1),
+        limits = c(0, 1)
+    ) +
+    
+    # Labs
+    labs(
+        title    = panel_a_title,
+        subtitle = panel_a_sub
+    ) +
+    
+    # Theme
+    theme(
+        plot.title = element_text(
+            size = 11, face = "bold",
+            family = fonts$title, color = "gray15"
+        ),
+        plot.subtitle = element_text(
+            size = 8, color = "gray40",
+            family = fonts$text, lineheight = 1.3,
+            margin = margin(b = 8)
+        )
     )
-  )
 
 ### |- Panel B: failure reasons bar chart ----
 p_b <- panel_b_data |>
-  ggplot(aes(x = pct, y = reason_group, fill = bar_fill)) +
-  # Geoms
-  geom_col(width = 0.7) +
-  geom_text(
-    aes(label = percent(pct, accuracy = 1)),
-    hjust = -0.15,
-    size = 2.8,
-    color = "gray30",
-    family = fonts$text
-  ) +
-  # Scales
-  scale_fill_manual(
-    values = c(
-      "accent"  = unname(colors$palette["bar_accent"]),
-      "neutral" = unname(colors$palette["bar_neutral"])
+    ggplot(aes(x = pct, y = reason_group, fill = bar_fill)) +
+    # Geoms
+    geom_col(width = 0.7) +
+    geom_text(
+        aes(label = percent(pct, accuracy = 1)),
+        hjust = -0.15,
+        size = 2.8,
+        color = "gray30",
+        family = fonts$text
+    ) +
+    # Scales
+    scale_fill_manual(
+        values = c(
+            "accent"  = unname(colors$palette["bar_accent"]),
+            "neutral" = unname(colors$palette["bar_neutral"])
+        )
+    ) +
+    scale_x_continuous(
+        labels = percent_format(accuracy = 1),
+        expand = expansion(mult = c(0, 0.15))
+    ) +
+    # Labs
+    labs(
+        x        = "Share of recorded failure reasons",
+        y        = NULL,
+        title    = panel_b_title,
+        subtitle = panel_b_sub
+    ) +
+    # Theme
+    theme(
+        panel.grid.major.x = element_line(color = "gray92", linewidth = 0.3),
+        panel.grid.major.y = element_blank(),
+        plot.title = element_markdown(
+            size = 11, face = "bold",
+            family = fonts$title, color = "gray15"
+        ),
+        plot.subtitle = element_text(
+            size = 8, color = "gray40",
+            family = fonts$text, lineheight = 1.3,
+            margin = margin(b = 8)
+        ),
+        axis.text.y = element_text(
+            size = 8.5, color = "gray25",
+            family = fonts$text
+        )
     )
-  ) +
-  scale_x_continuous(
-    labels = percent_format(accuracy = 1),
-    expand = expansion(mult = c(0, 0.15))
-  ) +
-  # Labs
-  labs(
-    x        = "Share of recorded failure reasons",
-    y        = NULL,
-    title    = panel_b_title,
-    subtitle = panel_b_sub
-  ) +
-  # Theme
-  theme(
-    panel.grid.major.x = element_line(color = "gray92", linewidth = 0.3),
-    panel.grid.major.y = element_blank(),
-    plot.title = element_markdown(
-      size = 11, face = "bold",
-      family = fonts$title, color = "gray15"
-    ),
-    plot.subtitle = element_text(
-      size = 8, color = "gray40",
-      family = fonts$text, lineheight = 1.3,
-      margin = margin(b = 8)
-    ),
-    axis.text.y = element_text(
-      size = 8.5, color = "gray25",
-      family = fonts$text
-    )
-  )
 
 ### |- Combined layout ----
 p_final <- p_a + p_b +
-  plot_layout(widths = c(1.4, 1)) +
-  plot_annotation(
-    title = title_text,
-    subtitle = subtitle_text,
-    caption = caption_text,
-    theme = theme(
-      plot.title = element_text(
-        size         = 20,
-        face         = "bold",
-        family       = fonts$title,
-        color        = "gray10",
-        margin       = margin(b = 6)
-      ),
-      plot.subtitle = element_markdown(
-        size         = 12,
-        family       = fonts$text,
-        color        = "gray35",
-        lineheight   = 1.35,
-        margin       = margin(b = 14)
-      ),
-      plot.caption = element_markdown(
-        size         = 7,
-        family       = fonts$text,
-        color        = "gray55",
-        hjust        = 0.5,
-        margin       = margin(t = 12)
-      ),
-      plot.background = element_rect(fill = "gray98", color = NA),
-      plot.margin = margin(20, 20, 12, 20)
+    plot_layout(widths = c(1.4, 1)) +
+    plot_annotation(
+        title = title_text,
+        subtitle = subtitle_text,
+        caption = caption_text,
+        theme = theme(
+            plot.title = element_text(
+                size         = 20,
+                face         = "bold",
+                family       = fonts$title,
+                color        = "gray10",
+                margin       = margin(b = 6)
+            ),
+            plot.subtitle = element_markdown(
+                size         = 12,
+                family       = fonts$text,
+                color        = "gray35",
+                lineheight   = 1.35,
+                margin       = margin(b = 14)
+            ),
+            plot.caption = element_markdown(
+                size         = 7,
+                family       = fonts$text,
+                color        = "gray55",
+                hjust        = 0.5,
+                margin       = margin(t = 12)
+            ),
+            plot.background = element_rect(fill = "gray98", color = NA),
+            plot.margin = margin(20, 20, 12, 20)
+        )
     )
-  )
 
 snap(p_final)
 
