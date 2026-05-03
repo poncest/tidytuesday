@@ -9,8 +9,8 @@
 | ![](Week_10/2026_10.png "week 10") | ![](Week_11/2026_11.png "week 11") | ![](Week_12/2026_12.png "week 12") | ![](Week_13/2026_13.png "week 13") |
 | [Week 14<br>Repair Cafes Worldwide](https://github.com/poncest/tidytuesday/tree/main/2026/Week_14) | [Week 15<br>Bird Sightings at Sea](https://github.com/poncest/tidytuesday/tree/main/2026/Week_15) | [Week 16<br>Global Health Spending](https://github.com/poncest/tidytuesday/tree/main/2026/Week_16) | [Week 17<br>US Agricultural Tariffs (USITC)](https://github.com/poncest/tidytuesday/tree/main/2026/Week_17) |
 | ![](Week_14/2026_14.png "week 14") | ![](Week_15/2026_15.png "week 15") | ![](Week_16/2026_16.png "week 16") | ![](Week_17/2026_17.png "week 17") |
-|  |  |  |  |
-|  |  |  |  |
+| [Week 18<br>Italian industrial production](https://github.com/poncest/tidytuesday/tree/main/2026/Week_18) |  |  |  |
+| ![](Week_18/2026_18.png "week 18") |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
