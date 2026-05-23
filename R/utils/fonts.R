@@ -11,18 +11,25 @@ setup_fonts <- function() {
         here::here("fonts/6.6.0/Font Awesome 6 Brands-Regular-400.otf")
     )
     
-    # Add Google Fonts
-    font_add_google("Oswald", regular.wt = 400, family = "title")
-    # font_add_google("Merriweather Sans", regular.wt = 400, family = "subtitle")
-    # font_add_google("Merriweather Sans", regular.wt = 400, family = "text")
-    # font_add_google("Inter", regular.wt = 400, family = "subtitle") 
-    # font_add_google("Inter", regular.wt = 400, family = "body") 
-    # font_add_google("Inter", regular.wt = 400, family = "text")
+    # Add Google Fonts — Steven Ponce brand system (v1.0, May 2026)
+    # Display / titles: Source Serif 4 — editorial, warm, authoritative
+    # font_add_google("Source Serif 4", regular.wt = 400, family = "title")
+    # 
+    # # UI / chart labels / body: Source Sans 3 — clean, readable at small sizes
+    # font_add_google("Source Sans 3", regular.wt = 400, family = "subtitle")
+    # font_add_google("Source Sans 3", regular.wt = 400, family = "body")
+    # font_add_google("Source Sans 3", regular.wt = 400, family = "text")
     
-    font_add_google("Roboto", regular.wt = 400, family = "subtitle") 
-    font_add_google("Roboto", regular.wt = 400, family = "body") 
-    font_add_google("Roboto", regular.wt = 400, family = "text")
-    font_add_google("Noto Sans", regular.wt = 400, family = "caption")
+    # Display / titles: 
+    font_add_google("Big Shoulders", regular.wt = 400, family = "title")
+    
+    # UI / chart labels / body: 
+    font_add_google("DM Sans", regular.wt = 400, family = "subtitle")
+    font_add_google("DM Sans", regular.wt = 400, family = "body")
+    font_add_google("DM Sans", regular.wt = 400, family = "text")
+    
+    # Mono / captions / data labels: JetBrains Mono — tabular numerals, crisp
+    font_add_google("JetBrains Mono", regular.wt = 400, family = "caption")
     
     # Enable showtext
     showtext_auto(enable = TRUE)
