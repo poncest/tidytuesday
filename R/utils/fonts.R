@@ -21,7 +21,8 @@ setup_fonts <- function() {
     # font_add_google("Source Sans 3", regular.wt = 400, family = "text")
     
     # Display / titles: 
-    font_add_google("Big Shoulders", regular.wt = 400, family = "title")
+    font_add_google("Big Shoulders", regular.wt = 800, family = "title_1") # Main
+    font_add_google("Big Shoulders", regular.wt = 100, family = "title_2") # Facet charts
     
     # UI / chart labels / body: 
     font_add_google("DM Sans", regular.wt = 400, family = "subtitle")
@@ -39,7 +40,8 @@ setup_fonts <- function() {
 # Font families accessory
 get_font_families <- function() {
     list(
-        title = "title",
+        title_1 = "title_1",
+        title_2 = "title_2",
         subtitle = "subtitle",
         text = "text",
         caption = "caption"

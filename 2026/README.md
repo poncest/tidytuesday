@@ -11,8 +11,8 @@
 | ![](Week_14/2026_14.png "week 14") | ![](Week_15/2026_15.png "week 15") | ![](Week_16/2026_16.png "week 16") | ![](Week_17/2026_17.png "week 17") |
 | [Week 18<br>Italian industrial production](https://github.com/poncest/tidytuesday/tree/main/2026/Week_18) | [Week 19<br>Twinned Cities](https://github.com/poncest/tidytuesday/tree/main/2026/Week_19) | [Week 20<br>Crossref Metadata Coverage](https://github.com/poncest/tidytuesday/tree/main/2026/Week_20) | [Week 21<br>Sustainable Energy for All](https://github.com/poncest/tidytuesday/tree/main/2026/Week_21) |
 | ![](Week_18/2026_18.png "week 18") | ![](Week_19/2026_19.png "week 19") | ![](Week_20/2026_20.png "week 20") | ![](Week_21/2026_21.png "week 21") |
-|  |  |  |  |
-|  |  |  |  |
+| [Week 22<br>European Parenting Leave Policies](https://github.com/poncest/tidytuesday/tree/main/2026/Week_22) |  |  |  |
+| ![](Week_22/2026_22.png "week 22") |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
