@@ -13,8 +13,8 @@
 | ![](Week_18/2026_18.png "week 18") | ![](Week_19/2026_19.png "week 19") | ![](Week_20/2026_20.png "week 20") | ![](Week_21/2026_21.png "week 21") |
 | [Week 22<br>European Parenting Leave Policies](https://github.com/poncest/tidytuesday/tree/main/2026/Week_22) | [Week 23<br>Films Based on Video Games](https://github.com/poncest/tidytuesday/tree/main/2026/Week_23) | [Week 24<br>UK Babyr\>ames](https://github.com/poncest/tidytuesday/tree/main/2026/Week_24) | [Week 25<br>Papal Encyclicals: Industrial Revolution vs. AI Revolution](https://github.com/poncest/tidytuesday/tree/main/2026/Week_25) |
 | ![](Week_22/2026_22.png "week 22") | ![](Week_23/2026_23.png "week 23") | ![](Week_24/2026_24.png "week 24") | ![](Week_25/2026_25.png) |
-|  |  |  |  |
-|  |  |  |  |
+| [Week 26<br>Wreck Inventory of Ireland](https://github.com/poncest/tidytuesday/tree/main/2026/Week_26) |  |  |  |
+| ![](Week_26/2026_26.png "week 26") |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
