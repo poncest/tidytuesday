@@ -120,7 +120,7 @@ title_text <- "Ireland's Shipwrecks Chronicle the End of the Age of Sail"
 subtitle_text <- str_glue(
   "For more than a century, sail-powered vessels dominated classified shipwrecks — ",
   "over **<span style='color:#5B7FA6'>9 in 10</span>** ",
-  "identified wrecks were sail-powered.<br>",
+  "classified wrecks were sail-powered.<br>",
   "By the 1910s, **<span style='color:#722F37'>steam and motor vessels</span>** ",
   "became the majority, reaching 96% by the 1940s."
 )
@@ -130,7 +130,6 @@ caption_text <- create_social_caption(
   tt_week     = 26,
   source_text = "Wreck Inventory of Ireland (National Monuments Service)"
 )
-
 
 ### |-  fonts ----
 setup_fonts()
@@ -185,16 +184,28 @@ theme_set(weekly_theme)
 ### |- plot ----
 p <- crossover |>
   ggplot(aes(x = decade, y = pct, color = era)) +
-
   # Geoms
   geom_line(linewidth = 1.1, lineend = "round") +
   geom_point(size = 3, shape = 21, fill = "white", stroke = 1.5) +
-
   # Annotate
+  annotate(
+    "rect",
+    xmin = 1914, xmax = 1918,
+    ymin = 0, ymax = 1,
+    fill = "#B5895A", alpha = 0.06, color = NA
+  ) +
+  annotate(
+    "text",
+    x = 1916, y = 0.94,
+    label = "WWI",
+    family = fonts$text, size = 2.7,
+    color = "#C0C8D0", fontface = "italic",
+    hjust = 0.5, lineheight = 1.2
+  ) +
   annotate(
     "text",
     x = 1942, y = steam_1940_pct,
-    label = "Steam &\nMotor  96%",
+    label = "Steam & Motor  96%",
     family = fonts$text, size = 3.3,
     color = "#722F37", fontface = "bold",
     hjust = 0, lineheight = 1.2
@@ -220,11 +231,10 @@ p <- crossover |>
     expand = expansion(mult = c(0, 0.02))
   ) +
   scale_x_continuous(
-    breaks = seq(1800, 1940, by = 20),
+    breaks = seq(1800, 1940, by = 10),
     expand = expansion(mult = c(0.02, 0.14))
   ) +
   coord_cartesian(clip = "off") +
-
   # Labs
   labs(
     title = title_text,
@@ -238,7 +248,6 @@ p <- crossover |>
     y = "Share of classified wrecks",
     color = NULL
   ) +
-
   # Theme
   theme(legend.position = "none")
 
