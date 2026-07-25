@@ -35,3 +35,6 @@ nme_approvals_raw.csv
 
 _fonts.R
 _base_theme.R
+
+.DS_Store
+temp/
