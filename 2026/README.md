@@ -17,8 +17,8 @@
 | ![](Week_26/2026_26.png "week 26") | ![](Week_27/2026_27.png "week 27") | ![](Week_28/2026_28.png "week 28") | ![](Week_29/2026_29.png "week 29") |
 | [Week 30<br>Ecotourism](https://github.com/poncest/tidytuesday/tree/main/2026/Week_30) | [Week 31<br>Basotho wool](https://github.com/poncest/tidytuesday/tree/main/2026/Week_31) | [Week 32<br>The Palomar Spectroscopic Survey of Nearby Galaxies](https://github.com/poncest/tidytuesday/tree/main/2026/Week_32) | [Week 33<br>IELTS exam results](https://github.com/poncest/tidytuesday/tree/main/2026/Week_33) |
 | ![](Week_30/2026_30.png "week 30") | ![](Week_31/2026_31.png "week 31") | ![](Week_32/2026_32.png "week 32") | ![](Week_33/2026_33.png "week 33") |
-|  |  |  |  |
-|  |  |  |  |
+| [Week 34<br>Country Music Lyrics](https://github.com/poncest/tidytuesday/tree/main/2026/Week_34) |  |  |  |
+| ![](Week_34/2026_34.png "week 34") |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
