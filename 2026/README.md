@@ -17,8 +17,8 @@
 | ![](Week_26/2026_26.png "week 26") | ![](Week_27/2026_27.png "week 27") | ![](Week_28/2026_28.png "week 28") | ![](Week_29/2026_29.png "week 29") |
 | [Week 30<br>Ecotourism](https://github.com/poncest/tidytuesday/tree/main/2026/Week_30) | [Week 31<br>Basotho wool](https://github.com/poncest/tidytuesday/tree/main/2026/Week_31) | [Week 32<br>The Palomar Spectroscopic Survey of Nearby Galaxies](https://github.com/poncest/tidytuesday/tree/main/2026/Week_32) | [Week 33<br>IELTS exam results](https://github.com/poncest/tidytuesday/tree/main/2026/Week_33) |
 | ![](Week_30/2026_30.png "week 30") | ![](Week_31/2026_31.png "week 31") | ![](Week_32/2026_32.png "week 32") | ![](Week_33/2026_33.png "week 33") |
-| [Week 34<br>Country Music Lyrics](https://github.com/poncest/tidytuesday/tree/main/2026/Week_34) | [Week 35<br>World Castles, Fortresses and Palaces](https://github.com/poncest/tidytuesday/tree/main/2026/Week_35) | [Week 36<br>The Cappuccino Index](https://github.com/poncest/tidytuesday/tree/main/2026/Week_36) |  |
-| ![](Week_34/2026_34.png "week 34") | ![](Week_35/2026_35.png "week 35") | ![](Week_36/2026_36.png "2026 week 36") |  |
+| [Week 34<br>Country Music Lyrics](https://github.com/poncest/tidytuesday/tree/main/2026/Week_34) | [Week 35<br>World Castles, Fortresses and Palaces](https://github.com/poncest/tidytuesday/tree/main/2026/Week_35) | [Week 36<br>The Cappuccino Index](https://github.com/poncest/tidytuesday/tree/main/2026/Week_36) | [Week 37<br>Dead Sea Scrolls Manuscripts](https://github.com/poncest/tidytuesday/tree/main/2026/Week_37) |
+| ![](Week_34/2026_34.png "week 34") | ![](Week_35/2026_35.png "week 35") | ![](Week_36/2026_36.png "2026 week 36") | ![](Week_37/2026_37.png "week 37") |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
