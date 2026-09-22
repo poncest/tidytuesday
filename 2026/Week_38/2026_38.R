@@ -40,26 +40,23 @@ skim_without_charts(urban)
 ## 4. TIDY DATA ----
 
 ### |- identified cities, epochs 1990-2020 ----
-# 2025 is a partial update (145 cities) and is excluded on purpose.
-# Nine isolated city-years reported as 0 for BOTH measures are set to NA. That is an
-# analyst decision (the source publishes them as zeros): disclosed in the caption.
 d <- urban |>
-    filter(!is.na(cityCode), year %in% plot_years) |>
-    transmute(
-        city_code = cityCode,
-        year,
-        share     = averageShareOfGreenAreaInCityUrbanAreaPct,
-        pc        = greenAreaPerCapitaM2
-    ) |>
-    mutate(
-        zero_flag = share == 0 & pc == 0 & !is.na(share),
-        share     = if_else(zero_flag, NA_real_, share)
-    )
+  filter(!is.na(cityCode), year %in% plot_years) |>
+  transmute(
+    city_code = cityCode,
+    year,
+    share = averageShareOfGreenAreaInCityUrbanAreaPct,
+    pc = greenAreaPerCapitaM2
+  ) |>
+  mutate(
+    zero_flag = share == 0 & pc == 0 & !is.na(share),
+    share     = if_else(zero_flag, NA_real_, share)
+  )
 
 ### |- cohort: cities estimated at 40% or more in 1990, fixed for every epoch ----
 cohort_ids <- d |>
-    filter(year == 1990, share >= 40) |>
-    pull(city_code)
+  filter(year == 1990, share >= 40) |>
+  pull(city_code)
 
 d <- d |> mutate(cohort = city_code %in% cohort_ids)
 
@@ -69,47 +66,48 @@ n_cohort <- length(cohort_ids)
 # "top quarter" = strictly above the 75th percentile of ALL cities' 2020 estimates
 p75_2020 <- quantile(d$share[d$year == 2020], 0.75, na.rm = TRUE, names = FALSE)
 n_top_quarter <- d |>
-    filter(year == 2020, cohort, share > p75_2020) |>
-    nrow()
+  filter(year == 2020, cohort, share > p75_2020) |>
+  nrow()
 pct_top_quarter <- round(100 * n_top_quarter / n_cohort)
 
 # Two different counts, kept apart on purpose:
 #   cohort_ge40 = how many of the SAME 83 cities are at 40%+ in each year (chart label)
 #   all_ge40    = how many cities of ANY origin are at 40%+ in each year (caption note)
 cohort_ge40 <- d |>
-    filter(cohort) |>
-    summarise(n = sum(share >= 40, na.rm = TRUE), .by = year) |>
-    arrange(year)
+  filter(cohort) |>
+  summarise(n = sum(share >= 40, na.rm = TRUE), .by = year) |>
+  arrange(year)
 
 all_ge40 <- d |>
-    summarise(n = sum(share >= 40, na.rm = TRUE), .by = year) |>
-    arrange(year)
+  summarise(n = sum(share >= 40, na.rm = TRUE), .by = year) |>
+  arrange(year)
 
 n_extra_2000 <- all_ge40$n[all_ge40$year == 2000] - cohort_ge40$n[cohort_ge40$year == 2000]
 
 # Cities plotted per year (after the nine zero city-years become NA)
 n_plotted <- d |>
-    summarise(n = sum(!is.na(share)), .by = year) |>
-    arrange(year)
+  summarise(n = sum(!is.na(share)), .by = year) |>
+  arrange(year)
 
 # Cities with a 2025 share (the partial update that is excluded from the plot)
 n_2025 <- urban |>
-    filter(year == 2025, !is.na(cityCode), !is.na(averageShareOfGreenAreaInCityUrbanAreaPct)) |>
-    nrow()
+  filter(year == 2025, !is.na(cityCode), !is.na(averageShareOfGreenAreaInCityUrbanAreaPct)) |>
+  nrow()
 
 ### |- plotting data ----
 strips <- d |>
-    filter(!is.na(share)) |>
-    mutate(year_f = factor(year, levels = rev(plot_years))) |>
-    arrange(cohort)   # cohort rows last, so they draw on top
+  filter(!is.na(share)) |>
+  mutate(year_f = factor(year, levels = rev(plot_years))) |>
+  arrange(cohort)
 
-# The single resolving annotation (Jo-ha-kyu): the cohort count in 2020 only
+# The single annotation the cohort count in 2020 only
 count_label <- tibble(
-    year_f = factor(2020, levels = rev(plot_years)),
-    label  = str_c(cohort_ge40$n[cohort_ge40$year == 2020], " of ", n_cohort,
-                   " at 40% or more")
+  year_f = factor(2020, levels = rev(plot_years)),
+  label = str_c(
+    cohort_ge40$n[cohort_ge40$year == 2020], " of ", n_cohort,
+    " at 40% or more"
+  )
 )
-
 
 
 ## 5. VISUALIZATION ----
@@ -130,9 +128,6 @@ subtitle_text <- str_glue(
     "cities each year; each dot is one city's estimated green share."
 )
 
-# Methodology note built SEPARATELY and prepended: no string surgery on the helper's output.
-# "other cities also reached 40% in 2000": gray dots sit beyond the 40% line in the 2000
-# row (two cities outside the cohort), and readers will ask why.
 method_note <- str_glue(
     "Green share is UN-Habitat's satellite-based (NDVI) estimate of the share of each ",
     "city's urban area covered by long-term vegetation. Thresholds were set manually for ",
@@ -154,13 +149,6 @@ social_caption <- create_social_caption(
 
 caption_text <- paste0(method_note, "<br><br>", social_caption)
 
-# Runtime guard (TT W37 pattern): the helper's #TidyTuesday prefix must survive.
-if (!str_detect(caption_text, fixed("#TidyTuesday"))) {
-    warning("Caption lost its #TidyTuesday prefix; falling back to helper output only.",
-            call. = FALSE)
-    caption_text <- social_caption
-}
-
 ### |- fonts ----
 setup_fonts()
 fonts <- get_font_families()
@@ -168,47 +156,44 @@ fonts <- get_font_families()
 ### |- plot theme ----
 base_theme <- create_base_theme(clrs)
 
-# Title / subtitle / caption all use element_textbox_simple(): it parses markdown AND wraps.
 weekly_theme <- extend_weekly_theme(
-    base_theme,
-    theme(
-        plot.background       = element_rect(fill = "#F5F3EE", color = NA),
-        panel.background      = element_rect(fill = "#F5F3EE", color = NA),
-        plot.title.position   = "plot",
-        plot.caption.position = "plot",
-        plot.title = element_textbox_simple(
-            family = fonts$title, face = "bold", size = 19, color = "#2C2825",
-            width = unit(1, "npc"), margin = margin(b = 8)
-        ),
-        plot.subtitle = element_textbox_simple(
-            family = fonts$text, size = 11.5, color = "#7A7068", lineheight = 1.25,
-            width = unit(1, "npc"), margin = margin(b = 14)
-        ),
-        # 9 pt, not 8: same string, only size varied, gave visibly cleaner word spacing
-        plot.caption = element_textbox_simple(
-            family = fonts$text, size = 9, color = "#7A7068", lineheight = 1.3,
-            width = unit(1, "npc"), margin = margin(t = 14)
-        ),
-        panel.grid.major.x = element_line(color = "#E6E2DA", linewidth = 0.3),
-        panel.grid.major.y = element_blank(),
-        panel.grid.minor   = element_blank(),
-        axis.ticks         = element_blank(),
-        axis.text.x = element_text(family = fonts$text, size = 9, color = "#7A7068"),
-        axis.text.y = element_text(family = fonts$text, size = 11, face = "bold",
-                                   color = "#2C2825"),
-        legend.position = "none",
-        plot.margin = margin(16, 22, 12, 16)
-    )
+  base_theme,
+  theme(
+    plot.background = element_rect(fill = "#F5F3EE", color = NA),
+    panel.background = element_rect(fill = "#F5F3EE", color = NA),
+    plot.title.position = "plot",
+    plot.caption.position = "plot",
+    plot.title = element_textbox_simple(
+      family = fonts$title, face = "bold", size = 19, color = "#2C2825",
+      width = unit(1, "npc"), margin = margin(b = 8)
+    ),
+    plot.subtitle = element_textbox_simple(
+      family = fonts$text, size = 11.5, color = "#7A7068", lineheight = 1.25,
+      width = unit(1, "npc"), margin = margin(b = 14)
+    ),
+    # 9 pt, not 8: same string, only size varied, gave visibly cleaner word spacing
+    plot.caption = element_textbox_simple(
+      family = fonts$text, size = 9, color = "#7A7068", lineheight = 1.3,
+      width = unit(1, "npc"), margin = margin(t = 14)
+    ),
+    panel.grid.major.x = element_line(color = "#E6E2DA", linewidth = 0.3),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.x = element_text(family = fonts$text, size = 9, color = "#7A7068"),
+    axis.text.y = element_text(
+      family = fonts$text, size = 11, face = "bold",
+      color = "#2C2825"
+    ),
+    legend.position = "none",
+    plot.margin = margin(16, 22, 12, 16)
+  )
 )
 
 theme_set(weekly_theme)
 
 ### |-  plot ----
-### |- plot ----
-# Dot size is the only knob for the dense <10% wedge (no transparency: gray must stay a
-# background population, not a density encoding). Try 0.5 if it saturates.
 p <- ggplot(strips, aes(x = share, y = year_f, color = cohort)) +
-    # Geoms
     geom_vline(xintercept = 40, linetype = "dashed", linewidth = 0.3, color = "#7A7068") +
     geom_quasirandom(method = "pseudorandom", groupOnX = FALSE, width = 0.38, size = 0.6) +
     geom_text(
@@ -217,12 +202,10 @@ p <- ggplot(strips, aes(x = share, y = year_f, color = cohort)) +
         inherit.aes = FALSE, hjust = 1, nudge_y = 0.16, size = 2.9,
         color = "#7A7068", family = fonts$text
     ) +
-    # Annotations
     annotate(
         "text", x = 40.8, y = Inf, label = "40% threshold",
         hjust = 0, vjust = 1.4, size = 2.9, color = "#7A7068", family = fonts$text
     ) +
-    # Scales
     scale_color_manual(values = c(`FALSE` = "#B8B3AA", `TRUE` = "#722F37"), guide = "none") +
     scale_x_continuous(
         limits = c(0, 80), breaks = seq(0, 80, 20),
@@ -230,11 +213,8 @@ p <- ggplot(strips, aes(x = share, y = year_f, color = cohort)) +
         expand = expansion(mult = c(0.01, 0.01))
     ) +
     scale_y_discrete(expand = expansion(add = 0.6)) +
-    # Labs
     labs(title = title_text, subtitle = subtitle_text, caption = caption_text,
          x = NULL, y = NULL)
-
-
 
 ### |-  preview ----
 set.seed(38)
