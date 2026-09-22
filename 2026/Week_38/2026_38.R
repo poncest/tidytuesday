@@ -164,7 +164,7 @@ weekly_theme <- extend_weekly_theme(
     plot.title.position = "plot",
     plot.caption.position = "plot",
     plot.title = element_textbox_simple(
-      family = fonts$title, face = "bold", size = 19, color = "#2C2825",
+      family = fonts$title_1, face = "bold", size = 24, color = "#2C2825",
       width = unit(1, "npc"), margin = margin(b = 8)
     ),
     plot.subtitle = element_textbox_simple(
