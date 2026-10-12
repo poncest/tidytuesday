@@ -1,7 +1,7 @@
 # #TidyTuesday Challenge
 
 | [Week 01<br>Bring your Own Data](https://github.com/poncest/tidytuesday/tree/main/2026/Week_01) | [Week 02<br>The Languages of Africa](https://github.com/poncest/tidytuesday/tree/main/2026/Week_02) | [Week 04<br>Brazilian Companies](https://github.com/poncest/tidytuesday/tree/main/2026/Week_04) | [Week 05<br>Edible Plants Database](https://github.com/poncest/tidytuesday/tree/main/2026/Week_05) |
-|:----------------:|:----------------:|:----------------:|:-----------------:|
+|:----------------:|:----------------:|:----------------:|:----------------:|
 | ![](Week_01/2026_01.png "week 01") | ![](Week_02/2026_02.png "week 02") | ![](Week_04/2026_04.png "week 04") | ![](Week_05/2026_05.png "week 05") |
 | [Week 06<br>2026 Winter Olympics!](https://github.com/poncest/tidytuesday/tree/main/2026/Week_06) | [Week 07<br>Agricultural Production Statistics in New Zealand](https://github.com/poncest/tidytuesday/tree/main/2026/Week_07) | [Week 08<br>Science Foundation Ireland Grants Commitments](https://github.com/poncest/tidytuesday/tree/main/2026/Week_08) | [Week 09<br>Golem Grad Tortoise Data](https://github.com/poncest/tidytuesday/tree/main/2026/Week_09) |
 | ![](Week_06/2026_06.png "week 06") | ![](Week_07/2026_07.png "week 07") | ![](Week_08/2026_08.png "week 08") | ![](Week_09/2026_09.png "week 09") |
@@ -19,8 +19,8 @@
 | ![](Week_30/2026_30.png "week 30") | ![](Week_31/2026_31.png "week 31") | ![](Week_32/2026_32.png "week 32") | ![](Week_33/2026_33.png "week 33") |
 | [Week 34<br>Country Music Lyrics](https://github.com/poncest/tidytuesday/tree/main/2026/Week_34) | [Week 35<br>World Castles, Fortresses and Palaces](https://github.com/poncest/tidytuesday/tree/main/2026/Week_35) | [Week 36<br>The Cappuccino Index](https://github.com/poncest/tidytuesday/tree/main/2026/Week_36) | [Week 37<br>Dead Sea Scrolls Manuscripts](https://github.com/poncest/tidytuesday/tree/main/2026/Week_37) |
 | ![](Week_34/2026_34.png "week 34") | ![](Week_35/2026_35.png "week 35") | ![](Week_36/2026_36.png "2026 week 36") | ![](Week_37/2026_37.png "week 37") |
-| [Week 38<br>Average share of green areas across cities](https://github.com/poncest/tidytuesday/tree/main/2026/Week_38) | [Week 39<br>Health metrics in urban centres worldwide](https://github.com/poncest/tidytuesday/tree/main/2026/Week_39) | [Week 40<br>Avocado Oil Authenticity](https://github.com/poncest/tidytuesday/tree/main/2026/Week_40) |  |
-| ![](Week_38/2026_38.png "week 38") | ![](Week_39/2026_39.png "week 39") | ![](Week_40/2026_40.png "week 40") |  |
+| [Week 38<br>Average share of green areas across cities](https://github.com/poncest/tidytuesday/tree/main/2026/Week_38) | [Week 39<br>Health metrics in urban centres worldwide](https://github.com/poncest/tidytuesday/tree/main/2026/Week_39) | [Week 40<br>Avocado Oil Authenticity](https://github.com/poncest/tidytuesday/tree/main/2026/Week_40) | [Week 41<br>AmphibiaWeb](https://github.com/poncest/tidytuesday/tree/main/2026/Week_41) |
+| ![](Week_38/2026_38.png "week 38") | ![](Week_39/2026_39.png "week 39") | ![](Week_40/2026_40.png "week 40") | ![](Week_41/2026_41.png "week 41") |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |

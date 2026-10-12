@@ -38,3 +38,5 @@ _base_theme.R
 
 .DS_Store
 temp/
+
+banners/
