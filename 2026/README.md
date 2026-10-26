@@ -21,8 +21,8 @@
 | ![](Week_34/2026_34.png "week 34") | ![](Week_35/2026_35.png "week 35") | ![](Week_36/2026_36.png "2026 week 36") | ![](Week_37/2026_37.png "week 37") |
 | [Week 38<br>Average share of green areas across cities](https://github.com/poncest/tidytuesday/tree/main/2026/Week_38) | [Week 39<br>Health metrics in urban centres worldwide](https://github.com/poncest/tidytuesday/tree/main/2026/Week_39) | [Week 40<br>Avocado Oil Authenticity](https://github.com/poncest/tidytuesday/tree/main/2026/Week_40) | [Week 41<br>AmphibiaWeb](https://github.com/poncest/tidytuesday/tree/main/2026/Week_41) |
 | ![](Week_38/2026_38.png "week 38") | ![](Week_39/2026_39.png "week 39") | ![](Week_40/2026_40.png "week 40") | ![](Week_41/2026_41.png "week 41") |
-| [Week 42<br>Which College Majors Are Safest From AI (and Do They Pay)?](https://github.com/poncest/tidytuesday/tree/main/2026/Week_42) |  |  |  |
-| ![](Week_42/2026_42.png "week 42") |  |  |  |
+| [Week 42<br>Which College Majors Are Safest From AI (and Do They Pay)?](https://github.com/poncest/tidytuesday/tree/main/2026/Week_42) | [Week 43<br>IKEA Sofas and Their Swedish Places](https://github.com/poncest/tidytuesday/tree/main/2026/Week_43) |  |  |
+| ![](Week_42/2026_42.png "week 42") | ![](Week_43/2026_43.png "week 43") |  |  |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
