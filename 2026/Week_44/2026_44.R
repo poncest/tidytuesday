@@ -388,3 +388,107 @@ save_ggplot(plot = p, file = out_file, width = fig_w, height = fig_h,
 # 8. SESSION INFO ----
 sessioninfo::session_info(include_base = TRUE)
 
+# ─ Session info ───────────────────────────────────────────────────
+# setting  value
+# version  R version 4.6.1 (2026-06-24)
+# os       macOS Tahoe 26.6.2
+# system   aarch64, darwin23
+# ui       RStudio
+# language (EN)
+# collate  en_US.UTF-8
+# ctype    en_US.UTF-8
+# tz       America/New_York
+# date     2026-11-02
+# rstudio  2026.10.1+239 Blue Mistflower (desktop)
+# pandoc   NA
+# quarto   1.9.38 @ /usr/local/bin/quarto
+# 
+# ─ Packages ───────────────────────────────────────────────────────
+# ! package      * version date (UTC) lib source
+# base         * 4.6.1   2026-06-25 [?] local
+# beeswarm       0.4.0   2021-06-01 [1] CRAN (R 4.6.0)
+# bit            4.6.0   2025-03-06 [1] CRAN (R 4.6.0)
+# bit64          4.8.2   2026-05-19 [1] CRAN (R 4.6.0)
+# cli            3.6.6   2026-04-09 [1] CRAN (R 4.6.0)
+# commonmark     2.0.0   2025-07-07 [1] CRAN (R 4.6.0)
+# P compiler       4.6.1   2026-06-25 [1] local
+# crayon         1.5.3   2024-06-20 [1] CRAN (R 4.6.0)
+# curl           7.1.0   2026-04-22 [1] CRAN (R 4.6.0)
+# P datasets     * 4.6.1   2026-06-25 [1] local
+# digest         0.6.39  2025-11-19 [1] CRAN (R 4.6.0)
+# dplyr        * 1.2.1   2026-04-03 [1] CRAN (R 4.6.0)
+# farver         2.1.2   2024-05-13 [1] CRAN (R 4.6.0)
+# forcats      * 1.0.1   2025-09-25 [1] CRAN (R 4.6.0)
+# generics       0.1.4   2025-05-09 [1] CRAN (R 4.6.0)
+# ggbeeswarm   * 0.7.3   2025-11-29 [1] CRAN (R 4.6.0)
+# ggplot2      * 4.0.3   2026-04-22 [1] CRAN (R 4.6.0)
+# ggtext       * 0.2.0   2026-08-28 [1] CRAN (R 4.6.1)
+# ggview       * 0.2.2   2025-07-05 [1] CRAN (R 4.6.0)
+# glue         * 1.8.1   2026-04-17 [1] CRAN (R 4.6.0)
+# P graphics     * 4.6.1   2026-06-25 [1] local
+# P grDevices    * 4.6.1   2026-06-25 [1] local
+# P grid           4.6.1   2026-06-25 [1] local
+# gridtext       0.1.6   2026-02-19 [1] CRAN (R 4.6.0)
+# gtable         0.3.6   2024-10-25 [1] CRAN (R 4.6.0)
+# here         * 1.0.2   2025-09-15 [1] CRAN (R 4.6.0)
+# hms            1.1.4   2025-10-17 [1] CRAN (R 4.6.0)
+# jsonlite       2.0.0   2025-03-27 [1] CRAN (R 4.6.0)
+# labeling       0.4.3   2023-08-29 [1] CRAN (R 4.6.0)
+# lifecycle      1.0.5   2026-01-08 [1] CRAN (R 4.6.0)
+# litedown       0.10    2026-07-11 [1] CRAN (R 4.6.1)
+# lubridate    * 1.9.5   2026-02-04 [1] CRAN (R 4.6.0)
+# magrittr       2.0.5   2026-04-04 [1] CRAN (R 4.6.0)
+# markdown       2.0     2025-03-23 [1] CRAN (R 4.6.0)
+# P methods      * 4.6.1   2026-06-25 [1] local
+# pacman       * 0.5.1   2019-03-11 [1] CRAN (R 4.6.0)
+# P parallel       4.6.1   2026-06-25 [1] local
+# patchwork    * 1.3.2   2025-08-25 [1] CRAN (R 4.6.0)
+# pillar         1.11.1  2025-09-17 [1] CRAN (R 4.6.0)
+# pkgconfig      2.0.3   2019-09-22 [1] CRAN (R 4.6.0)
+# purrr        * 1.2.2   2026-04-10 [1] CRAN (R 4.6.0)
+# R.cache        0.17.0  2025-05-02 [1] CRAN (R 4.6.0)
+# R.methodsS3    1.8.2   2022-06-13 [1] CRAN (R 4.6.0)
+# R.oo           1.27.1  2025-05-02 [1] CRAN (R 4.6.0)
+# R.utils        2.13.0  2025-02-24 [1] CRAN (R 4.6.0)
+# R6             2.6.1   2025-02-15 [1] CRAN (R 4.6.0)
+# ragg         * 1.5.2   2026-03-23 [1] CRAN (R 4.6.0)
+# RColorBrewer   1.1-3   2022-04-03 [1] CRAN (R 4.6.0)
+# Rcpp           1.1.2   2026-07-05 [1] CRAN (R 4.6.1)
+# readr        * 2.2.0   2026-02-19 [1] CRAN (R 4.6.0)
+# rlang          1.3.0   2026-07-05 [1] CRAN (R 4.6.1)
+# rprojroot      2.1.1   2025-08-26 [1] CRAN (R 4.6.0)
+# rstudioapi     0.19.0  2026-06-11 [1] CRAN (R 4.6.0)
+# S7             0.2.2   2026-04-22 [1] CRAN (R 4.6.0)
+# scales       * 1.4.0   2025-04-24 [1] CRAN (R 4.6.0)
+# sessioninfo    1.2.4   2026-06-04 [1] CRAN (R 4.6.0)
+# showtext     * 0.9-8   2026-03-21 [1] CRAN (R 4.6.0)
+# showtextdb   * 3.0     2020-06-04 [1] CRAN (R 4.6.0)
+# P stats        * 4.6.1   2026-06-25 [1] local
+# stringi        1.8.7   2025-03-27 [1] CRAN (R 4.6.0)
+# stringr      * 1.6.0   2025-11-04 [1] CRAN (R 4.6.0)
+# styler         1.11.0  2025-10-13 [1] CRAN (R 4.6.0)
+# sysfonts     * 0.8.9   2024-03-02 [1] CRAN (R 4.6.0)
+# systemfonts    1.3.2   2026-03-05 [1] CRAN (R 4.6.0)
+# textshaping    1.0.5   2026-03-06 [1] CRAN (R 4.6.0)
+# tibble       * 3.3.1   2026-01-11 [1] CRAN (R 4.6.0)
+# tidyr        * 1.3.2   2025-12-19 [1] CRAN (R 4.6.0)
+# tidyselect     1.2.1   2024-03-11 [1] CRAN (R 4.6.0)
+# tidyverse    * 2.0.0   2023-02-22 [1] CRAN (R 4.6.0)
+# timechange     0.4.0   2026-01-29 [1] CRAN (R 4.6.0)
+# P tools          4.6.1   2026-06-25 [1] local
+# tzdb           0.5.0   2025-03-15 [1] CRAN (R 4.6.0)
+# P utils        * 4.6.1   2026-06-25 [1] local
+# vctrs          0.7.3   2026-04-11 [1] CRAN (R 4.6.0)
+# vipor          0.4.7   2023-12-18 [1] CRAN (R 4.6.0)
+# vroom          1.7.1   2026-03-31 [1] CRAN (R 4.6.0)
+# withr          3.0.3   2026-06-19 [1] CRAN (R 4.6.0)
+# xfun           0.60    2026-07-09 [1] CRAN (R 4.6.1)
+# xml2           1.6.0   2026-06-22 [1] CRAN (R 4.6.1)
+# 
+# [1] /Library/Frameworks/R.framework/Versions/4.6/Resources/library
+# 
+# * ── Packages attached to the search path.
+# P ── Loaded and on-disk path mismatch.
+# 
+# ──────────────────────────────────────────────────────────────────
+# > 
