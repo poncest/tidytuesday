@@ -1,0 +1,38 @@
+franchise_slug,entry_id,event_label,match,similarity,prose_locator,prose_claim_start,adapt_type,adapt_locator,adapt_claim_start,reviewer_note
+overlord,ainz-ooal-gown,Touch Me's armour vs Shalltear,clean,0.19,"vol. 3, ch. 5",Fights the last stretch in Touch Me's ar,episode,S01E13,Appears in Touch Me's silver armour and ,same fight
+overlord,shalltear-bloodfallen,,rejected,0.25,"vol. 3, ch. 2","With her Vampire Brides, kills the Death",episode,S01E10,Faces Brain Unglaus in the Death Spreadi,different scenes
+overlord,albedo,Punches Azuth's powered suit,clean,0.44,"vol. 14, ch. 4",Lands a punch on Azuth Aindra's powered ,episode,S04E11,Pursues Azuth and lands a punch on the a,same blow
+overlord,sebas-tian,"Arena kills: one shown, four told",partial,0.25,"vol. 6, ch. 8",Tells Zero he has killed the four Six Ar,episode,S02E11,Kills Malmvist of the Six Arms in the ar,one arena kill vs a report of four
+overlord,aura-bella-fiora,,rejected,0.17,"vol. 14, ch. 4",Snipes Vesture Kloff Di Laufen and order,episode,S04E13,Vesture and his disciples block her path,different beats of one encounter
+overlord,narberal-gamma,Kills Khajiit and his dragons,clean,0.5,"vol. 2, ch. 4",Destroys both Skeletal Dragons and kills,episode,S01E09,Nabe kills Khajiit and destroys his two ,same fight
+overlord,olasirdarc-haylilyal,Killed by Grasp Heart,clean,0.18,"vol. 11, ch. 5",Is killed instantly by Ainz's [Grasp Hea,episode,S04E07,Dies to [Grasp Heart] while his three wi,same death
+overlord,brain-unglaus,,rejected,0.2,"vol. 14, ch. 4",Blocks the Sorcerer Kingdom's march and ,episode,S04E12,Bows to Cocytus in a warrior's respect b,different beats
+overlord,nigun-grid-luin,Summons a Dominion Authority,clean,0.14,"vol. 1, ch. 5",Summons a Dominion Authority from a seal,episode,S01E04,The Dominion Authority's attack does Ain,same fight
+overlord,climb,"Killed by Grasp Heart, revived",clean,0.21,"vol. 14, ch. 4",Attacks Ainz with Razor Edge and is kill,episode,S04E13,Is killed by Ainz's [Grasp Heart] and wa,same death and revival
+overlord,tsaindorcus-vaision,Grasp Heart fails on his armour,clean,0.27,"vol. 14, ch. 4",A [Grasp Heart] cast at the armour by Pa,episode,S04E11,"The [Grasp Heart] that Pandora's Actor, ","same spell, same target"
+overlord,victim,,rejected,0.21,vol. 4,Ainz posts Victim to guard the first flo,episode,S02E04,Ainz introduces Victim to the other Floo,different claims
+solo-leveling,sung-jinwoo,Rated the weakest hunter,clean,0.4,ch. 1,Sung Jinwoo is introduced as the weakest,comic,ch. 1,The Association's register lists Sung Ji,same rating
+solo-leveling,sung-jinwoo,,rejected,0.18,ch. 1,Sung Jinwoo is introduced as the weakest,comic,ch. 104,The Ant King is defeated by Sung Jinwoo ,fight vs introduction
+solo-leveling,baran,,rejected,0.15,ch. 107,Baran is named King of Demons and Monarc,comic,ch. 178,Every Monarch except Baran is returned t,revival vs title
+solo-leveling,yogumunt,,rejected,0.12,ch. 239,Yogumunt is named King of Demonic Spectr,comic,ch. 178,Every Monarch but Antares was already de,deaths vs title
+solo-leveling,thomas-andre,,rejected,0.15,ch. 125,Thomas Andre is introduced under the epi,comic,ch. 145,The Rulers granted Thomas Andre power af,origin vs epithet
+solo-leveling,iron,,rejected,0.12,ch. 64,Sung Jinwoo names Kim Chul's shadow Iron,comic,ch. 52,Baruka's warriors kill every member of K,raid deaths vs naming
+solo-leveling,iron,,rejected,0.25,ch. 64,Sung Jinwoo names Kim Chul's shadow Iron,comic,ch. 53,Igris kills a crazed Kim Chul as he atta,death vs naming
+solo-leveling,iron,,rejected,0.56,ch. 64,Sung Jinwoo names Kim Chul's shadow Iron,comic,ch. 54,Sung Jinwoo extracts the shadow from Kim,extraction vs naming
+solo-leveling,kaisel,,rejected,0.33,ch. 108,Sung Jinwoo names the wyvern's shadow Ka,comic,ch. 88,Sung Jinwoo extracts the shadow from Kai,extraction vs naming
+solo-leveling,kaisel,,rejected,0.18,ch. 108,Sung Jinwoo names the wyvern's shadow Ka,comic,ch. 88,Flies Sung Jinwoo to the hospital where ,flight vs naming
+solo-leveling,kaisel,,rejected,0.17,ch. 108,Sung Jinwoo names the wyvern's shadow Ka,comic,ch. 136,Cut down while carrying Sung Jinwoo into,death vs naming
+solo-leveling,jima,Named as the boss naga's shadow,clean,0.57,ch. 148,Jima is the shadow of the boss naga.,comic,ch. 122,Sung Jinwoo names the shadow of the boss,same naming
+solo-leveling,jima,,rejected,0.12,ch. 148,Jima is the shadow of the boss naga.,comic,ch. 122,Jima carries a pair of large tridents.,weapons vs naming
+solo-leveling,the-architect,,rejected,0.12,ch. 2,The statues in the Cartenon Temple anima,comic,ch. 3,The temple wall carries commandments the,rules vs statues attacking
+solo-leveling,the-architect,,rejected,0.2,ch. 2,The statues in the Cartenon Temple anima,comic,ch. 130,Sung Jinwoo slices the Architect's statu,different scenes
+westeros,gregor-clegane,,rejected,0.15,ch. 30 (Eddard VII),"Unhorsed by Loras Tyrell, he kills his o",episode,S08E05 “The Bells”,Fights Sandor Clegane on the stairs of t,different fights
+westeros,arthur-dayne,Kills the Smiling Knight,clean,0.29,ch. 67 (Jaime VIII),Killed the Smiling Knight in single comb,episode,S04E01 “Two Swords”,Joffrey goes through his page in the Boo,"Kingswood campaign, single combat"
+westeros,arthur-dayne,Tower of Joy,clean,0.15,ch. 21 (Bran III),Eddard Stark told Bran he was the finest,episode,S06E03 “Oathbreaker”,In the vision Bran Stark is shown he fig,"same fight: depicted on screen, Eddard's account in the book"
+westeros,sandor-clegane,Stops Gregor at the Hand's tourney,clean,0.23,ch. 30 (Eddard VII),Steps between Gregor and the downed Lora,episode,S01E05 “The Wolf and the Lion”,Steps between Gregor and the unhorsed Lo,same scene
+westeros,sandor-clegane,Fights Beric Dondarrion,clean,0.27,ch. 34 (Arya VI),Fights Beric Dondarrion's burning sword ,episode,S03E05 “Kissed by Fire”,With his shield on fire he cuts through ,same fight
+westeros,brienne-of-tarth,The bear pit at Harrenhal,clean,0.35,ch. 44 (Jaime VI),Thrown into the bear pit at Harrenhal in,episode,S03E07 “The Bear and the Maiden Fair”,Put into the bear pit at Harrenhal with ,same scene
+westeros,jon-snow,Stabbed at Castle Black,clean,0.17,ch. 69 (Jon XIII),"Stabbed in turn by Bowen Marsh, Wick Wit",episode,S05E10 “Mother's Mercy”,Lured out to a false message and stabbed,same scene
+westeros,robert-baratheon,Too fat for his armour,clean,0.19,ch. 30 (Eddard VII),Too fat for his own armour at the Hand's,episode,S01E05 “The Wolf and the Lion”,"Set on riding in the joust, he torments ",same scene
+westeros,areo-hotah,,rejected,0.19,ch. 2 (The Captain of Guards),Bars Obara Sand from Prince Doran's rest,episode,"S05E06 “Unbowed, Unbent, Unbroken”",Brings Prince Doran's guard into the Wat,different scenes at the Water Gardens
+westeros,syrio-forel,,rejected,0.15,ch. 50 (Arya IV),Tells Arya he became First Sword of Braa,episode,S01E08 “The Pointy End”,Disarms and disables every one of the li,different claims
