@@ -42,6 +42,11 @@ tt_url <- "https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/da
 cm_raw <- read_chr(paste0(tt_url, "cholesterol_mortality.csv"))
 est_raw <- read_chr(here::here("2026/Week_46/tt_2026_46_estimates.csv"))
 
+#' - `tt_2026_46_estimates.csv`: the hazard ratios shown in the tiles. 
+#' It is written by [`tt_2026_46_decision_record.R`](https://github.com/poncest/tidytuesday/tree/main/2026/Week_46), 
+#' which fits survey-weighted Cox models (`survey::svycoxph()`) stratified by NHANES cycle, using CDC 20-year exam weights 
+#' rebuilt from the original NHANES DEMO and DEMO_B files for 1999–2002. The chart script reads every estimate from this file; 
+#' none is typed by hand.
 
 ## 3. EXAMINING THE DATA ----
 glimpse(est_raw)
