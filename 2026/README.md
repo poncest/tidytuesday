@@ -23,7 +23,7 @@
 | ![](Week_38/2026_38.png "week 38") | ![](Week_39/2026_39.png "week 39") | ![](Week_40/2026_40.png "week 40") | ![](Week_41/2026_41.png "week 41") |
 | [Week 42<br>Which College Majors Are Safest From AI (and Do They Pay)?](https://github.com/poncest/tidytuesday/tree/main/2026/Week_42) | [Week 43<br>IKEA Sofas and Their Swedish Places](https://github.com/poncest/tidytuesday/tree/main/2026/Week_43) | [Week 44<br>Grambank](https://github.com/poncest/tidytuesday/tree/main/2026/Week_44) | [Week 45<br>evidence-graded power rankings of fictional characters](https://github.com/poncest/tidytuesday/tree/main/2026/Week_45) |
 | ![](Week_42/2026_42.png "week 42") | ![](Week_43/2026_43.png "week 43") | ![](Week_44/2026_44.png "week 44") | ![](Week_45/2026_45.png "week 45") |
-| [Week 46<br>Cholesterol and Mortality in US Adults](https://github.com/poncest/tidytuesday/tree/main/2026/Week_46) |  |  |  |
-| ![](Week_46/2026_46.png "week 46") |  |  |  |
+| [Week 46<br>Cholesterol and Mortality in US Adults](https://github.com/poncest/tidytuesday/tree/main/2026/Week_46) | [Week 47<br>Filming Locations](https://github.com/poncest/tidytuesday/tree/main/2026/Week_47) | Filming Locations |  |
+| ![](Week_46/2026_46.png "week 46") | ![](Week_47/2026_47.png "week 47") |  |  |
 |  |  |  |  |
 |  |  |  |  |
